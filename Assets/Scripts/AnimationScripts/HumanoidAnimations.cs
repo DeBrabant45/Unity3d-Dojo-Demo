@@ -13,8 +13,6 @@ namespace AD.Animation
         private Action _onAnimationEndTrigger;
 
         public Action OnAnimationFunctionTrigger { get => _animationFunctionTrigger; set => _animationFunctionTrigger = value; }
-        public Action OnAnimationStartTrigger { get => _onAnimationStartTrigger; set => _onAnimationStartTrigger = value; }
-        public Action OnAnimationEndTrigger { get => _onAnimationEndTrigger; set => _onAnimationEndTrigger = value; }
 
         private void Awake()
         {
@@ -41,16 +39,6 @@ namespace AD.Animation
             _animationFunctionTrigger.Invoke();
         }
 
-        public void AnimationStartTrigger()
-        {
-            _onAnimationStartTrigger.Invoke();
-        }
-
-        public void AnimationEndTrigger()
-        {
-            _onAnimationEndTrigger.Invoke();
-        }
-
         public void SetAnimationInputX(float value)
         {
             _animator.SetFloat("InputX", value);
@@ -59,6 +47,11 @@ namespace AD.Animation
         public void SetAnimationInputY(float value)
         {
             _animator.SetFloat("InputY", value);
+        }
+
+        public bool IsInteracting()
+        {
+            return _animator.GetBool("IsInteracting");
         }
     }
 }

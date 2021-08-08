@@ -92,7 +92,7 @@ namespace AD.StateMachine.AI
 
         public void GetHit(IDamage weapon)
         {
-            Debug.Log(weapon.Amount);
+
         }
     }
 }

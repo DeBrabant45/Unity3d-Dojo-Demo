@@ -9,17 +9,20 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            Attack(controller);
+            if(controller.InputFromPlayer.IsPrimaryActionActive != false)
+            {
+                Attack(controller);
+            }
         }
 
         private void Attack(PlayerStateController controller)
         {
-            if (Input.GetKeyDown(KeyCode.T) && controller.IsInteracting == false)
+            if (!controller.AgentAnimations.IsInteracting() && controller.AgentStamina.Stamina > 0)
             {
                 controller.ItemSlot.DamageCollider.SetDamage(controller.EquippedWeapon);
                 controller.ItemSlot.DamageCollider.SetTagToNotHit(controller);
                 controller.AgentAnimations.SetTriggerForAnimation("OneHandedAttack");
-                //controller.AgentStamina.ReduceStamina(10);
+                controller.AgentStamina.ReduceStamina(10);
             }
         }
     }

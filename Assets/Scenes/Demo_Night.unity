@@ -989,15 +989,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10421182
+      value: 0.104211815
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 4.2958128e-16
+      value: -0.000000007410014
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.1114265e-16
+      value: 7.764386e-10
       objectReference: {fileID: 0}
     - target: {fileID: 660467039414610358, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5693,7 +5693,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9cec26be67abad4cb93b5f6773ed321, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _staminaInitialValue: 0
+  _staminaInitialValue: 30
   _staminaRegenSpeed: 0
   _staminaRegenAmount: 0
 --- !u!1 &2241489719860652664

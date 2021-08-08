@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AD.StateMachine.Player;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,19 +9,19 @@ public class PlayerInput : MonoBehaviour
     private Camera _mainCamera;
     private float _previousPrimaryActionInput = 0;
     private float _previousSecondaryActionInput = 0;
+    private bool _isPrimaryActionActive = false;
 
     public Vector2 MovementInputVector { get; private set; }
     public Vector3 MovementDirectionVector { get; private set; }
     public Action OnJump { get; set; }
-    public Action OnToggleInventory { get; set; }
-    public Action<int> OnHotBarKey { get; set; }
-    public Action OnPrimaryAction { get; set; }
+    public Action<PlayerStateController> OnPrimaryAction { get; set; }
     public Action OnSecondaryClickAction { get; set; }
     public Action OnMenuToggledKey { get; set; }
     public Action OnReload { get; set; }
     public Action OnAim { get; set; }
     public Action OnSecondaryHeldDownAction { get; set; }
     public Action OnSecondaryUpAction { get; set; }
+    public bool IsPrimaryActionActive { get => _isPrimaryActionActive;  }
 
     private void Awake()
     {
@@ -34,8 +35,6 @@ public class PlayerInput : MonoBehaviour
         GetMovementInput();
         GetMovementDirection();
         GetJumpInput();
-        GetInventoryInput();
-        GetHotBarInput();
         GetPrimaryAction();
         GetSecondaryClickAction();
         GetReloadInput();
@@ -104,33 +103,15 @@ public class PlayerInput : MonoBehaviour
         {
             if(inputValue >= 1)
             {
-                Debug.Log("2");
-                OnPrimaryAction?.Invoke();
+                OnPrimaryAction?.Invoke(null);
+                _isPrimaryActionActive = true;
             }
+        }
+        else if (_isPrimaryActionActive != false)
+        {
+            _isPrimaryActionActive = false;
         }
         _previousPrimaryActionInput = inputValue;
-    }
-
-    private void GetHotBarInput()
-    {
-        char hotbar0 = '0';
-        for (int i = 0; i < 10; i++)
-        {
-            KeyCode keyCode = (KeyCode)((int)hotbar0 + i);
-            if(Input.GetKeyDown(keyCode))
-            {
-                OnHotBarKey?.Invoke(i);
-                return;
-            }
-        }
-    }
-
-    private void GetInventoryInput()
-    {
-        if(Input.GetKeyDown(KeyCode.I))
-        {
-            OnToggleInventory?.Invoke();
-        }
     }
 
     private void GetJumpInput()

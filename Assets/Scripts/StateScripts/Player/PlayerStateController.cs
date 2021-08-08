@@ -21,16 +21,15 @@ namespace AD.StateMachine.Player
         private AgentHealth _agentHealth;
         private AgentStamina _agentStamina;
         private ItemSlot _itemSlot;
-        private bool _isInteracting = false;
 
         public PlayerInput InputFromPlayer { get => _inputFromPlayer; }
         public AgentMovement Movement { get => _movement; }
         public HumanoidAnimations AgentAnimations { get => _agentAnimations; }
         public AgentAimController AgentAimController { get => _agentAimController; }
-        public bool IsInteracting { get => _isInteracting; }
         public ItemSlot ItemSlot { get => _itemSlot; }
         public WeaponSO EquippedWeapon { get => _equippedWeapon; }
         public string TagName { get => this.tag; }
+        public AgentStamina AgentStamina { get => _agentStamina; }
 
         private void Awake()
         {
@@ -42,24 +41,13 @@ namespace AD.StateMachine.Player
             _itemSlot = GetComponent<ItemSlot>();
             _agentHealth = GetComponent<AgentHealth>();
             _agentStamina = GetComponent<AgentStamina>();
-            _agentAnimations.OnAnimationStartTrigger += HandleAnimationStart;
-            _agentAnimations.OnAnimationEndTrigger += HandleAnimationEnd;
             _currentState.EnterState(this);
-        }
-
-        private void HandleAnimationEnd()
-        {
-            _isInteracting = false;
-        }
-
-        private void HandleAnimationStart()
-        {
-            _isInteracting = true;
         }
 
         private void Update()
         {
             _currentState.UpdateState(this);
+            Debug.Log(_agentStamina.Stamina);
         }
 
         public void TransitionToState(PlayerState nextState)
