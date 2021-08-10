@@ -10,5 +10,5 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cfa8d3b88d4e8e2419f1e345a8baf74a, type: 3}
-  m_Name: Attack Stance Decision
+  m_Name: Armed Stance Decision
   m_EditorClassIdentifier: 

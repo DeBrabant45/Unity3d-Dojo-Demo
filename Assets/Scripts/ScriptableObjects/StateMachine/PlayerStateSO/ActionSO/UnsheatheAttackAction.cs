@@ -1,28 +1,27 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AD.StateMachine.Player
 {
-    [CreateAssetMenu(menuName = "StateMachine/Player/Action/Attack")]
-    public class AttackAction : PlayerAction
+    [CreateAssetMenu(menuName = "StateMachine/Player/Action/Unsheathe Attack")]
+    public class UnsheatheAttackAction : PlayerAction
     {
         public override void Act(PlayerStateController controller)
         {
-            if(controller.InputFromPlayer.IsPrimaryAction() != false)
+            if (controller.InputFromPlayer.IsPrimaryAction() != false)
             {
-                Attack(controller);
+                UnsheatheAttack(controller);
             }
         }
 
-        private void Attack(PlayerStateController controller)
+        private void UnsheatheAttack(PlayerStateController controller)
         {
             if (!controller.AgentAnimations.IsInteracting() && controller.AgentStamina.Stamina > 0)
             {
                 controller.ItemSlot.DamageCollider.SetDamage(controller.EquippedWeapon);
                 controller.ItemSlot.DamageCollider.SetTagToNotHit(controller);
-                controller.AgentAnimations.SetTriggerForAnimation("OneHandedAttack");
+                controller.AgentAnimations.SetTriggerForAnimation("unsheatheAttack");
                 controller.AgentStamina.ReduceStamina(10);
+                controller.AgentAnimations.SetBoolForAnimation("meleeWeaponStance", true);
             }
         }
     }

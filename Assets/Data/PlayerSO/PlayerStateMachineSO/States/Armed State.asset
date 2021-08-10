@@ -10,11 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b9cffd0d2b00aa4d8ec1a797908bf53, type: 3}
-  m_Name: Idle
+  m_Name: Armed State
   m_EditorClassIdentifier: 
   _nonUpdateActions: []
   _actions:
   - {fileID: 11400000, guid: 34fc068a9c798d244a1b6b9592278fd8, type: 2}
   - {fileID: 11400000, guid: 7b6311cea664a8c4a896053026c7489e, type: 2}
-  _transitions: []
-  sceneGizmoColor: {r: 0, g: 0.5737934, b: 1, a: 1}
+  - {fileID: 11400000, guid: 646a5b92cd21f6e43a10ad6a0c8030f0, type: 2}
+  _transitions:
+  - _decision: {fileID: 11400000, guid: df64069efba76d44db760a3ab5c551ed, type: 2}
+    _trueState: {fileID: 11400000, guid: 52c2bcd8b6344fe40be950b8caaa8efc, type: 2}
+    _falseState: {fileID: 11400000, guid: 93181152446bb8e449dbd3a2e273f839, type: 2}
+  sceneGizmoColor: {r: 0.022341605, g: 0.9150943, b: 0, a: 1}
