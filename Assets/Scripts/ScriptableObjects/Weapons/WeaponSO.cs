@@ -60,6 +60,8 @@ namespace AD.Weapons
 
         public int Amount { get => GetDamageValue(); }
         public GameObject ParticalEffect { get => _attackHitEffect; }
+        public float StaminaCost { get; internal set; }
+        public GameObject Model { get => _model; }
 
         public int GetDamageValue()
         {
