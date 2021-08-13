@@ -989,15 +989,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.104211815
+      value: 0.10421182
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000007410014
+      value: 4.2958128e-16
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 7.764386e-10
+      value: -1.1114265e-16
       objectReference: {fileID: 0}
     - target: {fileID: 660467039414610358, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4594,7 +4594,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2087347803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4752,13 +4752,37 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 4a17a7a63b9fb0d4fb989a7b78168490, type: 3}
+    - target: {fileID: 2329233605357438852, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+      propertyPath: m_UpdateMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329233605357438852, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2329233605364741152, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+      propertyPath: _gravity
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+      propertyPath: _jumpSpeed
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
       propertyPath: _movementSpeed
-      value: 1
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+      propertyPath: _rotationSpeed
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+      propertyPath: _angleRotationThreshold
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2329233605364741170, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
       propertyPath: m_IsActive

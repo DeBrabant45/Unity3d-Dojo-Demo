@@ -12,7 +12,7 @@ namespace AD.StateMachine.Player
             if (controller.InputFromPlayer.IsShiftKeyPressed() && !controller.AgentAnimations.IsInteracting())
             {
                 controller.AgentAnimations.SetTriggerForAnimation("unequipItem");
-                controller.AgentAnimations.SetBoolForAnimation("meleeWeaponStance", false);
+                controller.AgentAnimations.SetBoolForAnimation("IsArmed", false);
             }
         }
     }

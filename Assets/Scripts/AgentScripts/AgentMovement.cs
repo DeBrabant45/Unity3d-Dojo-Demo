@@ -27,7 +27,6 @@ namespace AD.Agent
         private Transform _mainCameraTransform;
         private bool _isMoving = false;
 
-
         private void Start()
         {
             characterController = GetComponent<CharacterController>();
@@ -71,8 +70,8 @@ namespace AD.Agent
                     else
                     {
                         _temporaryMovementTriggered = false;
-                        agentAnimations.SetAnimationInputX(0);
-                        agentAnimations.SetAnimationInputY(0);
+                        agentAnimations.SetAnimationFloat(agentAnimations.InputX, agentAnimations.LowerAnimationFloatInputToZero(agentAnimations.GetAnimationFloat(agentAnimations.InputX)));
+                        agentAnimations.SetAnimationFloat(agentAnimations.InputY, agentAnimations.LowerAnimationFloatInputToZero(agentAnimations.GetAnimationFloat(agentAnimations.InputY)));
                         moveDirection = Vector3.zero;
                     }
                 }
@@ -95,13 +94,8 @@ namespace AD.Agent
                         Vector3 move = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                         moveDirection = move;
                     }
-                    agentAnimations.SetAnimationInputX(_input.x);
-                    agentAnimations.SetAnimationInputY(_input.y);
-                }
-                else
-                {
-                    agentAnimations.SetAnimationInputX(0);
-                    agentAnimations.SetAnimationInputY(0);
+                    agentAnimations.SetAnimationFloat(agentAnimations.InputX, agentAnimations.SetAnimationFloatInput(_input.x, agentAnimations.GetAnimationFloat(agentAnimations.InputX)));
+                    agentAnimations.SetAnimationFloat(agentAnimations.InputY, agentAnimations.SetAnimationFloatInput(_input.y, agentAnimations.GetAnimationFloat(agentAnimations.InputY)));
                 }
             }
             moveDirection.y -= _gravity;
@@ -152,19 +146,14 @@ namespace AD.Agent
             }
         }
 
-        public void StopMovementImmediatelly()
-        {
-            moveDirection = Vector3.zero;
-        }
-
         public void StopMovement()
         {
             _isMoving = false;
             moveDirection = Vector3.zero;
             desiredRotationAngle = 0;
             _inputVerticalDirection = 0;
-            agentAnimations.SetAnimationInputX(0);
-            agentAnimations.SetAnimationInputY(0);
+            agentAnimations.SetAnimationFloat(agentAnimations.InputX, agentAnimations.LowerAnimationFloatInputToZero(agentAnimations.GetAnimationFloat(agentAnimations.InputX)));
+            agentAnimations.SetAnimationFloat(agentAnimations.InputY, agentAnimations.LowerAnimationFloatInputToZero(agentAnimations.GetAnimationFloat(agentAnimations.InputY)));
         }
 
         public bool HasCompletedJumping()

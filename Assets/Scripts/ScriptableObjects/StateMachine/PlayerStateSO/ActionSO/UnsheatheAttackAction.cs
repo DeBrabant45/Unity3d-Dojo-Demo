@@ -21,7 +21,7 @@ namespace AD.StateMachine.Player
                 controller.ItemSlot.DamageCollider.SetTagToNotHit(controller);
                 controller.AgentAnimations.SetTriggerForAnimation("unsheatheAttack");
                 controller.AgentStamina.ReduceStamina(10);
-                controller.AgentAnimations.SetBoolForAnimation("meleeWeaponStance", true);
+                controller.AgentAnimations.SetBoolForAnimation("IsArmed", true);
             }
         }
     }
