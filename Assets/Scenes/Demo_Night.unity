@@ -4748,14 +4748,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2329233605364741155, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _staminaRegenSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741155, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _staminaRegenAmount
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 2329233605364741182, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
       propertyPath: m_Name
       value: Samurai_Player

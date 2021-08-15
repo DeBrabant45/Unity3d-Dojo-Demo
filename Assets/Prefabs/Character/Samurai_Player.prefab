@@ -933,8 +933,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _staminaInitialValue: 30
-  _staminaRegenSpeed: 0
-  _staminaRegenAmount: 0
+  _staminaRegenSpeed: 5
+  _staminaRegenAmount: 10
 --- !u!114 &2329233605364741179
 MonoBehaviour:
   m_ObjectHideFlags: 0

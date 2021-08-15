@@ -19,42 +19,23 @@ public class PlayerInput : MonoBehaviour
 
     private void Update()
     {
-        CheckMenuButton();
         GetMovementInput();
         GetMovementDirection();
-        IsJumpInput();
-        IsPrimaryAction();
-        IsSecondaryClickAction();
-        IsSecondaryHeldDownAction();
-        IsSecondaryUpAction();
-        IsShiftKeyPressed();
     }
 
     public bool IsSecondaryUpAction()
     {
-        if (Input.GetMouseButtonUp(1))
-        {
-            return true;
-        }
-        return false;
+        return Input.GetMouseButtonUp(1);
     }
 
     public bool IsSecondaryHeldDownAction()
     {
-        if (Input.GetMouseButtonDown(1))
-        {
-            return true;
-        }
-        return false;
+        return Input.GetMouseButtonDown(1);
     }
 
-    public bool CheckMenuButton()
+    public bool IsEscapeKeyPressed()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
-        {
-            return true;
-        }
-        return false;
+        return Input.GetKeyDown(KeyCode.Escape);
     }
 
     public bool IsSecondaryClickAction()
@@ -87,20 +68,17 @@ public class PlayerInput : MonoBehaviour
 
     public bool IsShiftKeyPressed()
     {
-        if(Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            return true;
-        }
-        return false;
+        return Input.GetKeyDown(KeyCode.LeftShift);
     }
 
-    public bool IsJumpInput()
+    public bool IsRKeyPressed()
     {
-        if(Input.GetAxisRaw("Jump") > 0)
-        {
-            return true;
-        }
-        return false;
+        return Input.GetKeyDown(KeyCode.R);
+    }
+
+    public bool IsSpacebarPressed()
+    {
+        return Input.GetKeyDown(KeyCode.Space);
     }
 
     private void GetMovementDirection()

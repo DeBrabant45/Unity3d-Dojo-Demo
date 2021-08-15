@@ -9,7 +9,7 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsShiftKeyPressed() && !controller.AgentAnimations.IsInteracting())
+            if (controller.InputFromPlayer.IsRKeyPressed() && !controller.AgentAnimations.IsInteracting())
             {
                 controller.AgentAnimations.SetTriggerForAnimation("unequipItem");
                 controller.AgentAnimations.SetBoolForAnimation("IsArmed", false);
