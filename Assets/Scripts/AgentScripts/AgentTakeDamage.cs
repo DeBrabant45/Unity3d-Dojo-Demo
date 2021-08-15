@@ -1,17 +1,20 @@
 using AD.Interfaces;
 using UnityEngine;
 
-public class AgentTakeDamage : MonoBehaviour, IHittable
+namespace AD.Agent
 {
-    private AgentHealth _agentHealth;
-
-    private void Start()
+    public class AgentTakeDamage : MonoBehaviour, IHittable
     {
-        _agentHealth = GetComponent<AgentHealth>();
-    }
+        private AgentHealth _agentHealth;
 
-    public void GetHit(IDamage damage)
-    {
-        _agentHealth.ReduceHealth(damage.Amount);
+        private void Start()
+        {
+            _agentHealth = GetComponent<AgentHealth>();
+        }
+
+        public void GetHit(IDamage damage)
+        {
+            _agentHealth.ReduceHealth(damage.Amount);
+        }
     }
 }

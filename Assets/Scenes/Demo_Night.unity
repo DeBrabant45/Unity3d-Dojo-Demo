@@ -4748,53 +4748,13 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2329233605357438852, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: m_Avatar
-      value: 
-      objectReference: {fileID: 9000000, guid: 4a17a7a63b9fb0d4fb989a7b78168490, type: 3}
-    - target: {fileID: 2329233605357438852, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: m_UpdateMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605357438852, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: m_ApplyRootMotion
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741152, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _gravity
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _jumpSpeed
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _movementSpeed
+    - target: {fileID: 2329233605364741155, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+      propertyPath: _staminaRegenSpeed
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _rotationSpeed
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741165, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _angleRotationThreshold
+    - target: {fileID: 2329233605364741155, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+      propertyPath: _staminaRegenAmount
       value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741170, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741177, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: Test
-      value: 
-      objectReference: {fileID: 11400000, guid: 72c7ea0f3e23017459f294a1d8d16440, type: 2}
-    - target: {fileID: 2329233605364741180, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2329233605364741182, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
       propertyPath: m_Name

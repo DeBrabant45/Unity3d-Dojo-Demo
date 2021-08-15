@@ -806,11 +806,11 @@ GameObject:
   - component: {fileID: 2329233605364741157}
   - component: {fileID: 2329233605364741155}
   - component: {fileID: 2329233605364741179}
-  - component: {fileID: 2329233605364741165}
   - component: {fileID: 2329233605364741167}
   - component: {fileID: 2329233605364741177}
   - component: {fileID: 2329233605364741159}
   - component: {fileID: 2241489719860652651}
+  - component: {fileID: 1714680089}
   m_Layer: 3
   m_Name: Samurai_Player
   m_TagString: Player
@@ -846,11 +846,11 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2329233605364741182}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 8afe723514f619143a45ea089476b2cc, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 4a17a7a63b9fb0d4fb989a7b78168490, type: 3}
   m_Controller: {fileID: 9100000, guid: 89531b29349a2c946925fb23a0b61918, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 1
+  m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
@@ -947,23 +947,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6a13c6df66ecb8343bc60eab56f4fe89, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2329233605364741165
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2329233605364741182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87f2f7cbd74548d4997e804aaa791c1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _gravity: 0
-  _movementSpeed: 0
-  _rotationSpeed: 0
-  _jumpSpeed: 0
-  _angleRotationThreshold: 0
 --- !u!114 &2329233605364741167
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1019,6 +1002,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _swordInHand: {fileID: 4559972247861912854}
   _swordInSheathe: {fileID: 5748070830379161888}
+--- !u!114 &1714680089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2329233605364741182}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09e49c1d6edb0c14a8d72d7a389781fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _gravity: 0.2
+  _movementSpeed: 5
+  _rotationSpeed: 5
+  _jumpSpeed: 5
+  _angleRotationThreshold: 5
 --- !u!1 &2329233605364741184
 GameObject:
   m_ObjectHideFlags: 0

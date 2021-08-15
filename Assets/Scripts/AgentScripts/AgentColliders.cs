@@ -2,28 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AgentColliders : MonoBehaviour
+namespace AD.Agent
 {
-    private Collider[] _colliders;
-
-    void Awake()
+    public class AgentColliders : MonoBehaviour
     {
-        _colliders = transform.GetComponentsInChildren<Collider>();
-    }
+        private Collider[] _colliders;
 
-    public void DisableColliders()
-    {
-        foreach (var colider in _colliders)
+        void Awake()
         {
-            colider.enabled = false;
+            _colliders = transform.GetComponentsInChildren<Collider>();
         }
-    }
 
-    public void EnableColliders()
-    {
-        foreach (var colider in _colliders)
+        public void DisableColliders()
         {
-            colider.enabled = true;
+            foreach (var colider in _colliders)
+            {
+                colider.enabled = false;
+            }
+        }
+
+        public void EnableColliders()
+        {
+            foreach (var colider in _colliders)
+            {
+                colider.enabled = true;
+            }
         }
     }
 }

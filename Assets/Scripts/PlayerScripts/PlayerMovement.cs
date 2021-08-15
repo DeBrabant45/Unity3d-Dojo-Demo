@@ -4,21 +4,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace AD.Agent
+namespace AD.Player
 {
-
-    public class AgentMovement : MonoBehaviour
+    public class PlayerMovement : MonoBehaviour
     {
-        protected CharacterController characterController;
-        protected Vector3 moveDirection = Vector3.zero;
-        protected float desiredRotationAngle = 0;
-        protected HumanoidAnimations agentAnimations;
-
         [SerializeField] private float _gravity;
         [SerializeField] private float _movementSpeed;
         [SerializeField] private float _rotationSpeed;
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private int _angleRotationThreshold;
+
+        private CharacterController characterController;
+        private Vector3 moveDirection = Vector3.zero;
+        private float desiredRotationAngle = 0;
+        private HumanoidAnimations agentAnimations;
         private int _inputVerticalDirection = 0;
         private bool _isJumping = false;
         private bool _isJumpingCompleted = true;
@@ -98,9 +97,18 @@ namespace AD.Agent
                     agentAnimations.SetAnimationFloat(agentAnimations.InputY, agentAnimations.SetAnimationFloatInput(_input.y, agentAnimations.GetAnimationFloat(agentAnimations.InputY)));
                 }
             }
-            moveDirection.y -= _gravity;
-            AgentIsJumping();
-            characterController.Move(moveDirection * _movementSpeed * Time.deltaTime);
+
+            if (agentAnimations.GetAnimationBool("IsUsingRootMotion") != false)
+            {
+                Vector3 animationDelta = agentAnimations.GetAnimationDeltaPosition();
+                characterController.Move(animationDelta * _movementSpeed * Time.deltaTime * 50);
+            }
+            else
+            {
+                moveDirection.y -= _gravity;
+                AgentIsJumping();
+                characterController.Move(moveDirection * _movementSpeed * Time.deltaTime);
+            }
         }
 
         private void AgentIsJumping()

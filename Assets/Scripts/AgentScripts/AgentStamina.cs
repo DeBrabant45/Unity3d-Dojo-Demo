@@ -2,54 +2,57 @@ using System;
 using System.Collections;
 using UnityEngine;
 
-public class AgentStamina : MonoBehaviour
+namespace AD.Agent
 {
-    [SerializeField] private int _staminaInitialValue;
-    [SerializeField] private float _staminaRegenSpeed;
-    [SerializeField] private float _staminaRegenAmount;
-
-    private float _stamina;
-    private Action<float> _staminaValue;
-    private float _lastTimeSinceStaminaChange;
-
-    public float Stamina
+    public class AgentStamina : MonoBehaviour
     {
-        get => _stamina;
-        set
+        [SerializeField] private int _staminaInitialValue;
+        [SerializeField] private float _staminaRegenSpeed;
+        [SerializeField] private float _staminaRegenAmount;
+
+        private float _stamina;
+        private Action<float> _staminaValue;
+        private float _lastTimeSinceStaminaChange;
+
+        public float Stamina
         {
-            _stamina = Mathf.Clamp(value, 0, _staminaInitialValue);
-            _staminaValue?.Invoke(_stamina / _staminaInitialValue);
+            get => _stamina;
+            set
+            {
+                _stamina = Mathf.Clamp(value, 0, _staminaInitialValue);
+                _staminaValue?.Invoke(_stamina / _staminaInitialValue);
+            }
         }
-    }
 
-    public Action<float> StaminaValue { get => _staminaValue; set => _staminaValue = value; }
+        public Action<float> StaminaValue { get => _staminaValue; set => _staminaValue = value; }
 
-    private void Awake()
-    {
-        Stamina = _staminaInitialValue;
-    }
-
-    private void Update()
-    {
-        StaminaRegeneration();
-    }
-
-    private void StaminaRegeneration()
-    {
-        if (Stamina < _staminaInitialValue && (_lastTimeSinceStaminaChange + _staminaRegenSpeed) < Time.time)
+        private void Awake()
         {
-            Stamina += _staminaRegenAmount;
+            Stamina = _staminaInitialValue;
         }
-    }
 
-    public void AddToStamina(float amount)
-    {
-        Stamina += amount;
-    }
+        private void Update()
+        {
+            StaminaRegeneration();
+        }
 
-    public void ReduceStamina(float amount)
-    {
-        Stamina -= amount;
-        _lastTimeSinceStaminaChange = Time.time;
+        private void StaminaRegeneration()
+        {
+            if (Stamina < _staminaInitialValue && (_lastTimeSinceStaminaChange + _staminaRegenSpeed) < Time.time)
+            {
+                Stamina += _staminaRegenAmount;
+            }
+        }
+
+        public void AddToStamina(float amount)
+        {
+            Stamina += amount;
+        }
+
+        public void ReduceStamina(float amount)
+        {
+            Stamina -= amount;
+            _lastTimeSinceStaminaChange = Time.time;
+        }
     }
 }

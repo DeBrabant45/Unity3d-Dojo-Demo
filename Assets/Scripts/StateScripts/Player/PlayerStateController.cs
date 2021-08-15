@@ -1,6 +1,7 @@
 ﻿using AD.Agent;
 using AD.Animation;
 using AD.Interfaces;
+using AD.Player;
 using AD.Weapons;
 using System;
 using System.Collections.Generic;
@@ -14,8 +15,8 @@ namespace AD.StateMachine.Player
         [SerializeField] private PlayerState _remainState;
         [SerializeField] private WeaponSO _equippedWeapon;
 
-        private AgentMovement _movement;
-        private AgentAimController _agentAimController;
+        private PlayerMovement _movement;
+        private PlayerAimController _playerAimController;
         private PlayerInput _inputFromPlayer;
         private HumanoidAnimations _agentAnimations;
         private AgentHealth _agentHealth;
@@ -23,9 +24,9 @@ namespace AD.StateMachine.Player
         private ItemSlot _itemSlot;
 
         public PlayerInput InputFromPlayer { get => _inputFromPlayer; }
-        public AgentMovement Movement { get => _movement; }
+        public PlayerMovement Movement { get => _movement; }
         public HumanoidAnimations AgentAnimations { get => _agentAnimations; }
-        public AgentAimController AgentAimController { get => _agentAimController; }
+        public PlayerAimController AgentAimController { get => _playerAimController; }
         public ItemSlot ItemSlot { get => _itemSlot; }
         public WeaponSO EquippedWeapon { get => _equippedWeapon; }
         public string TagName { get => this.tag; }
@@ -33,11 +34,11 @@ namespace AD.StateMachine.Player
 
         private void Awake()
         {
-            _movement = GetComponent<AgentMovement>();
+            _movement = GetComponent<PlayerMovement>();
             _inputFromPlayer = GetComponent<PlayerInput>();
             _agentAnimations = GetComponent<HumanoidAnimations>();
             _itemSlot = GetComponent<ItemSlot>();
-            _agentAimController = GetComponent<AgentAimController>();
+            _playerAimController = GetComponent<PlayerAimController>();
             _itemSlot = GetComponent<ItemSlot>();
             _agentHealth = GetComponent<AgentHealth>();
             _agentStamina = GetComponent<AgentStamina>();

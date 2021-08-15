@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace AD.Animation
@@ -15,7 +13,6 @@ namespace AD.Animation
         public Action OnAnimationFunctionTrigger { get => _animationFunctionTrigger; set => _animationFunctionTrigger = value; }
         public int InputX { get => _inputX; }
         public int InputY { get => _inputY; }
-        public Animator Animator { get => _animator; }
 
         private void Awake()
         {
@@ -37,6 +34,11 @@ namespace AD.Animation
         public void SetBoolForAnimation(string name, bool value)
         {
             _animator.SetBool(name, value);
+        }
+
+        public bool GetAnimationBool(string name)
+        {
+            return _animator.GetBool(name);
         }
 
         public void AnimationFunctionTriggerCallBack()
@@ -81,6 +83,21 @@ namespace AD.Animation
                 current = Mathf.Clamp(current, -1, 0);
             }
             return current;
+        }
+
+        private void OnAnimatorMove()
+        {
+            if (GetAnimationBool("IsUsingRootMotion") != false)
+            {
+                GetAnimationDeltaPosition();
+            }
+        }
+
+        public Vector3 GetAnimationDeltaPosition()
+        {
+            Vector3 deltaPosition = _animator.deltaPosition;
+            deltaPosition.y = 0;
+            return deltaPosition;
         }
     }
 }
