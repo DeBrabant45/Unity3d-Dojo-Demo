@@ -19,10 +19,10 @@ namespace AD.StateMachine.Player
         {
             if (!controller.AgentAnimations.IsInteracting() && controller.AgentStamina.Stamina > 0)
             {
-                controller.ItemSlot.DamageCollider.SetDamage(controller.EquippedWeapon);
+                controller.ItemSlot.DamageCollider.SetDamage(controller.Weapon);
                 controller.ItemSlot.DamageCollider.SetTagToNotHit(controller);
-                controller.AgentAnimations.SetTriggerForAnimation("OneHandedAttack");
-                controller.AgentStamina.ReduceStamina(10);
+                controller.AgentAnimations.SetTriggerForAnimation(controller.Weapon.AttackTriggerAnimation);
+                controller.AgentStamina.ReduceStamina(controller.Weapon.StaminaCost);
             }
         }
     }

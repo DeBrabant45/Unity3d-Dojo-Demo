@@ -13,7 +13,7 @@ namespace AD.StateMachine.Player
     {
         [SerializeField] private PlayerState _currentState;
         [SerializeField] private PlayerState _remainState;
-        [SerializeField] private WeaponSO _equippedWeapon;
+        [SerializeField] private WeaponSO _weapon;
 
         private PlayerMovement _movement;
         private PlayerAimController _playerAimController;
@@ -23,13 +23,13 @@ namespace AD.StateMachine.Player
         private AgentStamina _agentStamina;
         private ItemSlot _itemSlot;
 
+        public string TagName { get => this.tag; }
         public PlayerInput InputFromPlayer { get => _inputFromPlayer; }
         public PlayerMovement Movement { get => _movement; }
         public HumanoidAnimations AgentAnimations { get => _agentAnimations; }
         public PlayerAimController AgentAimController { get => _playerAimController; }
         public ItemSlot ItemSlot { get => _itemSlot; }
-        public WeaponSO EquippedWeapon { get => _equippedWeapon; }
-        public string TagName { get => this.tag; }
+        public WeaponSO Weapon { get => _weapon; }
         public AgentStamina AgentStamina { get => _agentStamina; }
 
         private void Awake()

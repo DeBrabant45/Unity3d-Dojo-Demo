@@ -16,12 +16,16 @@ MonoBehaviour:
   _minimalDamage: 1
   _maximumDamage: 2
   _criticalDamageChance: 0.2
-  _weaponType: 0
+  _weaponType: 2
   _weaponImpactForce: 0
-  _attackStanceAnimation: 
-  _attackTriggerAnimation: 
+  _staminaCost: 5
+  _attackStanceAnimation: IsArmed
+  _attackAnimation: HeavyAttack
+  _unsheatheAttackAnimation: UnsheatheAttack
   _blockStanceAnimation: 
   _blockReactionAnimation: 
+  _unsheatheAnimation: Unsheathe
+  _sheatheAnimation: Sheathe
   _equippedPosition: {x: 0, y: 0, z: 0}
   _equippedRotation: {x: 0, y: 0, z: 0}
   _unequippedPosition: {x: 0, y: 0, z: 0}

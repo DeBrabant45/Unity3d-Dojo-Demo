@@ -11,8 +11,8 @@ namespace AD.StateMachine.Player
         {
             if (controller.InputFromPlayer.IsRKeyPressed() && !controller.AgentAnimations.IsInteracting())
             {
-                controller.AgentAnimations.SetTriggerForAnimation("equipItem");
-                controller.AgentAnimations.SetBoolForAnimation("IsArmed", true);
+                controller.AgentAnimations.SetTriggerForAnimation(controller.Weapon.UnsheatheAnimation);
+                controller.AgentAnimations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
             }
         }
     }
