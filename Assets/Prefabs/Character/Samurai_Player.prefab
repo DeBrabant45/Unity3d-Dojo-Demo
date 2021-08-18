@@ -934,7 +934,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _staminaInitialValue: 30
   _staminaRegenSpeed: 5
-  _staminaRegenAmount: 10
+  _staminaRegenAmount: 0.2
 --- !u!114 &2329233605364741179
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -973,7 +973,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _currentState: {fileID: 11400000, guid: 52c2bcd8b6344fe40be950b8caaa8efc, type: 2}
   _remainState: {fileID: 11400000, guid: 93181152446bb8e449dbd3a2e273f839, type: 2}
-  _equippedWeapon: {fileID: 11400000, guid: 3221b40900d0a8f4fa74f1834f745017, type: 2}
+  _weapon: {fileID: 11400000, guid: 3221b40900d0a8f4fa74f1834f745017, type: 2}
 --- !u!114 &2329233605364741159
 MonoBehaviour:
   m_ObjectHideFlags: 0

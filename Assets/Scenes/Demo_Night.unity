@@ -989,15 +989,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10421182
+      value: 0.104211815
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 4.2958128e-16
+      value: -0.000000007410014
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.1114265e-16
+      value: 7.764386e-10
       objectReference: {fileID: 0}
     - target: {fileID: 660467039414610358, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -4748,14 +4748,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2329233605364741155, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _staminaRegenAmount
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2329233605364741177, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _weapon
-      value: 
-      objectReference: {fileID: 11400000, guid: 3221b40900d0a8f4fa74f1834f745017, type: 2}
     - target: {fileID: 2329233605364741182, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
       propertyPath: m_Name
       value: Samurai_Player

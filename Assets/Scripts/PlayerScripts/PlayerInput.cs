@@ -1,94 +1,103 @@
 ﻿using System;
 using UnityEngine;
+using AD.Interfaces;
 
-public class PlayerInput : MonoBehaviour
+namespace AD.Player
 {
-    private Camera _mainCamera;
-    private float _previousPrimaryActionInput = 0;
-    private float _previousSecondaryActionInput = 0;
-
-    public Vector2 MovementInputVector { get; private set; }
-    public Vector3 MovementDirectionVector { get; private set; }
-
-
-    private void Awake()
+    public class PlayerInput : MonoBehaviour
     {
-        _mainCamera = Camera.main;
-        Cursor.lockState = CursorLockMode.Locked;
-    }
+        private Camera _mainCamera;
+        private float _previousPrimaryActionInput = 0;
+        private float _previousSecondaryActionInput = 0;
+        private IPlayerInputService _playerInputService;
 
-    private void Update()
-    {
-        GetMovementInput();
-        GetMovementDirection();
-    }
+        public Vector2 MovementInputVector { get; private set; }
+        public Vector3 MovementDirectionVector { get; private set; }
+        public IPlayerInputService PlayerInputService { get => _playerInputService; set => _playerInputService = value; }
 
-    public bool IsSecondaryUpAction()
-    {
-        return Input.GetMouseButtonUp(1);
-    }
-
-    public bool IsSecondaryHeldDownAction()
-    {
-        return Input.GetMouseButtonDown(1);
-    }
-
-    public bool IsEscapeKeyPressed()
-    {
-        return Input.GetKeyDown(KeyCode.Escape);
-    }
-
-    public bool IsSecondaryClickAction()
-    {
-        var inputValue = Input.GetAxisRaw("Fire2");
-        if (_previousSecondaryActionInput == 0)
+        private void Awake()
         {
-            if (inputValue >= 1)
+            _mainCamera = Camera.main;
+            Cursor.lockState = CursorLockMode.Locked;
+            if (_playerInputService == null)
             {
-                return true;
+                _playerInputService = new PlayerInputService();
             }
         }
-        _previousSecondaryActionInput = inputValue;
-        return false;
-    }
 
-    public bool IsPrimaryAction()
-    {
-        var inputValue = Input.GetAxisRaw("Fire1");
-        if(_previousPrimaryActionInput == 0)
+        private void Update()
         {
-            if(inputValue >= 1)
-            {
-                return true;
-            }
+            GetMovementInput();
+            GetMovementDirection();
         }
-        _previousPrimaryActionInput = inputValue;
-        return false;
-    }
 
-    public bool IsShiftKeyPressed()
-    {
-        return Input.GetKeyDown(KeyCode.LeftShift);
-    }
+        public bool IsSecondaryUpAction()
+        {
+            return _playerInputService.GetMouseButtonUp(1);
+        }
 
-    public bool IsRKeyPressed()
-    {
-        return Input.GetKeyDown(KeyCode.R);
-    }
+        public bool IsSecondaryHeldDownAction()
+        {
+            return _playerInputService.GetMouseuButtonPressedDown(1);
+        }
 
-    public bool IsSpacebarPressed()
-    {
-        return Input.GetKeyDown(KeyCode.Space);
-    }
+        public bool IsEscapeKeyPressed()
+        {
+            return _playerInputService.GetKeyButtonPressedDown(KeyCode.Escape);
+        }
 
-    private void GetMovementDirection()
-    {
-        var cameraForwardDirection = _mainCamera.transform.forward;
-        MovementDirectionVector = Vector3.Scale(cameraForwardDirection, (Vector3.right + Vector3.forward));
-    }
+        public bool IsSecondaryClickAction()
+        {
+            var inputValue = _playerInputService.GetAxisRaw("Fire2");
+            if (_previousSecondaryActionInput == 0)
+            {
+                if (inputValue >= 1)
+                {
+                    return true;
+                }
+            }
+            _previousSecondaryActionInput = inputValue;
+            return false;
+        }
 
-    private void GetMovementInput()
-    {
-        MovementInputVector = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        public bool IsPrimaryAction()
+        {
+            var inputValue = _playerInputService.GetAxisRaw("Fire1");
+            if (_previousPrimaryActionInput == 0)
+            {
+                if (inputValue >= 1)
+                {
+                    return true;
+                }
+            }
+            _previousPrimaryActionInput = inputValue;
+            return false;
+        }
+
+        public bool IsShiftKeyPressed()
+        {
+            return _playerInputService.GetKeyButtonPressedDown(KeyCode.LeftShift);
+        }
+
+        public bool IsRKeyPressed()
+        {
+            return _playerInputService.GetKeyButtonPressedDown(KeyCode.R);
+        }
+
+        public bool IsSpacebarPressed()
+        {
+            return _playerInputService.GetKeyButtonPressedDown(KeyCode.Space);
+        }
+
+        private void GetMovementDirection()
+        {
+            var cameraForwardDirection = _mainCamera.transform.forward;
+            MovementDirectionVector = Vector3.Scale(cameraForwardDirection, (Vector3.right + Vector3.forward));
+        }
+
+        private void GetMovementInput()
+        {
+            MovementInputVector = new Vector2(_playerInputService.GetAxisRaw("Horizontal"), _playerInputService.GetAxisRaw("Vertical"));
+        }
     }
 }
