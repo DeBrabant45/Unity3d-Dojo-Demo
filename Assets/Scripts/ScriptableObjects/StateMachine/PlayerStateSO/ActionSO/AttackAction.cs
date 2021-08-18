@@ -9,7 +9,7 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            if(controller.InputFromPlayer.IsPrimaryAction() != false)
+            if(controller.InputFromPlayer.IsPrimaryActionPressed() != false)
             {
                 Attack(controller);
             }

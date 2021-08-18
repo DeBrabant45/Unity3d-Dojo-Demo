@@ -2,7 +2,7 @@
 
 namespace AD.Interfaces
 {
-    public interface IPlayerInputService
+    public interface IUnityInputService
     {
         bool GetKeyButtonPressedDown(KeyCode keyCode);
         bool GetMouseuButtonPressedDown(int value);

@@ -4,7 +4,7 @@ using AD.Interfaces;
 
 namespace AD.Player
 {
-    class PlayerInputService : IPlayerInputService
+    public class UnityInputService : IUnityInputService
     {
         public float GetAxisRaw(string value)
         {
