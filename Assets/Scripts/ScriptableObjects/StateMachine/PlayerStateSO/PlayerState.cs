@@ -7,17 +7,14 @@ namespace AD.StateMachine.Player
     [CreateAssetMenu(menuName = "StateMachine/Player/State")]
     public class PlayerState : State<PlayerStateController>
     {
-        [SerializeField] private PlayerAction[] _nonUpdateActions;
         [SerializeField] private PlayerAction[] _actions;
         [SerializeField] private PlayerTransition[] _transitions;
         public Color sceneGizmoColor = Color.grey;
 
-        public void EnterState(PlayerStateController controller)
+        public void Constructor(PlayerAction[] actions, PlayerTransition[] transitions)
         {
-            for (int i = 0; i < _nonUpdateActions.Length; i++)
-            {
-                _nonUpdateActions[i].Act(controller);
-            }
+            _actions = actions;
+            _transitions = transitions;
         }
 
         public override void CheckTransitions(PlayerStateController controller)
@@ -38,9 +35,12 @@ namespace AD.StateMachine.Player
 
         public override void DoActions(PlayerStateController controller)
         {
-            for (int i = 0; i < _actions.Length; i++)
+            if(_actions != null)
             {
-                _actions[i].Act(controller);
+                for (int i = 0; i < _actions.Length; i++)
+                {
+                    _actions[i].Act(controller);
+                }
             }
         }
 

@@ -135,5 +135,11 @@ namespace AD.PlayModeTests
             yield return null;
             Assert.IsFalse(_playerInput.IsSecondaryHeldDownAction());
         }
+
+        [TearDown]
+        public void Terminate()
+        {
+            GameObject.Destroy(_playerInput);
+        }
     }
 }

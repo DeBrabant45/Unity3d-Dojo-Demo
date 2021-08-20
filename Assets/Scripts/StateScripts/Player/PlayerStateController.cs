@@ -31,6 +31,7 @@ namespace AD.StateMachine.Player
         public ItemSlot ItemSlot { get => _itemSlot; }
         public WeaponSO Weapon { get => _weapon; }
         public AgentStamina AgentStamina { get => _agentStamina; }
+        public PlayerState CurrentState { get => _currentState; }
 
         private void Awake()
         {
@@ -42,13 +43,19 @@ namespace AD.StateMachine.Player
             _itemSlot = GetComponent<ItemSlot>();
             _agentHealth = GetComponent<AgentHealth>();
             _agentStamina = GetComponent<AgentStamina>();
-            _currentState.EnterState(this);
         }
 
         private void Update()
         {
             _currentState.UpdateState(this);
-            Debug.Log(_agentStamina.Stamina);
+            //Debug.Log(_agentStamina.Stamina);
+        }
+
+        public void Constructor(PlayerState currentState, PlayerState remainState, PlayerInput input)
+        {
+            _currentState = currentState;
+            _remainState = remainState;
+            _inputFromPlayer = input;
         }
 
         public void TransitionToState(PlayerState nextState)
@@ -56,7 +63,6 @@ namespace AD.StateMachine.Player
             if (nextState != _remainState)
             {
                 _currentState = nextState;
-                _currentState.EnterState(this);
             }
         }
     }
