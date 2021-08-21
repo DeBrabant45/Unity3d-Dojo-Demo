@@ -123,7 +123,7 @@ namespace AD.PlayModeTests
         [UnityTest]
         public IEnumerator IsSecondaryHeldDownAction_ValidKeyPressed_ReturnsTrue()
         {
-            _unityInputService.GetMouseuButtonPressedDown(1).Returns(true);
+            _unityInputService.GetMouseButtonPressedDown(1).Returns(true);
             yield return null;
             Assert.IsTrue(_playerInput.IsSecondaryHeldDownAction());
         }
@@ -131,7 +131,7 @@ namespace AD.PlayModeTests
         [UnityTest]
         public IEnumerator IsSecondaryHeldDownAction_InvalidKeyPressed_ReturnsFalse()
         {
-            _unityInputService.GetMouseuButtonPressedDown(2).Returns(true);
+            _unityInputService.GetMouseButtonPressedDown(2).Returns(true);
             yield return null;
             Assert.IsFalse(_playerInput.IsSecondaryHeldDownAction());
         }

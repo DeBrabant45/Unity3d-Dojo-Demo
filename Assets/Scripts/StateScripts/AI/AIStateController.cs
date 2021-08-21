@@ -90,9 +90,9 @@ namespace AD.StateMachine.AI
             _stateTimeElapsed = 0;
         }
 
-        public void GetHit(IDamage weapon)
+        public void GetHit(IDamage damage)
         {
-
+            throw new NotImplementedException();
         }
     }
 }

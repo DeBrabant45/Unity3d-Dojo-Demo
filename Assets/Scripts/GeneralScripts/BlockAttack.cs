@@ -7,7 +7,7 @@ public class BlockAttack : MonoBehaviour, IBlockable
 {
     [SerializeField] Transform _blockRaycastStartPosition;
     [SerializeField] private float _blockDistance = 0.8f;
-    private bool _isBlocking;
+    private bool _isBlocking = false;
 
     public int BlockLevel => throw new NotImplementedException();
     public Action OnBlockSuccessful { get; set; }

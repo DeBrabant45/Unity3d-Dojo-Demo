@@ -42,7 +42,7 @@ namespace AD.Player
 
         public bool IsSecondaryHeldDownAction()
         {
-            return _unityInputService.GetMouseuButtonPressedDown(1);
+            return _unityInputService.GetMouseButton(1);
         }
 
         public bool IsEscapeKeyPressed()

@@ -22,7 +22,7 @@ MonoBehaviour:
   _attackStanceAnimation: IsArmed
   _attackAnimation: HeavyAttack
   _unsheatheAttackAnimation: UnsheatheAttack
-  _blockStanceAnimation: 
+  _blockStanceAnimation: BlockStance
   _blockReactionAnimation: 
   _unsheatheAnimation: Unsheathe
   _sheatheAnimation: Sheathe

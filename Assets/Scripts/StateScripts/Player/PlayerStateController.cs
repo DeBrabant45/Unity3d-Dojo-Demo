@@ -22,6 +22,7 @@ namespace AD.StateMachine.Player
         private AgentHealth _agentHealth;
         private AgentStamina _agentStamina;
         private ItemSlot _itemSlot;
+        private BlockAttack _blockAttack;
 
         public string TagName { get => this.tag; }
         public PlayerInput InputFromPlayer { get => _inputFromPlayer; }
@@ -32,6 +33,7 @@ namespace AD.StateMachine.Player
         public WeaponSO Weapon { get => _weapon; }
         public AgentStamina AgentStamina { get => _agentStamina; }
         public PlayerState CurrentState { get => _currentState; }
+        public BlockAttack BlockAttack { get => _blockAttack; }
 
         private void Awake()
         {
@@ -43,12 +45,12 @@ namespace AD.StateMachine.Player
             _itemSlot = GetComponent<ItemSlot>();
             _agentHealth = GetComponent<AgentHealth>();
             _agentStamina = GetComponent<AgentStamina>();
+            _blockAttack = GetComponent<BlockAttack>();
         }
 
         private void Update()
         {
             _currentState.UpdateState(this);
-            //Debug.Log(_agentStamina.Stamina);
         }
 
         public void Constructor(PlayerState currentState, PlayerState remainState, PlayerInput input)

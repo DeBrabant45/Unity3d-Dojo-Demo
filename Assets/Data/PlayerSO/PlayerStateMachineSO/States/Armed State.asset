@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b9cffd0d2b00aa4d8ec1a797908bf53, type: 3}
   m_Name: Armed State
   m_EditorClassIdentifier: 
-  _nonUpdateActions: []
   _actions:
   - {fileID: 11400000, guid: 34fc068a9c798d244a1b6b9592278fd8, type: 2}
   - {fileID: 11400000, guid: 7b6311cea664a8c4a896053026c7489e, type: 2}
   - {fileID: 11400000, guid: 646a5b92cd21f6e43a10ad6a0c8030f0, type: 2}
   - {fileID: 11400000, guid: 348d6d9c62e1fd74a9e2a2ce85e5ef41, type: 2}
+  - {fileID: 11400000, guid: d1ccf2b8b1a7d5449800163e6493e366, type: 2}
   _transitions:
   - _decision: {fileID: 11400000, guid: df64069efba76d44db760a3ab5c551ed, type: 2}
     _trueState: {fileID: 11400000, guid: 52c2bcd8b6344fe40be950b8caaa8efc, type: 2}

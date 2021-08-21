@@ -21,9 +21,14 @@ namespace AD.Player
             return Input.GetMouseButtonUp(value);
         }
 
-        public bool GetMouseuButtonPressedDown(int value)
+        public bool GetMouseButtonPressedDown(int value)
         {
             return Input.GetMouseButtonDown(value);
+        }
+
+        public bool GetMouseButton(int value)
+        {
+            return Input.GetMouseButton(value);
         }
     }
 }
