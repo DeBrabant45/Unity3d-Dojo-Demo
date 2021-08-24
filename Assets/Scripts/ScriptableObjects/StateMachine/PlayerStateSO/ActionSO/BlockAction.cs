@@ -12,12 +12,12 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsSecondaryHeldDownAction() != false 
+            if (controller.InputFromPlayer.IsSecondaryActionPressed() != false 
                 & !controller.AgentAnimations.IsInteracting())
             {
                 Block(controller);
             }
-            if (controller.InputFromPlayer.IsSecondaryHeldDownAction() == false
+            if (controller.InputFromPlayer.IsSecondaryActionPressed() == false
                 & controller.BlockAttack.IsBlocking)
             {
                 controller.BlockAttack.IsBlocking = false;

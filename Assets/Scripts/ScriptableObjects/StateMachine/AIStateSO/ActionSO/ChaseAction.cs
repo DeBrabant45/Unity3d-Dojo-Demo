@@ -9,13 +9,20 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            Chase(controller);
+            if (controller.Animations.IsInteracting() == false)
+            {
+                Chase(controller);
+            }
         }
 
         private void Chase(AIStateController controller)
         {
+            controller.transform.LookAt(controller.ChaseTarget);
             controller.NavMeshAgent.destination = controller.ChaseTarget.position;
             controller.NavMeshAgent.isStopped = false;
+            var velcocityY = controller.NavMeshAgent.velocity.y;
+            var magnitude = controller.NavMeshAgent.velocity.magnitude;
+            controller.Animations.Animator.SetFloat("Move", magnitude);
         }
     }
 }

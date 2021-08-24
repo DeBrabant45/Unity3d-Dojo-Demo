@@ -5,6 +5,8 @@ using UnityEngine;
 using UnityEngine.AI;
 using AD.StateMachine.AI;
 using AD.Interfaces;
+using AD.Animation;
+using AD.Weapons;
 
 namespace AD.StateMachine.AI
 {
@@ -16,9 +18,11 @@ namespace AD.StateMachine.AI
         [SerializeField] private Transform _eyeSight;
         [SerializeField] private bool _aiActive = false;
         [SerializeField] private LayerMask _layer;
+        [SerializeField] private WeaponSO _weapon;
 
         private NavMeshAgent _navMeshAgent;
         private float _stateTimeElapsed;
+        private HumanoidAnimations _animations;
 
         public List<Transform> wayPointList;
         public int nextWayPoint;
@@ -29,10 +33,13 @@ namespace AD.StateMachine.AI
         public Transform EyeSight { get => _eyeSight; }
         public LayerMask Layer { get => _layer; }
         public AIStats AIStats { get => _aIStats; }
+        public HumanoidAnimations Animations { get => _animations; }
+        public WeaponSO Weapon { get => _weapon; }
 
         private void Awake()
         {
             _navMeshAgent = GetComponent<NavMeshAgent>();
+            _animations = GetComponent<HumanoidAnimations>();
         }
 
         private void SetupAI()
@@ -44,15 +51,6 @@ namespace AD.StateMachine.AI
             else
             {
                 _navMeshAgent.enabled = false;
-            }
-        }
-
-        private void OnDrawGizmos()
-        {
-            if (_currentState != null && EyeSight != null)
-            {
-                //Gizmos.color = _currentState.sceneGizmoColor;
-                Gizmos.DrawWireSphere(EyeSight.position, 5/*enemyStats.lookSphereCastRadius*/);
             }
         }
 

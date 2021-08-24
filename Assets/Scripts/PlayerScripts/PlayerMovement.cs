@@ -14,10 +14,10 @@ namespace AD.Player
         [SerializeField] private float _jumpSpeed;
         [SerializeField] private int _angleRotationThreshold;
 
-        private CharacterController characterController;
-        private Vector3 moveDirection = Vector3.zero;
-        private float desiredRotationAngle = 0;
-        private HumanoidAnimations agentAnimations;
+        private CharacterController _characterController;
+        private Vector3 _moveDirection = Vector3.zero;
+        private float _desiredRotationAngle = 0;
+        private HumanoidAnimations _agentAnimations;
         private int _inputVerticalDirection = 0;
         private bool _isJumping = false;
         private bool _isJumpingCompleted = true;
@@ -28,8 +28,8 @@ namespace AD.Player
 
         private void Start()
         {
-            characterController = GetComponent<CharacterController>();
-            agentAnimations = GetComponent<HumanoidAnimations>();
+            _characterController = GetComponent<CharacterController>();
+            _agentAnimations = GetComponent<HumanoidAnimations>();
             _mainCameraTransform = Camera.main.transform;
         }
 
@@ -51,7 +51,7 @@ namespace AD.Player
                         //while player is moving backward
                         _inputVerticalDirection = Mathf.FloorToInt(input.y);
                     }
-                    moveDirection = input.y * transform.forward;
+                    _moveDirection = input.y * transform.forward;
                     _isMoving = true;
                 }
                 else
@@ -63,15 +63,15 @@ namespace AD.Player
                             _temporaryMovementTriggered = true;
                         }
                         _inputVerticalDirection = 1;
-                        moveDirection = new Vector3(input.x, 0f, 0f);
+                        _moveDirection = new Vector3(input.x, 0f, 0f);
                         _isMoving = true;
                     }
                     else
                     {
                         _temporaryMovementTriggered = false;
-                        agentAnimations.SetAnimationFloat(agentAnimations.InputX, agentAnimations.LowerAnimationFloatInputToZero(agentAnimations.GetAnimationFloat(agentAnimations.InputX)));
-                        agentAnimations.SetAnimationFloat(agentAnimations.InputY, agentAnimations.LowerAnimationFloatInputToZero(agentAnimations.GetAnimationFloat(agentAnimations.InputY)));
-                        moveDirection = Vector3.zero;
+                        _agentAnimations.SetAnimationFloat(_agentAnimations.InputX, _agentAnimations.LowerAnimationFloatInputToZero(_agentAnimations.GetAnimationFloat(_agentAnimations.InputX)));
+                        _agentAnimations.SetAnimationFloat(_agentAnimations.InputY, _agentAnimations.LowerAnimationFloatInputToZero(_agentAnimations.GetAnimationFloat(_agentAnimations.InputY)));
+                        _moveDirection = Vector3.zero;
                     }
                 }
             }
@@ -89,25 +89,25 @@ namespace AD.Player
                     }
                     else
                     {
-                        float targetAngle = Mathf.Atan2(moveDirection.x, moveDirection.z) * Mathf.Rad2Deg + _mainCameraTransform.eulerAngles.y;
+                        float targetAngle = Mathf.Atan2(_moveDirection.x, _moveDirection.z) * Mathf.Rad2Deg + _mainCameraTransform.eulerAngles.y;
                         Vector3 move = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
-                        moveDirection = move;
+                        _moveDirection = move;
                     }
-                    agentAnimations.SetAnimationFloat(agentAnimations.InputX, agentAnimations.SetAnimationFloatInput(_input.x, agentAnimations.GetAnimationFloat(agentAnimations.InputX)));
-                    agentAnimations.SetAnimationFloat(agentAnimations.InputY, agentAnimations.SetAnimationFloatInput(_input.y, agentAnimations.GetAnimationFloat(agentAnimations.InputY)));
+                    _agentAnimations.SetAnimationFloat(_agentAnimations.InputX, _agentAnimations.SetAnimationFloatInput(_input.x, _agentAnimations.GetAnimationFloat(_agentAnimations.InputX)));
+                    _agentAnimations.SetAnimationFloat(_agentAnimations.InputY, _agentAnimations.SetAnimationFloatInput(_input.y, _agentAnimations.GetAnimationFloat(_agentAnimations.InputY)));
                 }
             }
 
-            if (agentAnimations.GetAnimationBool("IsUsingRootMotion") != false)
+            if (_agentAnimations.GetAnimationBool("IsUsingRootMotion") != false)
             {
-                Vector3 animationDelta = agentAnimations.GetAnimationDeltaPosition();
-                characterController.Move(animationDelta * _movementSpeed * Time.deltaTime * 35);
+                Vector3 animationDelta = _agentAnimations.GetAnimationDeltaPosition();
+                _characterController.Move(animationDelta * _movementSpeed * Time.deltaTime * 35);
             }
             else
             {
-                moveDirection.y -= _gravity;
+                _moveDirection.y -= _gravity;
                 AgentIsJumping();
-                characterController.Move(moveDirection * _movementSpeed * Time.deltaTime);
+                _characterController.Move(_moveDirection * _movementSpeed * Time.deltaTime);
             }
         }
 
@@ -118,17 +118,17 @@ namespace AD.Player
                 _isMoving = false;
                 _isJumping = false;
                 _isJumpingCompleted = false;
-                moveDirection.y = _jumpSpeed;
-                agentAnimations.SetTriggerForAnimation("jump");
+                _moveDirection.y = _jumpSpeed;
+                _agentAnimations.SetTriggerForAnimation("jump");
             }
         }
 
         private void RotateAgent()
         {
             //Rotates player based on users joystick direction
-            if (desiredRotationAngle > _angleRotationThreshold || desiredRotationAngle < -_angleRotationThreshold)
+            if (_desiredRotationAngle > _angleRotationThreshold || _desiredRotationAngle < -_angleRotationThreshold)
             {
-                transform.Rotate(Vector3.up * desiredRotationAngle * _rotationSpeed * Time.deltaTime);
+                transform.Rotate(Vector3.up * _desiredRotationAngle * _rotationSpeed * Time.deltaTime);
             }
         }
 
@@ -138,11 +138,11 @@ namespace AD.Player
             {
                 return;
             }
-            desiredRotationAngle = Vector3.Angle(transform.forward, input);
+            _desiredRotationAngle = Vector3.Angle(transform.forward, input);
             var crossProduct = Vector3.Cross(transform.forward, input).y;
             if (crossProduct < 0)
             {
-                desiredRotationAngle *= -1;
+                _desiredRotationAngle *= -1;
             }
         }
 
@@ -157,11 +157,11 @@ namespace AD.Player
         public void StopMovement()
         {
             _isMoving = false;
-            moveDirection = Vector3.zero;
-            desiredRotationAngle = 0;
+            _moveDirection = Vector3.zero;
+            _desiredRotationAngle = 0;
             _inputVerticalDirection = 0;
-            agentAnimations.SetAnimationFloat(agentAnimations.InputX, agentAnimations.LowerAnimationFloatInputToZero(agentAnimations.GetAnimationFloat(agentAnimations.InputX)));
-            agentAnimations.SetAnimationFloat(agentAnimations.InputY, agentAnimations.LowerAnimationFloatInputToZero(agentAnimations.GetAnimationFloat(agentAnimations.InputY)));
+            _agentAnimations.SetAnimationFloat(_agentAnimations.InputX, _agentAnimations.LowerAnimationFloatInputToZero(_agentAnimations.GetAnimationFloat(_agentAnimations.InputX)));
+            _agentAnimations.SetAnimationFloat(_agentAnimations.InputY, _agentAnimations.LowerAnimationFloatInputToZero(_agentAnimations.GetAnimationFloat(_agentAnimations.InputY)));
         }
 
         public bool HasCompletedJumping()
@@ -186,14 +186,14 @@ namespace AD.Player
 
         public bool CharacterIsGrounded()
         {
-            return characterController.isGrounded;
+            return _characterController.isGrounded;
         }
 
         public void TeleportPlayerTo(Vector3 position)
         {
-            characterController.enabled = false;
+            _characterController.enabled = false;
             transform.position = position;
-            characterController.enabled = true;
+            _characterController.enabled = true;
         }
     }
 }

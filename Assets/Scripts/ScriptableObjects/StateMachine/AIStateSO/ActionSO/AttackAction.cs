@@ -9,7 +9,10 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            Attack(controller);
+            if (controller.Animations.IsInteracting() == false)
+            {
+                Attack(controller);
+            }
         }
 
         private void Attack(AIStateController controller)
@@ -20,11 +23,7 @@ namespace AD.StateMachine.AI
             if(isTargetInSightRange != false && isTargetInAttackRange != false)
             {
                 controller.transform.LookAt(controller.ChaseTarget);
-                if (controller.CheckIfCountDownElapsed(controller.AIStats.AttackRate))
-                {
-                    //Debug.Log("Attack");
-                    //controller.tankShooting.Fire(controller.enemyStats.attackForce, controller.enemyStats.attackRate);
-                }
+                controller.Animations.SetTriggerForAnimation(controller.Weapon.AttackTriggerAnimation);
             }
         }
     }

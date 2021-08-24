@@ -16,10 +16,11 @@ namespace AD.StateMachine.AI
         {
             if(!controller.IsWeaponEquipped)
             {
-                bool isTargetInSightRange = Physics.CheckSphere(controller.transform.position, 5, controller.Layer);
+                bool isTargetInSightRange = Physics.CheckSphere(controller.transform.position, 20, controller.Layer);
                 if (isTargetInSightRange != false)
                 {
-                    Debug.Log("Equip Item");
+                    controller.Animations.SetTriggerForAnimation(controller.Weapon.UnsheatheAnimation);
+                    controller.Animations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
                     controller.IsWeaponEquipped = true;
                 }
             }

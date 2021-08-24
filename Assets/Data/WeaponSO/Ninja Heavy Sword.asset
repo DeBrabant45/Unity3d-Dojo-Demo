@@ -10,19 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8861a0388a6cb4946b9cf73a81e7c797, type: 3}
-  m_Name: Sword
+  m_Name: Ninja Heavy Sword
   m_EditorClassIdentifier: 
-  _model: {fileID: 8247777963239563934, guid: 248360ecc8c971846bc159e963f3f07a, type: 3}
-  _minimalDamage: 1
-  _maximumDamage: 2
+  _model: {fileID: 0}
+  _minimalDamage: 0
+  _maximumDamage: 0
   _criticalDamageChance: 0.2
-  _weaponType: 2
+  _weaponType: 0
   _weaponImpactForce: 0
-  _staminaCost: 5
+  _staminaCost: 0
   _attackStanceAnimation: IsArmed
   _attackAnimation: HeavyAttack
-  _unsheatheAttackAnimation: UnsheatheAttack
-  _blockStanceAnimation: BlockStance
+  _unsheatheAttackAnimation: 
+  _blockStanceAnimation: 
   _blockReactionAnimation: 
   _unsheatheAnimation: Unsheathe
   _sheatheAnimation: Sheathe

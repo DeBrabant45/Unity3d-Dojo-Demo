@@ -51,6 +51,7 @@ namespace AD.StateMachine.Player
         private void Update()
         {
             _currentState.UpdateState(this);
+            Debug.Log(_agentStamina.Stamina);
         }
 
         public void Constructor(PlayerState currentState, PlayerState remainState, PlayerInput input)

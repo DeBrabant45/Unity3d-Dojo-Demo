@@ -13,6 +13,7 @@ namespace AD.Animation
         public Action OnAnimationFunctionTrigger { get => _animationFunctionTrigger; set => _animationFunctionTrigger = value; }
         public int InputX { get => _inputX; }
         public int InputY { get => _inputY; }
+        public Animator Animator { get => _animator; }
 
         private void Awake()
         {
