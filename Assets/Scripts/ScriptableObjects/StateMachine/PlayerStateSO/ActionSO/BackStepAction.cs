@@ -7,7 +7,7 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsSpacebarPressed() && !controller.AgentAnimations.IsInteracting())
+            if (controller.InputFromPlayer.IsSpacebarPressed() && !controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
             {
                 BackStep(controller);
             }
@@ -15,7 +15,7 @@ namespace AD.StateMachine.Player
 
         private void BackStep(PlayerStateController controller)
         {
-            controller.AgentAnimations.SetTriggerForAnimation("BackStep");
+            controller.Animations.AnimatorService.SetTriggerForAnimation("BackStep");
         }
     }
 }

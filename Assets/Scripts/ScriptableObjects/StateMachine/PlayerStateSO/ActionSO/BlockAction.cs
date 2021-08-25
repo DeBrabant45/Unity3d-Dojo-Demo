@@ -13,7 +13,7 @@ namespace AD.StateMachine.Player
         public override void Act(PlayerStateController controller)
         {
             if (controller.InputFromPlayer.IsSecondaryActionPressed() != false 
-                & !controller.AgentAnimations.IsInteracting())
+                & !controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
             {
                 Block(controller);
             }
@@ -21,7 +21,7 @@ namespace AD.StateMachine.Player
                 & controller.BlockAttack.IsBlocking)
             {
                 controller.BlockAttack.IsBlocking = false;
-                controller.AgentAnimations.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, false);
+                controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, false);
             }
         }
 
@@ -30,7 +30,7 @@ namespace AD.StateMachine.Player
             if(!controller.BlockAttack.IsBlocking)
             {
                 controller.BlockAttack.IsBlocking = true;
-                controller.AgentAnimations.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, true);
+                controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, true);
             }
         }
     }

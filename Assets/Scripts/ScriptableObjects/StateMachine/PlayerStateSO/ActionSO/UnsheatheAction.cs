@@ -9,10 +9,10 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsRKeyPressed() && !controller.AgentAnimations.IsInteracting())
+            if (controller.InputFromPlayer.IsRKeyPressed() && !controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
             {
-                controller.AgentAnimations.SetTriggerForAnimation(controller.Weapon.UnsheatheAnimation);
-                controller.AgentAnimations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
+                controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Weapon.UnsheatheAnimation);
+                controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
             }
         }
     }

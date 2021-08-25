@@ -17,7 +17,7 @@ namespace AD.Player
         private CharacterController _characterController;
         private Vector3 _moveDirection = Vector3.zero;
         private float _desiredRotationAngle = 0;
-        private HumanoidAnimations _agentAnimations;
+        private HumanoidAnimations _animation;
         private int _inputVerticalDirection = 0;
         private bool _isJumping = false;
         private bool _isJumpingCompleted = true;
@@ -29,7 +29,7 @@ namespace AD.Player
         private void Start()
         {
             _characterController = GetComponent<CharacterController>();
-            _agentAnimations = GetComponent<HumanoidAnimations>();
+            _animation = GetComponent<HumanoidAnimations>();
             _mainCameraTransform = Camera.main.transform;
         }
 
@@ -68,10 +68,7 @@ namespace AD.Player
                     }
                     else
                     {
-                        _temporaryMovementTriggered = false;
-                        _agentAnimations.SetAnimationFloat(_agentAnimations.InputX, _agentAnimations.LowerAnimationFloatInputToZero(_agentAnimations.GetAnimationFloat(_agentAnimations.InputX)));
-                        _agentAnimations.SetAnimationFloat(_agentAnimations.InputY, _agentAnimations.LowerAnimationFloatInputToZero(_agentAnimations.GetAnimationFloat(_agentAnimations.InputY)));
-                        _moveDirection = Vector3.zero;
+                        StopMovement();
                     }
                 }
             }
@@ -93,14 +90,14 @@ namespace AD.Player
                         Vector3 move = Quaternion.Euler(0f, targetAngle, 0f) * Vector3.forward;
                         _moveDirection = move;
                     }
-                    _agentAnimations.SetAnimationFloat(_agentAnimations.InputX, _agentAnimations.SetAnimationFloatInput(_input.x, _agentAnimations.GetAnimationFloat(_agentAnimations.InputX)));
-                    _agentAnimations.SetAnimationFloat(_agentAnimations.InputY, _agentAnimations.SetAnimationFloatInput(_input.y, _agentAnimations.GetAnimationFloat(_agentAnimations.InputY)));
+                    _animation.AnimatorService.SetAnimationFloat("InputX", _animation.AnimatorService.SetAnimationFloatInput(_input.x, _animation.AnimatorService.GetAnimationFloat("InputX")));
+                    _animation.AnimatorService.SetAnimationFloat("InputY", _animation.AnimatorService.SetAnimationFloatInput(_input.y, _animation.AnimatorService.GetAnimationFloat("InputY")));
                 }
             }
 
-            if (_agentAnimations.GetAnimationBool("IsUsingRootMotion") != false)
+            if (_animation.AnimatorService.GetAnimationBool("IsUsingRootMotion") != false)
             {
-                Vector3 animationDelta = _agentAnimations.GetAnimationDeltaPosition();
+                Vector3 animationDelta = _animation.AnimatorService.GetAnimationDeltaPosition();
                 _characterController.Move(animationDelta * _movementSpeed * Time.deltaTime * 35);
             }
             else
@@ -119,7 +116,7 @@ namespace AD.Player
                 _isJumping = false;
                 _isJumpingCompleted = false;
                 _moveDirection.y = _jumpSpeed;
-                _agentAnimations.SetTriggerForAnimation("jump");
+                _animation.AnimatorService.SetTriggerForAnimation("jump");
             }
         }
 
@@ -160,8 +157,8 @@ namespace AD.Player
             _moveDirection = Vector3.zero;
             _desiredRotationAngle = 0;
             _inputVerticalDirection = 0;
-            _agentAnimations.SetAnimationFloat(_agentAnimations.InputX, _agentAnimations.LowerAnimationFloatInputToZero(_agentAnimations.GetAnimationFloat(_agentAnimations.InputX)));
-            _agentAnimations.SetAnimationFloat(_agentAnimations.InputY, _agentAnimations.LowerAnimationFloatInputToZero(_agentAnimations.GetAnimationFloat(_agentAnimations.InputY)));
+            _animation.AnimatorService.SetAnimationFloat("InputX", _animation.AnimatorService.LowerAnimationFloatInputToZero(_animation.AnimatorService.GetAnimationFloat("InputX")));
+            _animation.AnimatorService.SetAnimationFloat("InputY", _animation.AnimatorService.LowerAnimationFloatInputToZero(_animation.AnimatorService.GetAnimationFloat("InputY")));
         }
 
         public bool HasCompletedJumping()

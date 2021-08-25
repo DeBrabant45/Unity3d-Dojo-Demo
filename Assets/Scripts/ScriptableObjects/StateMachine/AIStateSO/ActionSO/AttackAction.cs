@@ -9,7 +9,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (controller.Animations.IsInteracting() == false)
+            if (controller.Animations.AnimatorService.GetAnimationBool("IsInteracting") == false)
             {
                 Attack(controller);
             }
@@ -23,7 +23,7 @@ namespace AD.StateMachine.AI
             if(isTargetInSightRange != false && isTargetInAttackRange != false)
             {
                 controller.transform.LookAt(controller.ChaseTarget);
-                controller.Animations.SetTriggerForAnimation(controller.Weapon.AttackTriggerAnimation);
+                controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Weapon.AttackTriggerAnimation);
             }
         }
     }

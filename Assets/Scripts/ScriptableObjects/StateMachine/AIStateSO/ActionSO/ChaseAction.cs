@@ -9,7 +9,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (controller.Animations.IsInteracting() == false)
+            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
             {
                 Chase(controller);
             }
@@ -22,7 +22,7 @@ namespace AD.StateMachine.AI
             controller.NavMeshAgent.isStopped = false;
             var velcocityY = controller.NavMeshAgent.velocity.y;
             var magnitude = controller.NavMeshAgent.velocity.magnitude;
-            controller.Animations.Animator.SetFloat("Move", magnitude);
+            controller.Animations.AnimatorService.SetAnimationFloat("Move", magnitude);
         }
     }
 }

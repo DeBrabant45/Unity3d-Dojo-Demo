@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AD.StateMachine.Player
 {
@@ -9,10 +7,10 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsRKeyPressed() && !controller.AgentAnimations.IsInteracting())
+            if (controller.InputFromPlayer.IsRKeyPressed() && !controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
             {
-                controller.AgentAnimations.SetTriggerForAnimation(controller.Weapon.SheatheAnimation);
-                controller.AgentAnimations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, false);
+                controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Weapon.SheatheAnimation);
+                controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, false);
             }
         }
     }

@@ -15,13 +15,13 @@ namespace AD.StateMachine.Player
 
         private void UnsheatheAttack(PlayerStateController controller)
         {
-            if (!controller.AgentAnimations.IsInteracting() && controller.AgentStamina.Stamina > 0)
+            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting") && controller.AgentStamina.Stamina > 0)
             {
                 controller.ItemSlot.DamageCollider.SetDamage(controller.Weapon);
                 controller.ItemSlot.DamageCollider.SetTagToNotHit(controller);
-                controller.AgentAnimations.SetTriggerForAnimation(controller.Weapon.UnsheatheAttackAnimation);
+                controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Weapon.UnsheatheAttackAnimation);
                 controller.AgentStamina.ReduceStamina(controller.Weapon.StaminaCost);
-                controller.AgentAnimations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
+                controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
             }
         }
     }

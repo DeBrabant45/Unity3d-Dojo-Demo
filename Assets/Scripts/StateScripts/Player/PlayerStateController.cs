@@ -18,7 +18,7 @@ namespace AD.StateMachine.Player
         private PlayerMovement _movement;
         private PlayerAimController _playerAimController;
         private PlayerInput _inputFromPlayer;
-        private HumanoidAnimations _agentAnimations;
+        private HumanoidAnimations _animations;
         private AgentHealth _agentHealth;
         private AgentStamina _agentStamina;
         private ItemSlot _itemSlot;
@@ -27,7 +27,7 @@ namespace AD.StateMachine.Player
         public string TagName { get => this.tag; }
         public PlayerInput InputFromPlayer { get => _inputFromPlayer; }
         public PlayerMovement Movement { get => _movement; }
-        public HumanoidAnimations AgentAnimations { get => _agentAnimations; }
+        public HumanoidAnimations Animations { get => _animations; }
         public PlayerAimController AgentAimController { get => _playerAimController; }
         public ItemSlot ItemSlot { get => _itemSlot; }
         public WeaponSO Weapon { get => _weapon; }
@@ -39,7 +39,7 @@ namespace AD.StateMachine.Player
         {
             _movement = GetComponent<PlayerMovement>();
             _inputFromPlayer = GetComponent<PlayerInput>();
-            _agentAnimations = GetComponent<HumanoidAnimations>();
+            _animations = GetComponent<HumanoidAnimations>();
             _itemSlot = GetComponent<ItemSlot>();
             _playerAimController = GetComponent<PlayerAimController>();
             _itemSlot = GetComponent<ItemSlot>();
@@ -51,7 +51,6 @@ namespace AD.StateMachine.Player
         private void Update()
         {
             _currentState.UpdateState(this);
-            Debug.Log(_agentStamina.Stamina);
         }
 
         public void Constructor(PlayerState currentState, PlayerState remainState, PlayerInput input)
