@@ -7,17 +7,11 @@ namespace AD.Player
     public class PlayerInput : MonoBehaviour
     {
         private Camera _mainCamera;
-        private float _previousPrimaryActionInput = 0;
-        private float _previousSecondaryActionInput = 0;
         private IUnityInputService _unityInputService;
 
         public Vector2 MovementInputVector { get; private set; }
         public Vector3 MovementDirectionVector { get; private set; }
-
-        public void Constructor(IUnityInputService unityInputService)
-        {
-            _unityInputService = unityInputService;
-        }
+        public IUnityInputService UnityInputService { get => _unityInputService; set => _unityInputService = value; }
 
         private void Awake()
         {
@@ -25,7 +19,7 @@ namespace AD.Player
             Cursor.lockState = CursorLockMode.Locked;
             if (_unityInputService == null)
             {
-                Constructor(new UnityInputService());
+                _unityInputService = new UnityInputService();
             }
         }
 
@@ -33,11 +27,6 @@ namespace AD.Player
         {
             GetMovementInput();
             GetMovementDirection();
-        }
-
-        public bool IsSecondaryUpAction()
-        {
-            return _unityInputService.GetMouseButtonUp(1);
         }
 
         public bool IsSecondaryHeldDownAction()
@@ -52,30 +41,12 @@ namespace AD.Player
 
         public bool IsSecondaryActionPressed()
         {
-            var inputValue = _unityInputService.GetAxisRaw("Fire2");
-            if (_previousSecondaryActionInput == 0)
-            {
-                if (inputValue >= 1)
-                {
-                    return true;
-                }
-            }
-            _previousSecondaryActionInput = inputValue;
-            return false;
+            return _unityInputService.GetAxisRawPressedDown("Fire2"); 
         }
 
         public bool IsPrimaryActionPressed()
         {
-            var inputValue = _unityInputService.GetAxisRaw("Fire1");
-            if (_previousPrimaryActionInput == 0)
-            {
-                if (inputValue >= 1)
-                {
-                    return true;
-                }
-            }
-            _previousPrimaryActionInput = inputValue;
-            return false;
+            return _unityInputService.GetAxisRawPressedDown("Fire1");
         }
 
         public bool IsShiftKeyPressed()

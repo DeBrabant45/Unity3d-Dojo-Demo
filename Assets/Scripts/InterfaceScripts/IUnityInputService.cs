@@ -8,6 +8,7 @@ namespace AD.Interfaces
         bool GetMouseButtonPressedDown(int value);
         bool GetMouseButton(int value);
         bool GetMouseButtonUp(int value);
+        bool GetAxisRawPressedDown(string value);
         float GetAxisRaw(string value);
     }
 }

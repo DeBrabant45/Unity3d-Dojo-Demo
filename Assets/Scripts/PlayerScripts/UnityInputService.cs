@@ -30,5 +30,10 @@ namespace AD.Player
         {
             return Input.GetMouseButton(value);
         }
+
+        public bool GetAxisRawPressedDown(string value)
+        {
+            return (GetAxisRaw(value) >= 1f) ? true : false;
+        }
     }
 }

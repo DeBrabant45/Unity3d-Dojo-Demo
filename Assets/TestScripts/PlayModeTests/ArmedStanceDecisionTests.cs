@@ -13,7 +13,7 @@ namespace AD.PlayModeTests.StateMachine.Player.Decision
     [TestFixture]
     public class ArmedStanceDecisionTests
     {
-        private PlayerStateController _playerController;
+        private PlayerStateController _controller;
         private IUnityInputService _unityInputService;
         private PlayerState _startState;
         private PlayerState _trueState;
@@ -22,9 +22,9 @@ namespace AD.PlayModeTests.StateMachine.Player.Decision
         [SetUp]
         public void Setup()
         {
-            _playerController = new GameObject().AddComponent<PlayerStateController>();
             Camera mainCamera = new GameObject().AddComponent<Camera>();
             mainCamera.tag = "MainCamera";
+            _controller = new GameObject().AddComponent<PlayerStateController>();
             PlayerInput playerInput = new GameObject().AddComponent<PlayerInput>();
             _unityInputService = Substitute.For<IUnityInputService>();
 
@@ -36,8 +36,8 @@ namespace AD.PlayModeTests.StateMachine.Player.Decision
             PlayerTransition[] playerTransitions = { new PlayerTransition(armedStance, _trueState, _falseState) };
 
             _startState.Constructor(null, playerTransitions);
-            _playerController.Constructor(_startState, _falseState, playerInput);
-            playerInput.Constructor(_unityInputService);
+            _controller.Constructor(_startState, _falseState, playerInput);
+            playerInput.UnityInputService = _unityInputService;
         }
 
         [UnityTest]
@@ -45,7 +45,7 @@ namespace AD.PlayModeTests.StateMachine.Player.Decision
         {
             _unityInputService.GetKeyButtonPressedDown(KeyCode.R).Returns(true);
             yield return null;
-            Assert.IsTrue(_playerController.CurrentState == _trueState);
+            Assert.IsTrue(_controller.CurrentState == _trueState);
         }
 
         [UnityTest]
@@ -53,13 +53,13 @@ namespace AD.PlayModeTests.StateMachine.Player.Decision
         {
             _unityInputService.GetKeyButtonPressedDown(KeyCode.G).Returns(true);
             yield return null;
-            Assert.IsFalse(_playerController.CurrentState == _trueState);
+            Assert.IsFalse(_controller.CurrentState == _trueState);
         }
 
         [TearDown]
         public void Terminate()
         {
-            GameObject.Destroy(_playerController);
+            GameObject.Destroy(_controller);
             GameObject.Destroy(_startState);
             GameObject.Destroy(_trueState);
             GameObject.Destroy(_falseState);

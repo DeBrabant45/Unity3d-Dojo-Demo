@@ -21,7 +21,7 @@ namespace AD.PlayModeTests
             mainCamera.tag = "MainCamera";
             _playerInput = new GameObject().AddComponent<PlayerInput>();
             _unityInputService = Substitute.For<IUnityInputService>();
-            _playerInput.Constructor(_unityInputService);
+            _playerInput.UnityInputService = _unityInputService;
         }
 
         [UnityTest]
@@ -43,7 +43,7 @@ namespace AD.PlayModeTests
         [UnityTest]
         public IEnumerator IsPrimaryActionPressed_ValidKeyPressed_ReturnsTrue()
         {
-            _unityInputService.GetAxisRaw("Fire1").Returns(1);
+            _unityInputService.GetAxisRawPressedDown("Fire1").Returns(true);
             yield return null;
             Assert.IsTrue(_playerInput.IsPrimaryActionPressed());
         }
@@ -51,7 +51,7 @@ namespace AD.PlayModeTests
         [UnityTest]
         public IEnumerator IsPrimaryActionPressed_InvalidKeyPressed_ReturnsFalse()
         {
-            _unityInputService.GetAxisRaw("Fire2").Returns(1);
+            _unityInputService.GetAxisRawPressedDown("Fire2").Returns(true);
             yield return null;
             Assert.IsFalse(_playerInput.IsPrimaryActionPressed());
         }
@@ -59,7 +59,7 @@ namespace AD.PlayModeTests
         [UnityTest]
         public IEnumerator IsSecondaryActionPressed_ValidKeyPressed_ReturnsTrue()
         {
-            _unityInputService.GetAxisRaw("Fire2").Returns(1);
+            _unityInputService.GetAxisRawPressedDown("Fire2").Returns(true);
             yield return null;
             Assert.IsTrue(_playerInput.IsSecondaryActionPressed());
         }
@@ -67,7 +67,7 @@ namespace AD.PlayModeTests
         [UnityTest]
         public IEnumerator IsSecondaryActionPressed_InvalidKeyPressed_ReturnsFalse()
         {
-            _unityInputService.GetAxisRaw("Fire3").Returns(1);
+            _unityInputService.GetAxisRawPressedDown("Fire3").Returns(true);
             yield return null;
             Assert.IsFalse(_playerInput.IsSecondaryActionPressed());
         }
@@ -123,7 +123,7 @@ namespace AD.PlayModeTests
         [UnityTest]
         public IEnumerator IsSecondaryHeldDownAction_ValidKeyPressed_ReturnsTrue()
         {
-            _unityInputService.GetMouseButtonPressedDown(1).Returns(true);
+            _unityInputService.GetMouseButton(1).Returns(true);
             yield return null;
             Assert.IsTrue(_playerInput.IsSecondaryHeldDownAction());
         }
@@ -131,7 +131,7 @@ namespace AD.PlayModeTests
         [UnityTest]
         public IEnumerator IsSecondaryHeldDownAction_InvalidKeyPressed_ReturnsFalse()
         {
-            _unityInputService.GetMouseButtonPressedDown(2).Returns(true);
+            _unityInputService.GetMouseButton(2).Returns(true);
             yield return null;
             Assert.IsFalse(_playerInput.IsSecondaryHeldDownAction());
         }
