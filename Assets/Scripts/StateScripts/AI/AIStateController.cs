@@ -7,6 +7,7 @@ using AD.StateMachine.AI;
 using AD.Interfaces;
 using AD.Animation;
 using AD.Weapons;
+using AD.AI;
 
 namespace AD.StateMachine.AI
 {
@@ -16,50 +17,33 @@ namespace AD.StateMachine.AI
         [SerializeField] private AIState _remainState;
         [SerializeField] private AIStats _aIStats;
         [SerializeField] private Transform _eyeSight;
-        [SerializeField] private bool _aiActive = false;
         [SerializeField] private LayerMask _layer;
         [SerializeField] private WeaponSO _weapon;
 
-        private NavMeshAgent _navMeshAgent;
         private float _stateTimeElapsed;
         private HumanoidAnimations _animations;
+        private AIMovement _movement;
 
         public List<Transform> wayPointList;
         public int nextWayPoint;
         public Transform ChaseTarget;
         public bool IsWeaponEquipped = false;
 
-        public NavMeshAgent NavMeshAgent { get => _navMeshAgent; }
         public Transform EyeSight { get => _eyeSight; }
         public LayerMask Layer { get => _layer; }
         public AIStats AIStats { get => _aIStats; }
         public HumanoidAnimations Animations { get => _animations; }
         public WeaponSO Weapon { get => _weapon; }
+        public AIMovement Movement { get => _movement; }
 
         private void Awake()
         {
-            _navMeshAgent = GetComponent<NavMeshAgent>();
             _animations = GetComponent<HumanoidAnimations>();
-        }
-
-        private void SetupAI()
-        {
-            if(_aiActive != false)
-            {
-                _navMeshAgent.enabled = true;
-            }
-            else
-            {
-                _navMeshAgent.enabled = false;
-            }
+            _movement = GetComponent<AIMovement>();
         }
 
         private void Update()
         {
-            if(_aiActive == false)
-            {
-                return;
-            }
             _currentState.UpdateState(this);
         }
 
@@ -90,7 +74,7 @@ namespace AD.StateMachine.AI
 
         public void GetHit(IDamage damage)
         {
-            throw new NotImplementedException();
+            Debug.Log(damage.Amount);
         }
     }
 }

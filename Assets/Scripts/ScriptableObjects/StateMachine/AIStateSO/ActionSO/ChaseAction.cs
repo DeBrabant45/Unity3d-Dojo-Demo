@@ -18,11 +18,7 @@ namespace AD.StateMachine.AI
         private void Chase(AIStateController controller)
         {
             controller.transform.LookAt(controller.ChaseTarget);
-            controller.NavMeshAgent.destination = controller.ChaseTarget.position;
-            controller.NavMeshAgent.isStopped = false;
-            var velcocityY = controller.NavMeshAgent.velocity.y;
-            var magnitude = controller.NavMeshAgent.velocity.magnitude;
-            controller.Animations.AnimatorService.SetAnimationFloat("Move", magnitude);
+            controller.Movement.SetDestination(controller.ChaseTarget.position);
         }
     }
 }

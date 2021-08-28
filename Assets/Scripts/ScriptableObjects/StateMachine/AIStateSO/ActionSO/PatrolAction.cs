@@ -14,11 +14,10 @@ namespace AD.StateMachine.AI
 
         private void Patrol(AIStateController controller)
         {
-            controller.NavMeshAgent.destination = controller.wayPointList[controller.nextWayPoint].position;
-            controller.NavMeshAgent.isStopped = false;
-
-            if (controller.NavMeshAgent.remainingDistance <= 
-                controller.NavMeshAgent.stoppingDistance && !controller.NavMeshAgent.pathPending)
+            controller.Movement.SetDestination(controller.wayPointList[controller.nextWayPoint].position);
+            if (controller.Movement.NavMeshAgent.remainingDistance <= 
+                controller.Movement.NavMeshAgent.stoppingDistance 
+                && !controller.Movement.NavMeshAgent.pathPending)
             {
                 controller.nextWayPoint = (controller.nextWayPoint + 1) % controller.wayPointList.Count;
             }

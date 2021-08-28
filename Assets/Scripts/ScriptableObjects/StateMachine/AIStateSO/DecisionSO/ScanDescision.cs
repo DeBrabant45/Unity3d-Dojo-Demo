@@ -9,13 +9,12 @@ namespace AD.StateMachine.AI
     {
         public override bool Decide(AIStateController controller)
         {
-            bool isNoTargetInSight = Scan(controller);
-            return isNoTargetInSight;
+            return IsTargetWithinScanSight(controller);
         }
 
-        private bool Scan(AIStateController controller)
+        private bool IsTargetWithinScanSight(AIStateController controller)
         {
-            controller.NavMeshAgent.isStopped = true;
+            controller.Movement.StopMovement();
             controller.transform.Rotate(0, controller.AIStats.SearchingTurnSpeed * Time.deltaTime, 0);
             return controller.CheckIfCountDownElapsed(controller.AIStats.SearchDuration);
         }

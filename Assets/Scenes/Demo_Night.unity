@@ -383,6 +383,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27d041239b63ea4e828acb52fc1fea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &24014726
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24014724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba3d1ea659004742a3c125dc14f3d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &40079667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1042,6 +1054,18 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1959064907172534213, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
   m_PrefabInstance: {fileID: 8746584639831894973}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &343277371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343277370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dba3d1ea659004742a3c125dc14f3d66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &343277377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3089,6 +3113,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ninja Heavy
       objectReference: {fileID: 0}
+    - target: {fileID: 1959064907172534213, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1961512687156561943, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -5085,6 +5113,10 @@ PrefabInstance:
     - target: {fileID: 1959064907172534213, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
       propertyPath: m_Name
       value: Ninja Light
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959064907172534213, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1961512687156561943, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
       propertyPath: m_RootOrder
