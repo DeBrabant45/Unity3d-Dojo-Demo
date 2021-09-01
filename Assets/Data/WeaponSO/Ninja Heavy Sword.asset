@@ -18,7 +18,8 @@ MonoBehaviour:
   _criticalDamageChance: 0.2
   _weaponType: 0
   _weaponImpactForce: 0
-  _staminaCost: 0
+  _staminaCost: 10
+  _range: 2
   _attackStanceAnimation: IsArmed
   _attackAnimation: HeavyAttack
   _unsheatheAttackAnimation: 

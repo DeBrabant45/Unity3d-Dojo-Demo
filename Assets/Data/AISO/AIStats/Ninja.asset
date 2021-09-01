@@ -13,8 +13,6 @@ MonoBehaviour:
   m_Name: Ninja
   m_EditorClassIdentifier: 
   _id: 1
-  _sightRange: 3
-  _attackRange: 2
-  _attackRate: 2
+  _sightRange: 5
   _searchingTurnSpeed: 20
   _searchDuration: 5

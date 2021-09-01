@@ -14,7 +14,7 @@ namespace AD.StateMachine.AI
 
         private bool IsTargetVisable(AIStateController controller)
         {
-            bool isPlayerInSightRange = Physics.CheckSphere(controller.transform.position, controller.AIStats.SightRange, controller.Layer);
+            bool isPlayerInSightRange = Physics.CheckSphere(controller.transform.position, controller.AIStats.SightRange, controller.Combat.TargetLayer);
             return isPlayerInSightRange;
         }
     }

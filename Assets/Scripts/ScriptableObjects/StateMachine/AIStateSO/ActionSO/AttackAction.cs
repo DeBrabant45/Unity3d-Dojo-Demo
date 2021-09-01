@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +10,9 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (controller.Animations.AnimatorService.GetAnimationBool("IsInteracting") == false)
+            controller.Combat.AttackWaitRate += Time.deltaTime;
+            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting")
+                && !controller.AgentStamina.Stamina.IsRegenerating && controller.Combat.AttackWaitRate > 1f)
             {
                 Attack(controller);
             }
@@ -17,14 +20,23 @@ namespace AD.StateMachine.AI
 
         private void Attack(AIStateController controller)
         {
-            bool isTargetInSightRange = Physics.CheckSphere(controller.transform.position, 5, controller.Layer);
-            bool isTargetInAttackRange = Physics.CheckSphere(controller.transform.position, 2, controller.Layer);
-
-            if(isTargetInSightRange != false && isTargetInAttackRange != false)
+            if (IsTargetInSightRange(controller) && IsTargetInAttackRange(controller))
             {
-                controller.transform.LookAt(controller.ChaseTarget);
-                controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Weapon.AttackTriggerAnimation);
+                controller.Combat.AttackWaitRate = 0;
+                controller.transform.LookAt(controller.Combat.ChaseTarget);
+                controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Combat.Weapon.AttackTriggerAnimation);
+                controller.AgentStamina.Stamina.ReduceStamina(controller.Combat.Weapon.StaminaCost);
             }
+        }
+
+        private bool IsTargetInSightRange(AIStateController controller)
+        {
+            return Physics.CheckSphere(controller.transform.position, controller.AIStats.SightRange, controller.Combat.TargetLayer);
+        }        
+
+        private bool IsTargetInAttackRange(AIStateController controller)
+        {
+            return Physics.CheckSphere(controller.transform.position, controller.Combat.Weapon.Range, controller.Combat.TargetLayer);
         }
     }
 }

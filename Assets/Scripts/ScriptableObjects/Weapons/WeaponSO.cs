@@ -21,6 +21,7 @@ namespace AD.Weapons
         [SerializeField] WeaponType _weaponType;
         [SerializeField] float _weaponImpactForce;
         [SerializeField] int _staminaCost;
+        [SerializeField] float _range;
 
         [Header("Weapon Animation Settings")]
         [SerializeField] string _attackStanceAnimation;
@@ -60,6 +61,7 @@ namespace AD.Weapons
         public GameObject Model { get => _model; }
         public GameObject ParticalEffect { get => _attackHitEffect; }
         public GameObject AttackBlockedEffect { get => _attackBlockedEffect; }
+        public float Range { get => _range; }
 
         public int GetDamageValue()
         {

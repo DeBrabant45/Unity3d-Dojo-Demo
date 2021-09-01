@@ -8,6 +8,7 @@ using AD.Interfaces;
 using AD.Animation;
 using AD.Weapons;
 using AD.AI;
+using AD.Agent;
 
 namespace AD.StateMachine.AI
 {
@@ -17,34 +18,35 @@ namespace AD.StateMachine.AI
         [SerializeField] private AIState _remainState;
         [SerializeField] private AIStats _aIStats;
         [SerializeField] private Transform _eyeSight;
-        [SerializeField] private LayerMask _layer;
-        [SerializeField] private WeaponSO _weapon;
 
+        private AgentStamina _stamina;
         private float _stateTimeElapsed;
         private HumanoidAnimations _animations;
         private AIMovement _movement;
-
-        public List<Transform> wayPointList;
-        public int nextWayPoint;
-        public Transform ChaseTarget;
-        public bool IsWeaponEquipped = false;
+        private AIWayPoint _wayPoint;
+        private AICombat _combat;
 
         public Transform EyeSight { get => _eyeSight; }
-        public LayerMask Layer { get => _layer; }
         public AIStats AIStats { get => _aIStats; }
         public HumanoidAnimations Animations { get => _animations; }
-        public WeaponSO Weapon { get => _weapon; }
         public AIMovement Movement { get => _movement; }
+        public AgentStamina AgentStamina { get => _stamina; }
+        public AIWayPoint WayPoint { get => _wayPoint; }
+        public AICombat Combat { get => _combat; }
 
         private void Awake()
         {
             _animations = GetComponent<HumanoidAnimations>();
             _movement = GetComponent<AIMovement>();
+            _stamina = GetComponent<AgentStamina>();
+            _wayPoint = GetComponent<AIWayPoint>();
+            _combat = GetComponent<AICombat>();
         }
 
         private void Update()
         {
             _currentState.UpdateState(this);
+            //Debug.Log(_stamina.Stamina.Amount);
         }
 
         public void TransitionToState(AIState nextState)

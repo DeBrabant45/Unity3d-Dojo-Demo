@@ -8,7 +8,7 @@ namespace AD.StateMachine.Player
     {
         public override bool Decide(PlayerStateController controller)
         {
-            return controller.InputFromPlayer.IsPrimaryActionPressed() && controller.AgentStamina.Stamina > 0;
+            return controller.InputFromPlayer.IsPrimaryActionPressed() && controller.AgentStamina.Stamina.Amount > 0;
         }
     }
 }

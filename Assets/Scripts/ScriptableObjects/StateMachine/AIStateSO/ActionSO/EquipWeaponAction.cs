@@ -17,14 +17,14 @@ namespace AD.StateMachine.AI
 
         private void EquipWeapon(AIStateController controller)
         {
-            if(!controller.IsWeaponEquipped)
+            if(!controller.Combat.IsWeaponEquipped)
             {
-                bool isTargetInSightRange = Physics.CheckSphere(controller.transform.position, 20, controller.Layer);
+                bool isTargetInSightRange = Physics.CheckSphere(controller.transform.position, 20, controller.Combat.TargetLayer);
                 if (isTargetInSightRange != false)
                 {
-                    controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Weapon.UnsheatheAnimation);
-                    controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
-                    controller.IsWeaponEquipped = true;
+                    controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Combat.Weapon.UnsheatheAnimation);
+                    controller.Animations.AnimatorService.SetBoolForAnimation(controller.Combat.Weapon.AttackStanceAnimation, true);
+                    controller.Combat.IsWeaponEquipped = true;
                 }
             }
         }

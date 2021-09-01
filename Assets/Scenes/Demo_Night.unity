@@ -256,17 +256,6 @@ MonoBehaviour:
   _remainState: {fileID: 11400000, guid: 840eecf396afc60458b4fdd4ff5e78f1, type: 2}
   _aIStats: {fileID: 11400000, guid: 0a6d89fea7ec54f49b1758204ec722b4, type: 2}
   _eyeSight: {fileID: 313603}
-  _aiActive: 1
-  _layer:
-    serializedVersion: 2
-    m_Bits: 8
-  _weapon: {fileID: 0}
-  wayPointList:
-  - {fileID: 105888736}
-  - {fileID: 1991593947}
-  nextWayPoint: 0
-  ChaseTarget: {fileID: 0}
-  IsWeaponEquipped: 0
 --- !u!195 &19851509
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -395,6 +384,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dba3d1ea659004742a3c125dc14f3d66, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &24014727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24014724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e0c4dbd3b07154b8e03f58e2ed7e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialValue: 50
+  _regenSpeed: 5
+  _regenAmount: 0.2
+--- !u!114 &24014734
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24014724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a91a2e71d06eef489ca1c53eba42ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wayPoints: []
+--- !u!114 &24014735
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24014724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ae187d5e072bd4088b473f29df55ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  _weapon: {fileID: 11400000, guid: ca423667128411d4a85dd3ee612c3f32, type: 2}
+  ChaseTarget: {fileID: 2241489719860688394}
 --- !u!1 &40079667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1078,6 +1112,51 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c27d041239b63ea4e828acb52fc1fea2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &343277379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343277370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04ae187d5e072bd4088b473f29df55ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  _weapon: {fileID: 11400000, guid: 3d64961ae36328e4a8e6d5b5312d4dfa, type: 2}
+  ChaseTarget: {fileID: 2241489719860688394}
+--- !u!114 &343277380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343277370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a91a2e71d06eef489ca1c53eba42ae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _wayPoints: []
+--- !u!114 &343277381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343277370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e0c4dbd3b07154b8e03f58e2ed7e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialValue: 50
+  _regenSpeed: 5
+  _regenAmount: 0.2
 --- !u!1001 &382759473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1157,15 +1236,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.104211815
+      value: 0.10421182
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000007410014
+      value: 4.2958128e-16
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 7.764386e-10
+      value: -1.1114265e-16
       objectReference: {fileID: 0}
     - target: {fileID: 660467039414610358, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1326,17 +1405,6 @@ MonoBehaviour:
   _remainState: {fileID: 11400000, guid: 840eecf396afc60458b4fdd4ff5e78f1, type: 2}
   _aIStats: {fileID: 11400000, guid: 0a6d89fea7ec54f49b1758204ec722b4, type: 2}
   _eyeSight: {fileID: 1206872631}
-  _aiActive: 1
-  _layer:
-    serializedVersion: 2
-    m_Bits: 8
-  _weapon: {fileID: 0}
-  wayPointList:
-  - {fileID: 105888736}
-  - {fileID: 1991593947}
-  nextWayPoint: 0
-  ChaseTarget: {fileID: 0}
-  IsWeaponEquipped: 0
 --- !u!195 &534816420
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -3117,6 +3185,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1959064907172534213, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
+      propertyPath: m_TagString
+      value: AI
+      objectReference: {fileID: 0}
     - target: {fileID: 1961512687156561943, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -3180,6 +3252,10 @@ PrefabInstance:
     - target: {fileID: 5032883031545036505, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
       propertyPath: IsWeaponEquipped
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5032883031545036505, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
+      propertyPath: _targetLayer.m_Bits
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5430845627243828825, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
       propertyPath: m_IsKinematic
@@ -4278,15 +4354,6 @@ MonoBehaviour:
   _remainState: {fileID: 11400000, guid: 840eecf396afc60458b4fdd4ff5e78f1, type: 2}
   _aIStats: {fileID: 0}
   _eyeSight: {fileID: 1059582992}
-  _aiActive: 1
-  _layer:
-    serializedVersion: 2
-    m_Bits: 8
-  _weapon: {fileID: 0}
-  wayPointList: []
-  nextWayPoint: 0
-  ChaseTarget: {fileID: 0}
-  IsWeaponEquipped: 0
 --- !u!1 &1865926999
 GameObject:
   m_ObjectHideFlags: 0
@@ -4886,17 +4953,6 @@ MonoBehaviour:
   _remainState: {fileID: 11400000, guid: 840eecf396afc60458b4fdd4ff5e78f1, type: 2}
   _aIStats: {fileID: 11400000, guid: 0a6d89fea7ec54f49b1758204ec722b4, type: 2}
   _eyeSight: {fileID: 260534208}
-  _aiActive: 1
-  _layer:
-    serializedVersion: 2
-    m_Bits: 8
-  _weapon: {fileID: 0}
-  wayPointList:
-  - {fileID: 105888736}
-  - {fileID: 1991593947}
-  nextWayPoint: 0
-  ChaseTarget: {fileID: 2241489719860688394}
-  IsWeaponEquipped: 0
 --- !u!195 &2087347804
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -5012,6 +5068,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &2147460055 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2329233605364741182, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
+  m_PrefabInstance: {fileID: 4559972248765668948}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2147460056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147460055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04e0c4dbd3b07154b8e03f58e2ed7e26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _initialValue: 100
+  _regenSpeed: 5
+  _regenAmount: 0.2
 --- !u!4 &2241489719860688394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2329233605364901982, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
@@ -5024,10 +5100,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2329233605364741155, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
-      propertyPath: _staminaInitialValue
-      value: 12000
-      objectReference: {fileID: 0}
     - target: {fileID: 2329233605364741157, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
       propertyPath: _healthInitialValue
       value: 10
@@ -5117,6 +5189,10 @@ PrefabInstance:
     - target: {fileID: 1959064907172534213, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1959064907172534213, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
+      propertyPath: m_TagString
+      value: AI
       objectReference: {fileID: 0}
     - target: {fileID: 1961512687156561943, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
       propertyPath: m_RootOrder
