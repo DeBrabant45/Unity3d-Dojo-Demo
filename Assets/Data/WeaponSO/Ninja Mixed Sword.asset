@@ -19,11 +19,12 @@ MonoBehaviour:
   _weaponType: 0
   _weaponImpactForce: 0
   _staminaCost: 0
+  _range: 0
   _attackStanceAnimation: IsArmed
   _attackAnimation: MixedAttack
   _unsheatheAttackAnimation: 
-  _blockStanceAnimation: 
-  _blockReactionAnimation: 
+  _blockStanceAnimation: IsGuarding
+  _blockReactionAnimation: GuardReaction
   _unsheatheAnimation: Unsheathe
   _sheatheAnimation: Sheathe
   _equippedPosition: {x: 0, y: 0, z: 0}

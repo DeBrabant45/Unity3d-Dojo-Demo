@@ -23,8 +23,8 @@ MonoBehaviour:
   _attackStanceAnimation: IsArmed
   _attackAnimation: HeavyAttack
   _unsheatheAttackAnimation: 
-  _blockStanceAnimation: 
-  _blockReactionAnimation: 
+  _blockStanceAnimation: IsGuarding
+  _blockReactionAnimation: GuardReaction
   _unsheatheAnimation: Unsheathe
   _sheatheAnimation: Sheathe
   _equippedPosition: {x: 0, y: 0, z: 0}

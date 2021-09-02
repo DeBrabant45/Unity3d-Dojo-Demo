@@ -399,6 +399,11 @@ MonoBehaviour:
   _initialValue: 50
   _regenSpeed: 5
   _regenAmount: 0.2
+--- !u!4 &24014733 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1961512687156561943, guid: d72579cb1febb064fbd661bf9ec329ad, type: 3}
+  m_PrefabInstance: {fileID: 1326526432}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &24014734
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -429,6 +434,20 @@ MonoBehaviour:
     m_Bits: 8
   _weapon: {fileID: 11400000, guid: ca423667128411d4a85dd3ee612c3f32, type: 2}
   ChaseTarget: {fileID: 2241489719860688394}
+--- !u!114 &24014736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 24014724}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ead4276f8ae6f13418664f27099c624b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _blockRaycastStartPosition: {fileID: 24014733}
+  _blockDistance: 0.8
 --- !u!1 &40079667
 GameObject:
   m_ObjectHideFlags: 0
@@ -1236,15 +1255,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.10421182
+      value: 0.104211815
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 4.2958128e-16
+      value: -0.000000007410014
       objectReference: {fileID: 0}
     - target: {fileID: 660467039239999470, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -1.1114265e-16
+      value: 7.764386e-10
       objectReference: {fileID: 0}
     - target: {fileID: 660467039414610358, guid: e8fb0f71a7b43844c8b762428a7b989c, type: 3}
       propertyPath: m_LocalPosition.x
