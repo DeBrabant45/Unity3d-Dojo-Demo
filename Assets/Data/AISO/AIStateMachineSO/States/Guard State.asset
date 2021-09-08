@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d65f5bbddf007f4dacbd495b1ffed42, type: 3}
+  m_Name: Guard State
+  m_EditorClassIdentifier: 
+  _actions:
+  - {fileID: 11400000, guid: 903f4a656c0132b42a40ba0b4af93b2d, type: 2}
+  - {fileID: 11400000, guid: 8465516121a97df4c93053d1395b3d1e, type: 2}
+  - {fileID: 11400000, guid: 36b00e0a68990914c80f783c90d4f78b, type: 2}
+  - {fileID: 11400000, guid: 89104a36fbcec4042ac8d67a5b54e8ea, type: 2}
+  - {fileID: 11400000, guid: f747f6049bf03e745b23dc72637936f5, type: 2}
+  _transitions:
+  - _decision: {fileID: 11400000, guid: c8e0aeaf5ec907d4599eb137306f20ea, type: 2}
+    _trueState: {fileID: 11400000, guid: 840eecf396afc60458b4fdd4ff5e78f1, type: 2}
+    _falseState: {fileID: 11400000, guid: f4a7cb61afc6124418b936e75b3a1cf1, type: 2}
+  - _decision: {fileID: 11400000, guid: b354c020a831a8c48a83e61b87943be5, type: 2}
+    _trueState: {fileID: 11400000, guid: ae5d758cd27ef0a47bcf97b40875287e, type: 2}
+    _falseState: {fileID: 11400000, guid: 840eecf396afc60458b4fdd4ff5e78f1, type: 2}
+  sceneGizmoColor: {r: 0.93837655, g: 0.9716981, b: 0.01375042, a: 1}

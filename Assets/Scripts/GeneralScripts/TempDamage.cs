@@ -28,7 +28,7 @@ namespace Assets.Scripts.GeneralScripts
             {
                 if (blockable != null)
                 {
-                    blockable.Attacker = this.gameObject;
+                    //blockable.AttackerTag = this.gameObject;
                 }
                 hittable.GetHit(_damage);
             }

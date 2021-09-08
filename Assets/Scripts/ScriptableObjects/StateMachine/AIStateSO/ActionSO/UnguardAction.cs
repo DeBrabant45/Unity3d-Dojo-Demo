@@ -11,7 +11,6 @@ namespace AD.StateMachine.AI
                 && !controller.AgentStamina.Stamina.IsRegenerating
                 && controller.Combat.BlockAttack != false)
             {
-                Debug.Log("I'm run in the unguard");
                 Unguard(controller);
             }
         }

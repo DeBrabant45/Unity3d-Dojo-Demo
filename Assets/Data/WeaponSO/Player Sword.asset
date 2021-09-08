@@ -19,8 +19,9 @@ MonoBehaviour:
   _weaponType: 2
   _weaponImpactForce: 0
   _staminaCost: 5
+  _range: 0
   _attackStanceAnimation: IsArmed
-  _attackAnimation: HeavyAttack
+  _attackAnimation: LightAttack
   _unsheatheAttackAnimation: UnsheatheAttack
   _blockStanceAnimation: BlockStance
   _blockReactionAnimation: 

@@ -42,8 +42,13 @@ public class DamageCollider : MonoBehaviour, IDamageable
     public void DoDamage(Collider hitObject)
     {
         var hittable = hitObject.GetComponent<IHittable>();
+        var blockable = hitObject.GetComponent<IBlockable>();
         if (hittable != null && hitObject.gameObject.tag != _tag.TagName)
         {
+            if (blockable != null)
+            {
+                blockable.AttackerTag = _tag;
+            }
             var spawnHitEffect = Instantiate(_damage.ParticalEffect, transform.position, Quaternion.identity);
             Destroy(spawnHitEffect, 2f);
             hittable.GetHit(_damage);

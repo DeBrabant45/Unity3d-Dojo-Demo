@@ -1,6 +1,5 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
+using AD.Interfaces;
 using UnityEngine;
 
 namespace AD.Agent
@@ -9,11 +8,12 @@ namespace AD.Agent
     {
         [SerializeField] Transform _blockRaycastStartPosition;
         [SerializeField] private float _blockDistance = 0.8f;
+
         private bool _isBlocking = false;
 
         public int BlockLevel => throw new NotImplementedException();
         public Action OnBlockSuccessful { get; set; }
-        public GameObject Attacker { get; set; }
+        public ITagable AttackerTag { get; set; }
         public bool IsBlocking { get => _isBlocking; set => _isBlocking = value; }
 
         public bool IsBlockHitSuccessful()
@@ -23,11 +23,15 @@ namespace AD.Agent
                 RaycastHit hit;
                 if (Physics.SphereCast(_blockRaycastStartPosition.position, 0.2f, transform.forward, out hit, _blockDistance))
                 {
-                    if (hit.collider.gameObject == Attacker)
+                    if (AttackerTag != null && hit.collider.gameObject.tag == AttackerTag.TagName)
                     {
                         return true;
                     }
                 }
+            }
+            else if (AttackerTag != null)
+            {
+                AttackerTag = null;
             }
             return false;
         }

@@ -8,7 +8,8 @@ namespace AD.StateMachine.AI
         public override void Act(AIStateController controller)
         {
             if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting")
-                && controller.AgentStamina.Stamina.IsRegenerating)
+                && controller.AgentStamina.Stamina.IsRegenerating
+                && !controller.Combat.AIPosture.IsPostureBroken)
             {
                 Guard(controller);
             }

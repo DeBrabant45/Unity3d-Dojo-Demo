@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d65f5bbddf007f4dacbd495b1ffed42, type: 3}
+  m_Name: Stunned State
+  m_EditorClassIdentifier: 
+  _actions:
+  - {fileID: 11400000, guid: 99ee2dc3669d80d4ca4d9d4532220fb3, type: 2}
+  - {fileID: 11400000, guid: dc39feaedcd19ca479069f6147b22abf, type: 2}
+  _transitions:
+  - _decision: {fileID: 11400000, guid: b354c020a831a8c48a83e61b87943be5, type: 2}
+    _trueState: {fileID: 11400000, guid: 840eecf396afc60458b4fdd4ff5e78f1, type: 2}
+    _falseState: {fileID: 11400000, guid: 6b8fe89a504a9f74e877edb80f598c1b, type: 2}
+  sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}

@@ -16,10 +16,9 @@ namespace AD.StateMachine.AI
 
         private void GuardReaction(AIStateController controller)
         {
-            /* Increase a value for how many successful blocked hits
-             * Track if the deltaTime has surpassed a certain time limit if so reset the successful blocked hits value
-             * Call to animator for block reaction
-             */
+            controller.Combat.BlockAttack.AttackerTag = null;
+            controller.Animations.AnimatorService.SetTriggerForAnimation("GuardReaction");
+            controller.Combat.AIPosture.AddPostureDamage(10f);
         }
     }
 }

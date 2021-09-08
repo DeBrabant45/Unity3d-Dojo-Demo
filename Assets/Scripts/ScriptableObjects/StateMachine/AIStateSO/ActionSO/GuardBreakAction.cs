@@ -7,11 +7,17 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            /*
-             * Check if AI is blocking
-             * Check if block hit count hits max count over a short period of time
-             * If above is true trigger the guard break animation
-             */
+            if (controller.Combat.AIPosture.IsPostureBroken)
+            {
+                GuardBreak(controller);
+            }
+        }
+
+        private void GuardBreak(AIStateController controller)
+        {
+            controller.Combat.BlockAttack.IsBlocking = false;
+            controller.Animations.AnimatorService.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, false);
+            controller.Animations.AnimatorService.SetTriggerForAnimation("GuardBreak");
         }
     }
 }

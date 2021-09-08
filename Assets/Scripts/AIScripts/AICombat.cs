@@ -9,19 +9,21 @@ namespace AD.AI
     {
         [SerializeField] private LayerMask _targetLayer;
         [SerializeField] private WeaponSO _weapon;
-        private BlockAttack _blockAttack;
 
         public Transform ChaseTarget;
         public bool IsWeaponEquipped { get; set; }
         public float AttackWaitRate { get; set; }
+        public float TickWaitRate { get; set; }
         public WeaponSO Weapon { get => _weapon; }
         public LayerMask TargetLayer { get => _targetLayer; }
-        public BlockAttack BlockAttack { get => _blockAttack; }
+        public BlockAttack BlockAttack { get; private set; }
+        public Posture AIPosture { get; private set; }
 
         void Start()
         {
             IsWeaponEquipped = false;
-            _blockAttack = GetComponent<BlockAttack>();
+            BlockAttack = GetComponent<BlockAttack>();
+            AIPosture = GetComponent<Posture>();
         }
     }
 }

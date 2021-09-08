@@ -12,7 +12,7 @@ using AD.Agent;
 
 namespace AD.StateMachine.AI
 {
-    public class AIStateController : MonoBehaviour, IHittable
+    public class AIStateController : MonoBehaviour
     {
         [SerializeField] private AIState _currentState;
         [SerializeField] private AIState _remainState;
@@ -47,6 +47,7 @@ namespace AD.StateMachine.AI
         {
             _currentState.UpdateState(this);
             //Debug.Log(_stamina.Stamina.Amount);
+            Debug.Log(_currentState);
         }
 
         public void TransitionToState(AIState nextState)
@@ -72,11 +73,6 @@ namespace AD.StateMachine.AI
         private void OnExitState()
         {
             _stateTimeElapsed = 0;
-        }
-
-        public void GetHit(IDamage damage)
-        {
-            Debug.Log(damage.Amount);
         }
     }
 }

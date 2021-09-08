@@ -19,11 +19,7 @@ namespace AD.Agent
 
         public void GetHit(IDamage damage)
         {
-            if (_blockAttack != null && _blockAttack.IsBlockHitSuccessful() != false)
-            {
-                return;
-            }
-            else
+            if (_blockAttack == null || _blockAttack.IsBlockHitSuccessful() == false)
             {
                 _agentHealth.ReduceHealth(damage.Amount);
                 _hurtEmissions.StartHurtCoroutine();
