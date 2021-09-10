@@ -7,7 +7,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (controller.Combat.AIPosture.IsPostureBroken)
+            if (controller.BaseStats.Posture.IsBroken)
             {
                 Stunned(controller);
             }
@@ -19,7 +19,7 @@ namespace AD.StateMachine.AI
             {
                 controller.Animations.AnimatorService.SetBoolForAnimation("IsStunned", true);
             }
-            controller.Combat.AIPosture.RemovePostureDamage();
+            controller.BaseStats.Posture.ReduceDamage();
         }
     }
 }

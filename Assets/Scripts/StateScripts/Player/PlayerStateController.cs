@@ -19,8 +19,6 @@ namespace AD.StateMachine.Player
         private PlayerAimController _playerAimController;
         private PlayerInput _inputFromPlayer;
         private HumanoidAnimations _animations;
-        private AgentHealth _agentHealth;
-        private AgentStamina _agentStamina;
         private ItemSlot _itemSlot;
         private BlockAttack _blockAttack;
 
@@ -31,9 +29,9 @@ namespace AD.StateMachine.Player
         public PlayerAimController AgentAimController { get => _playerAimController; }
         public ItemSlot ItemSlot { get => _itemSlot; }
         public WeaponSO Weapon { get => _weapon; }
-        public AgentStamina AgentStamina { get => _agentStamina; }
         public PlayerState CurrentState { get => _currentState; }
         public BlockAttack BlockAttack { get => _blockAttack; }
+        public IBaseStats BaseStats { get; private set; }
 
         private void Awake()
         {
@@ -43,9 +41,8 @@ namespace AD.StateMachine.Player
             _itemSlot = GetComponent<ItemSlot>();
             _playerAimController = GetComponent<PlayerAimController>();
             _itemSlot = GetComponent<ItemSlot>();
-            _agentHealth = GetComponent<AgentHealth>();
-            _agentStamina = GetComponent<AgentStamina>();
             _blockAttack = GetComponent<BlockAttack>();
+            BaseStats = GetComponent<AgentStats>();
         }
 
         private void Update()

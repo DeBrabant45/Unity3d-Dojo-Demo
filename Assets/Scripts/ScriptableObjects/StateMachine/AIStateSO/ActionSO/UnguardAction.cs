@@ -8,7 +8,7 @@ namespace AD.StateMachine.AI
         public override void Act(AIStateController controller)
         {
             if (controller.Animations.AnimatorService.GetAnimationBool(controller.Combat.Weapon.BlockStanceAnimation)
-                && !controller.AgentStamina.Stamina.IsRegenerating
+                && !controller.BaseStats.Stamina.IsRegenerating
                 && controller.Combat.BlockAttack != false)
             {
                 Unguard(controller);

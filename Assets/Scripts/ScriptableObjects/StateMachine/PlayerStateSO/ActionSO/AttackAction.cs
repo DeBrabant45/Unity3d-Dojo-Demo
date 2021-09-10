@@ -17,12 +17,12 @@ namespace AD.StateMachine.Player
 
         private void Attack(PlayerStateController controller)
         {
-            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting") && controller.AgentStamina.Stamina.Amount > 0)
+            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting") && controller.BaseStats.Stamina.Amount > 0)
             {
                 controller.ItemSlot.DamageCollider.SetDamage(controller.Weapon);
                 controller.ItemSlot.DamageCollider.SetTagToNotHit(controller);
                 controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Weapon.AttackTriggerAnimation);
-                controller.AgentStamina.Stamina.ReduceStamina(controller.Weapon.StaminaCost);
+                controller.BaseStats.Stamina.ReduceStamina(controller.Weapon.StaminaCost);
             }
         }
     }

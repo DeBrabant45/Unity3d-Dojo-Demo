@@ -6,14 +6,14 @@ namespace AD.Agent
 {
     public class AgentTakeDamage : MonoBehaviour, IHittable
     {
+        private AgentStats _agentStats;
         private BlockAttack _blockAttack;
         private HurtEmissions _hurtEmissions;
-        private AgentHealth _agentHealth;
 
         private void Start()
         {
             _blockAttack = GetComponent<BlockAttack>();
-            _agentHealth = GetComponent<AgentHealth>();
+            _agentStats = GetComponent<AgentStats>();
             _hurtEmissions = GetComponent<HurtEmissions>();
         }
 
@@ -21,7 +21,7 @@ namespace AD.Agent
         {
             if (_blockAttack == null || _blockAttack.IsBlockHitSuccessful() == false)
             {
-                _agentHealth.ReduceHealth(damage.Amount);
+                _agentStats.Health.ReduceAmount(damage.Amount);
                 _hurtEmissions.StartHurtCoroutine();
             }
         }

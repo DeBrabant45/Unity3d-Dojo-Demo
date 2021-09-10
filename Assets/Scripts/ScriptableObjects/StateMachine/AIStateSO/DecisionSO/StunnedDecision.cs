@@ -8,7 +8,7 @@ namespace AD.StateMachine.AI
     {
         public override bool Decide(AIStateController controller)
         {
-            return controller.Combat.AIPosture.IsPostureBroken;
+            return controller.BaseStats.Posture.IsBroken;
         }
     }
 }

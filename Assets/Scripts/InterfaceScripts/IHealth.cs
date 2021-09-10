@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace AD.Interfaces
+{
+    public interface IHealth
+    {
+        public float Amount { get; set; }
+        public void AddAmount(float amount);
+        public void ReduceAmount(float amount);
+    }
+}

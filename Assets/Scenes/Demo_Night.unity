@@ -393,12 +393,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 24014724}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e0c4dbd3b07154b8e03f58e2ed7e26, type: 3}
+  m_Script: {fileID: 11500000, guid: da8e6ec4c09ef524189139f2a515f271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _initialValue: 50
-  _regenSpeed: 5
-  _regenAmount: 0.2
+  _healthSO: {fileID: 11400000, guid: 1eb59a3416f48154eb08430fc5b8812e, type: 2}
+  _staminaSO: {fileID: 11400000, guid: 33982a5940fc1fe4d96d97eefa4ac0f7, type: 2}
+  _postureSO: {fileID: 11400000, guid: 4bbb1580fd5c6854ab7f310a1be8725d, type: 2}
 --- !u!114 &24014728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -460,21 +460,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _blockRaycastStartPosition: {fileID: 362710750}
   _blockDistance: 0.8
---- !u!114 &24014738
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 24014724}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 26e4d8ed5d590de4c9ef67ec05b02219, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxAmount: 20
-  _regenSpeed: 0
-  _regenAmount: 5
 --- !u!1 &40079667
 GameObject:
   m_ObjectHideFlags: 0
@@ -5568,6 +5553,21 @@ MonoBehaviour:
   _initialValue: 12000
   _regenSpeed: 5
   _regenAmount: 0.2
+--- !u!114 &2147460057
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2147460055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da8e6ec4c09ef524189139f2a515f271, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _healthSO: {fileID: 11400000, guid: e640a694bdf731b49aa5f4c0f80397d6, type: 2}
+  _staminaSO: {fileID: 11400000, guid: 3f8b4fa566a744d4db5558e45908b845, type: 2}
+  _postureSO: {fileID: 11400000, guid: 156927352ecbf4d479cad773df1505da, type: 2}
 --- !u!4 &2241489719860688394 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2329233605364901982, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
@@ -5648,7 +5648,8 @@ PrefabInstance:
       propertyPath: _blockRaycastStartPosition
       value: 
       objectReference: {fileID: 4559972248765668949}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2329233605364741157, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: dcf50f94bc6df1e4bbf2e66a3e412597, type: 3}
 --- !u!4 &4559972248765668949 stripped
 Transform:

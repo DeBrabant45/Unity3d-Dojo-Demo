@@ -12,7 +12,7 @@ namespace AD.StateMachine.AI
         {
             controller.Combat.AttackWaitRate += Time.deltaTime;
             if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting")
-                && !controller.AgentStamina.Stamina.IsRegenerating && controller.Combat.AttackWaitRate > 1f)
+                && !controller.BaseStats.Stamina.IsRegenerating && controller.Combat.AttackWaitRate > 1f)
             {
                 Attack(controller);
             }
@@ -25,7 +25,7 @@ namespace AD.StateMachine.AI
                 controller.Combat.AttackWaitRate = 0;
                 controller.transform.LookAt(controller.Combat.ChaseTarget);
                 controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Combat.Weapon.AttackTriggerAnimation);
-                controller.AgentStamina.Stamina.ReduceStamina(controller.Combat.Weapon.StaminaCost);
+                controller.BaseStats.Stamina.ReduceStamina(controller.Combat.Weapon.StaminaCost);
             }
         }
 

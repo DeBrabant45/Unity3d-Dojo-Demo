@@ -18,7 +18,7 @@ namespace AD.StateMachine.AI
         {
             controller.Combat.BlockAttack.AttackerTag = null;
             controller.Animations.AnimatorService.SetTriggerForAnimation("GuardReaction");
-            controller.Combat.AIPosture.AddPostureDamage(10f);
+            controller.BaseStats.Posture.IncreaseDamage(10f);
         }
     }
 }

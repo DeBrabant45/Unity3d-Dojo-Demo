@@ -7,7 +7,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (controller.Combat.AIPosture.IsPostureBroken)
+            if (controller.BaseStats.Posture.IsBroken)
             {
                 GuardBreak(controller);
             }

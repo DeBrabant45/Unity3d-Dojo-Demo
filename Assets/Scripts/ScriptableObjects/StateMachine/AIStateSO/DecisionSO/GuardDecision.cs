@@ -8,7 +8,7 @@ namespace AD.StateMachine.AI
     {
         public override bool Decide(AIStateController controller)
         {
-            return controller.AgentStamina.Stamina.IsRegenerating;
+            return controller.BaseStats.Stamina.IsRegenerating;
         }
     }
 }

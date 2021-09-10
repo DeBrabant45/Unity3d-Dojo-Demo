@@ -19,7 +19,6 @@ namespace AD.StateMachine.AI
         [SerializeField] private AIStats _aIStats;
         [SerializeField] private Transform _eyeSight;
 
-        private AgentStamina _stamina;
         private float _stateTimeElapsed;
         private HumanoidAnimations _animations;
         private AIMovement _movement;
@@ -30,23 +29,22 @@ namespace AD.StateMachine.AI
         public AIStats AIStats { get => _aIStats; }
         public HumanoidAnimations Animations { get => _animations; }
         public AIMovement Movement { get => _movement; }
-        public AgentStamina AgentStamina { get => _stamina; }
         public AIWayPoint WayPoint { get => _wayPoint; }
         public AICombat Combat { get => _combat; }
+        public IBaseStats BaseStats { get; set; }
 
         private void Awake()
         {
             _animations = GetComponent<HumanoidAnimations>();
             _movement = GetComponent<AIMovement>();
-            _stamina = GetComponent<AgentStamina>();
             _wayPoint = GetComponent<AIWayPoint>();
             _combat = GetComponent<AICombat>();
+            BaseStats = GetComponent<AgentStats>();
         }
 
         private void Update()
         {
             _currentState.UpdateState(this);
-            //Debug.Log(_stamina.Stamina.Amount);
             Debug.Log(_currentState);
         }
 
