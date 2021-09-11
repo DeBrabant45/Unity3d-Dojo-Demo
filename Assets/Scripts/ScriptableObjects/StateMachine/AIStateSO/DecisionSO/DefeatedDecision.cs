@@ -3,14 +3,12 @@ using UnityEngine;
 
 namespace AD.StateMachine.AI
 {
-    public class DefeatedDecision : AIAction
+    [CreateAssetMenu(menuName = "StateMachine/AI/Decisions/Defeated")]
+    public class DefeatedDecision : AIDecision
     {
-        public override void Act(AIStateController controller)
+        public override bool Decide(AIStateController controller)
         {
-            /*
-             * Check if health is greater than zero
-             */
-            return;
+            return controller.BaseStats.Health.Amount <= 0;
         }
     }
 }
