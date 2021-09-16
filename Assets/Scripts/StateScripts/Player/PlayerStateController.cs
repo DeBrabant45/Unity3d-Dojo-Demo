@@ -47,7 +47,10 @@ namespace AD.StateMachine.Player
 
         private void Update()
         {
-            _currentState.UpdateState(this);
+            if (Time.timeScale == 1)
+            {
+                _currentState.UpdateState(this);
+            }
         }
 
         public void Constructor(PlayerState currentState, PlayerState remainState, PlayerInput input)

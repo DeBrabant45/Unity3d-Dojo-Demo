@@ -98,7 +98,7 @@ namespace AD.Player
             if (_animation.AnimatorService.GetAnimationBool("IsUsingRootMotion") != false)
             {
                 Vector3 animationDelta = _animation.AnimatorService.GetAnimationDeltaPosition();
-                _characterController.Move(animationDelta * _movementSpeed * Time.deltaTime * 15);
+                _characterController.Move(animationDelta * _movementSpeed * Time.deltaTime * 20);
             }
             else
             {
