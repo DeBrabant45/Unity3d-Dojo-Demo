@@ -1,0 +1,320 @@
+﻿<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Unity WebGL Player</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <zlink rel="stylesheet" href="TemplateData/style.css">
+        <script src="TemplateData/UnityProgress.js"></script>
+        <script src="Build/UnityLoader.js"></script>
+        <script>
+            var gameInstance = UnityLoader.instantiate("gameContainer", "Build/WebGL.json");
+            function startup() {
+                window.onresize = function () {
+                    resizeGame();
+                };
+                resizeGame();
+            }
+            function resizeGame() {
+
+                //	Ensure that the game fits within the width of its containing
+                //	div, and is shallower than the height of the containing window.
+
+                var containerDiv = document.getElementById('containerDiv');
+                var element = document.getElementById('gameContainer');      // the element
+
+                var widthLimitedScale = Math.floor(containerDiv.offsetWidth) / 1920.0;
+                var heightLimitedScale = (Math.floor(window.innerHeight) - 50) / 1080.0;
+
+                var scale = widthLimitedScale;
+                if (heightLimitedScale < scale) scale = heightLimitedScale;
+
+                element.style.width = Math.floor(1920 * scale) + 'px';
+                element.style.height = Math.floor(1080 * scale) + 'px';
+                element.style.margin = "auto";
+
+            }
+
+            /**/</script>
+        <style>
+
+            html {
+                background-color: #000;
+                color: #ccc;
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                margin: auto;
+                padding-top: 1em;
+                padding-bottom: 0em;
+                padding: 2em;
+                padding-top: 0em;
+                text-align: center;
+            }
+
+            canvas {
+                width: 100%;
+                height: 100%;
+            }
+
+            #gameContainer {
+                margin: auto;
+            }
+
+            #containerDiv {
+                object-fit: contain;
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                margin: 4em;
+                margin-top: 0em;
+                margin-bottom: .9em;
+            }
+
+            #myBtn {
+                padding: 8px;
+                border-radius: 5px;
+                background-color: rebeccapurple;
+                width: 20%;
+                margin: auto;
+                cursor: pointer;
+                font-size: 20px;
+            }
+            /* The Modal (background) */
+            .modal {
+                display: none; /* Hidden by default */
+                position: fixed; /* Stay in place */
+                z-index: 1; /* Sit on top */
+                left: 0;
+                top: 0;
+                width: 100%; /* Full width */
+                height: 100%; /* Full height */
+                overflow: auto; /* Enable scroll if needed */
+                background-color: #4a4a4acf;
+                margin: auto;
+                -ms-flex-pack: center;
+                justify-content: center;
+                -ms-flex-direction: column;
+                flex-direction: column;
+            }
+
+            /* Modal Content */
+            .modal-content {
+                background-color: black;
+                margin: auto;
+                padding: 20px;
+                border-radius: 8px;
+                text-align: left;
+            }
+
+            /* The Close Button */
+            .close {
+                color: #aaaaaa;
+                float: right;
+                font-size: 28px;
+                font-weight: bold;
+            }
+
+                .close:hover,
+                .close:focus {
+                    color: rebeccapurple;
+                    text-decoration: none;
+                    cursor: pointer;
+                }
+
+            .form-div {
+                padding: 10px 120px 30px 120px;
+            }
+
+            .form-content {
+                padding: 5px;
+            }
+
+            .content-header {
+                text-align: center;
+                color: rebeccapurple;
+                margin: 0px;
+                padding: 0px;
+                font-size: 55px;
+            }
+
+            .content-p {
+                text-align: center;
+                margin: 0px;
+                padding: 0px;
+                font-size: 25px;
+            }
+
+            .content-email {
+                padding: 0px;
+                margin: 0px;
+                border-radius: 5px;
+                color: rebeccapurple;
+                padding-bottom: 5px;
+            }
+
+            .content-small-header {
+                margin: 0px;
+                padding: 0px;
+                color: rebeccapurple;
+                padding-bottom: 5px;
+            }
+
+            .content-email-input {
+                width: 100%;
+                border-radius: 5px;
+                background: darkgray;
+                color: black;
+                font-weight: bold;
+                border: 0;
+                padding: 5px;
+            }
+
+            .content-message {
+                border-radius: 5px;
+                background: darkgray;
+                color: black;
+                font-weight: bold;
+                width: 100%;
+            }
+
+            .form-div-button {
+                padding: 8px 0px;
+            }
+
+            .form-button {
+                padding: 8px;
+                border-radius: 5px;
+                text-align: center;
+                background-color: rebeccapurple;
+                margin: auto;
+                cursor: pointer;
+            }
+
+            div.stars {
+                width: 270px;
+                display: inline-block;
+            }
+
+            input.star {
+                display: none;
+            }
+
+            label.star {
+                float:unset;
+                padding: 10px;
+                font-size: 36px;
+                color: #444;
+                transition: all .2s;
+            }
+
+            input.star:checked ~ label.star:before {
+                content: '\f005';
+                color: #FD4;
+                transition: all .25s;
+            }
+
+            input.star-5:checked ~ label.star:before {
+                color: #FE7;
+                text-shadow: 0 0 20px #952;
+            }
+
+            input.star-1:checked ~ label.star:before {
+                color: #F62;
+            }
+
+            label.star:hover {
+                transform: rotate(-15deg) scale(1.3);
+            }
+
+            label.star:before {
+                content: '\f006';
+                font-family: FontAwesome;
+            }
+        </style>
+</head>
+<body onload="startup();">
+    <div id="containerDiv">
+        <div class="webgl-content">
+            <div id="gameContainer"></div>
+        </div>
+    </div>
+    <div id="myBtn">Feedback</div>
+    <!-- The Modal -->
+    <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h1 class="content-header">Feedback Information</h1>
+            <p class="content-p">Please leave me your feedback on the game</p>
+            <form action="https://formspree.io/f/xwkwqrkw" method="POST" enctype="multipart/form-data" class="form-div">
+                <div>
+                    <h3 class="content-email">Your Rating:</h3>
+                    <input class="star star-5" id="star-5" type="radio" name="star" value="5"/>
+                    <label class="star star-5" for="star-5"></label>
+                    <input class="star star-4" id="star-4" type="radio" name="star" value="4"/>
+                    <label class="star star-4" for="star-4"></label>
+                    <input class="star star-3" id="star-3" type="radio" name="star" value="3"/>
+                    <label class="star star-3" for="star-3"></label>
+                    <input class="star star-2" id="star-2" type="radio" name="star" value="2"/>
+                    <label class="star star-2" for="star-2"></label>
+                    <input class="star star-1" id="star-1" type="radio" name="star" value="1"/>
+                    <label class="star star-1" for="star-1"></label>
+                </div>
+                <div class="form-content">
+                    <h3 class="content-email">Your Name:</h3>
+                    <input class="content-email-input" type="text" name="name" placeholder="John Smith">
+                </div>
+                <div class="form-content">
+                    <h3 class="content-email">Your email:</h3>
+                    <input class="content-email-input" type="text" name="_replyto" placeholder="123@email.com *">
+                </div>
+                <div class="form-content">
+                    <h3 class="content-small-header">Your message:</h3>
+                    <textarea class="content-message" name="message" type="text" rows="6" cols="50" placeholder="Fun game!"></textarea>
+                </div>
+                <div class="form-content">
+                    <h3 class="content-small-header">Your file:</h3>
+                    <input type="file" name="upload">
+                </div>
+                <div class="form-div-button">
+                    <div class="form-button" type="submit" onClick="document.forms[0].submit()">Send</div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    // Get the modal
+    var modal = document.getElementById("myModal");
+
+    // Get the button that opens the modal
+    var btn = document.getElementById("myBtn");
+
+    // Get the <span> element that closes the modal
+    var span = document.getElementsByClassName("close")[0];
+
+    // When the user clicks the button, open the modal
+    btn.onclick = function () {
+        modal.style.display = "flex";
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    span.onclick = function () {
+        modal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+</script>
