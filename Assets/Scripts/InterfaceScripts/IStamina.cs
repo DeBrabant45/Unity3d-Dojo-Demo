@@ -9,7 +9,7 @@ namespace AD.Interfaces
     public interface IStamina
     {
         public float Amount { get; }
-        public Action<float> AmountChanged { get; set; }
+        public Action<float> OnAmountChange { get; set; }
         public bool IsRegenerating { get; }
         public void AddToStamina(float amount);
         public void ReduceStamina(float amount);

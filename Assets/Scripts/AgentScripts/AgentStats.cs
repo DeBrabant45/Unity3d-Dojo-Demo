@@ -14,7 +14,7 @@ namespace AD.Agent
         public IStamina Stamina { get; set; }
         public IPosture Posture { get; set; }
 
-        void Start()
+        void Awake()
         {
             Health = new Health(_healthSO.InitialValue);
             Stamina = new Stamina(_staminaSO.InitialValue, _staminaSO.RegenSpeed, _staminaSO.RegenAmount);

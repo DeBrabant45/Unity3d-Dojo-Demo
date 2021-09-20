@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using AD.Interfaces;
+using System;
 
 namespace AD.Agent
 {
@@ -11,10 +12,15 @@ namespace AD.Agent
         private bool _isBroken = false;
 
         public bool IsBroken { get => _isBroken; }
+        public Action<float> OnAmountChange { get; set; }
         public float Damage
         {
             get => _currentDamage;
-            private set => _currentDamage = Mathf.Clamp(value, 0, _maxDamage);
+            private set
+            {
+                _currentDamage = Mathf.Clamp(value, 0, _maxDamage);
+                OnAmountChange?.Invoke(_currentDamage);
+            }
         }
 
         public Posture(float maxAmount, float regenAmount)

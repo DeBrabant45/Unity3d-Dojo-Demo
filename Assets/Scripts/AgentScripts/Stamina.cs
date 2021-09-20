@@ -14,21 +14,18 @@ namespace AD.Agent
         private float _lastTimeSinceStaminaChange;
         private bool _isRegenerating = false;
         private float _timePassed;
-        private Action<float> _amountChanged;
 
         public bool IsRegenerating { get => _isRegenerating; }
-
+        public Action<float> OnAmountChange { get; set; }
         public float Amount
         {
             get => _currentAmount;
             set
             {
                 _currentAmount = Mathf.Clamp(value, 0, _initialAmount);
-                _amountChanged?.Invoke(_currentAmount / _initialAmount);
+                OnAmountChange?.Invoke(_currentAmount / _initialAmount);
             }
         }
-
-        public Action<float> AmountChanged { get => _amountChanged; set => _amountChanged = value; }
 
         public Stamina(int startAmount, float regenSpeed, float regenAmount)
         {

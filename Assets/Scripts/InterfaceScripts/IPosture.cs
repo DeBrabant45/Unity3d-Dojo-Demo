@@ -6,6 +6,7 @@ namespace AD.Interfaces
     {
         public bool IsBroken { get; }
         public float Damage { get; }
+        public Action<float> OnAmountChange { get; set; }
         public void IncreaseDamage(float amount);
         public void ReduceDamage();
     }

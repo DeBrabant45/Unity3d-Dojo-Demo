@@ -8,6 +8,7 @@ namespace AD.Interfaces
 {
     public interface IHealth
     {
+        public Action<int> OnAmountChange { get; set; }
         public float Amount { get; set; }
         public void AddAmount(float amount);
         public void ReduceAmount(float amount);

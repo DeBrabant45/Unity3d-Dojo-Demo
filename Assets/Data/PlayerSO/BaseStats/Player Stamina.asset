@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b350471994cc7f54bb4fdf0075a40481, type: 3}
   m_Name: Player Stamina
   m_EditorClassIdentifier: 
-  _initialValue: 12000
+  _initialValue: 50
   _regenSpeed: 5
   _regenAmount: 0.2
