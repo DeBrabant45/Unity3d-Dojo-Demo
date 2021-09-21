@@ -15,33 +15,25 @@ namespace AD.StateMachine.Player
         [SerializeField] private PlayerState _remainState;
         [SerializeField] private WeaponSO _weapon;
 
-        private PlayerMovement _movement;
-        private PlayerAimController _playerAimController;
-        private PlayerInput _inputFromPlayer;
-        private HumanoidAnimations _animations;
-        private ItemSlot _itemSlot;
-        private BlockAttack _blockAttack;
-
         public string TagName { get => this.tag; }
-        public PlayerInput InputFromPlayer { get => _inputFromPlayer; }
-        public PlayerMovement Movement { get => _movement; }
-        public HumanoidAnimations Animations { get => _animations; }
-        public PlayerAimController AgentAimController { get => _playerAimController; }
-        public ItemSlot ItemSlot { get => _itemSlot; }
+        public PlayerInput InputFromPlayer { get; private set; }
+        public PlayerMovement Movement { get; private set; }
+        public HumanoidAnimations Animations { get; private set; }
+        public PlayerAimController AgentAimController { get; private set; }
+        public ItemSlot ItemSlot { get; private set; }
         public WeaponSO Weapon { get => _weapon; }
         public PlayerState CurrentState { get => _currentState; }
-        public BlockAttack BlockAttack { get => _blockAttack; }
+        public BlockAttack BlockAttack { get; private set; }
         public IBaseStats BaseStats { get; private set; }
 
         private void Awake()
         {
-            _movement = GetComponent<PlayerMovement>();
-            _inputFromPlayer = GetComponent<PlayerInput>();
-            _animations = GetComponent<HumanoidAnimations>();
-            _itemSlot = GetComponent<ItemSlot>();
-            _playerAimController = GetComponent<PlayerAimController>();
-            _itemSlot = GetComponent<ItemSlot>();
-            _blockAttack = GetComponent<BlockAttack>();
+            Movement = GetComponent<PlayerMovement>();
+            InputFromPlayer = GetComponent<PlayerInput>();
+            Animations = GetComponent<HumanoidAnimations>();
+            ItemSlot = GetComponent<ItemSlot>();
+            AgentAimController = GetComponent<PlayerAimController>();
+            BlockAttack = GetComponent<BlockAttack>();
             BaseStats = GetComponent<AgentStats>();
         }
 
@@ -57,7 +49,7 @@ namespace AD.StateMachine.Player
         {
             _currentState = currentState;
             _remainState = remainState;
-            _inputFromPlayer = input;
+            InputFromPlayer = input;
         }
 
         public void TransitionToState(PlayerState nextState)

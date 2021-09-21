@@ -17,11 +17,13 @@ namespace AD.AI
         public WeaponSO Weapon { get => _weapon; }
         public LayerMask TargetLayer { get => _targetLayer; }
         public BlockAttack BlockAttack { get; private set; }
+        public ItemSlot ItemSlot { get; private set; }
 
         void Start()
         {
             IsWeaponEquipped = false;
             BlockAttack = GetComponent<BlockAttack>();
+            ItemSlot = GetComponent<ItemSlot>();
         }
     }
 }
