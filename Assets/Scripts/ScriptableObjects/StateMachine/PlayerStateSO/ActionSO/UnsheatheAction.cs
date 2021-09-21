@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AD.StateMachine.Player
 {
-    [CreateAssetMenu(menuName = "StateMachine/Player/Action/Unsheathe Sword")]
+    [CreateAssetMenu(menuName = "StateMachine/Player/Actions/Unsheathe Sword")]
     public class UnsheatheAction : PlayerAction
     {
         public override void Act(PlayerStateController controller)

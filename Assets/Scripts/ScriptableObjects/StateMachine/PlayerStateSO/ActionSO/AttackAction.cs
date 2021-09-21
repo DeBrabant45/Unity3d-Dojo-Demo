@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace AD.StateMachine.Player
 {
-    [CreateAssetMenu(menuName = "StateMachine/Player/Action/Attack")]
+    [CreateAssetMenu(menuName = "StateMachine/Player/Actions/Attack")]
     public class AttackAction : PlayerAction
     {
         public override void Act(PlayerStateController controller)

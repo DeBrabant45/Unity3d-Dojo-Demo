@@ -2,7 +2,7 @@
 
 namespace AD.StateMachine.Player
 {
-    [CreateAssetMenu(menuName = "StateMachine/Player/Action/Sheathe Sword")]
+    [CreateAssetMenu(menuName = "StateMachine/Player/Actions/Sheathe Sword")]
     public class SheatheAction : PlayerAction
     {
         public override void Act(PlayerStateController controller)

@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AD.StateMachine.Player
 {
-    [CreateAssetMenu(menuName = "StateMachine/Player/Action/Walk")]
+    [CreateAssetMenu(menuName = "StateMachine/Player/Actions/Walk")]
     public class WalkAction : PlayerAction
     {
         public override void Act(PlayerStateController controller)
