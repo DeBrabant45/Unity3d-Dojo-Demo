@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: Ninja Heavy Sword
   m_EditorClassIdentifier: 
   _model: {fileID: 0}
-  _minimalDamage: 0
-  _maximumDamage: 0
+  _minimalDamage: 1
+  _maximumDamage: 1
   _criticalDamageChance: 0.2
   _weaponType: 0
   _weaponImpactForce: 0

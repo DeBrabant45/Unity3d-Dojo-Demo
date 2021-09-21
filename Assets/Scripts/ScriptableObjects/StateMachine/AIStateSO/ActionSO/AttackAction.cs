@@ -23,6 +23,8 @@ namespace AD.StateMachine.AI
             if (IsTargetInSightRange(controller) && IsTargetInAttackRange(controller))
             {
                 controller.Combat.AttackWaitRate = 0;
+                controller.Combat.ItemSlot.DamageCollider.SetDamage(controller.Combat.Weapon);
+                controller.Combat.ItemSlot.DamageCollider.SetTagToNotHit(controller);
                 controller.transform.LookAt(controller.Combat.ChaseTarget);
                 controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Combat.Weapon.AttackTriggerAnimation);
                 controller.BaseStats.Stamina.ReduceStamina(controller.Combat.Weapon.StaminaCost);

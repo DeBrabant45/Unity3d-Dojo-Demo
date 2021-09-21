@@ -7,7 +7,7 @@ using AD.Animation;
 
 namespace AD.StateMachine.AI
 {
-    public class AIStateController : MonoBehaviour
+    public class AIStateController : MonoBehaviour, ITagable
     {
         [SerializeField] private AIState _currentState;
         [SerializeField] private AIState _remainState;
@@ -20,6 +20,7 @@ namespace AD.StateMachine.AI
         public AICombat Combat { get; private set; }
         public IBaseStats BaseStats { get; set; }
         public HumanoidAnimations Animations { get; private set; }
+        public string TagName { get => this.tag; }
 
         private void Awake()
         {
