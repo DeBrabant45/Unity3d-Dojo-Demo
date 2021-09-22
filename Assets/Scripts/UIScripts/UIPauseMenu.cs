@@ -1,6 +1,5 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
-using System;
 
 namespace AD.UI
 {
@@ -46,7 +45,8 @@ namespace AD.UI
 
         private void OnQuit()
         {
-            _quitPanel.SetActive(false);
+            _menuPanel.SetActive(false);
+            _quitPanel.SetActive(true);
         }
     }
 }
