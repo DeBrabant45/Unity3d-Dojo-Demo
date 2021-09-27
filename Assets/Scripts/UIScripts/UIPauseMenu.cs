@@ -16,9 +16,9 @@ namespace AD.UI
         void Start()
         {
             _menuPanel.SetActive(false);
-            _continue.onClick.AddListener(OnContinue);
-            _options.onClick.AddListener(OnOptions);
-            _quit.onClick.AddListener(OnQuit);
+            _continue.onClick.AddListener(OnContinueClicked);
+            _options.onClick.AddListener(OnOptionsClicked);
+            _quit.onClick.AddListener(OnQuitClicked);
         }
 
         public void SetMenuPanelActive()
@@ -29,7 +29,7 @@ namespace AD.UI
             Time.timeScale = 0;
         }
 
-        private void OnContinue()
+        private void OnContinueClicked()
         {
             _menuPanel.SetActive(false);
             Cursor.lockState = CursorLockMode.Locked;
@@ -37,13 +37,13 @@ namespace AD.UI
             Time.timeScale = 1;
         }
 
-        private void OnOptions()
+        private void OnOptionsClicked()
         {
             _menuPanel.SetActive(false);
             _optionsPanel.SetActive(true);
         }
 
-        private void OnQuit()
+        private void OnQuitClicked()
         {
             _menuPanel.SetActive(false);
             _quitPanel.SetActive(true);

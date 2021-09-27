@@ -10,6 +10,7 @@ namespace AD.BaseStats
         private float _currentAmount;
 
         public Action<int> OnAmountChange { get; set; }
+        public Action OnAmountEqualsZero { get; set; }
         public float Amount
         {
             get => _currentAmount;
@@ -17,6 +18,10 @@ namespace AD.BaseStats
             {
                 _currentAmount = Mathf.Clamp(value, 0, _initialAmount);
                 OnAmountChange?.Invoke((int)_currentAmount);
+                if (_currentAmount <= 0)
+                {
+                    OnAmountEqualsZero?.Invoke();
+                }
             }
         }
 
