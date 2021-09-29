@@ -1,5 +1,6 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
+using AD.Player;
 
 namespace AD.UI
 {
@@ -9,9 +10,9 @@ namespace AD.UI
         [SerializeField] Button _continue;
         [SerializeField] Button _options;
         [SerializeField] Button _quit;
-
         [SerializeField] GameObject _optionsPanel;
         [SerializeField] GameObject _quitPanel;
+        private PlayerInput _playerInput;
 
         void Start()
         {
@@ -19,6 +20,7 @@ namespace AD.UI
             _continue.onClick.AddListener(OnContinueClicked);
             _options.onClick.AddListener(OnOptionsClicked);
             _quit.onClick.AddListener(OnQuitClicked);
+            _playerInput = FindObjectOfType<PlayerInput>();
         }
 
         public void SetMenuPanelActive()
@@ -47,6 +49,14 @@ namespace AD.UI
         {
             _menuPanel.SetActive(false);
             _quitPanel.SetActive(true);
+        }
+
+        private void Update()
+        {
+            if (_playerInput.IsEscapeKeyPressed())
+            {
+                SetMenuPanelActive();
+            }
         }
     }
 }

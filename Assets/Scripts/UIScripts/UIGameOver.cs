@@ -11,24 +11,17 @@ namespace AD.UI
         [SerializeField] private GameObject _gameOverPanel;
         [SerializeField] private Button _continue;
         [SerializeField] private Button _quit;
-        [SerializeField] private AgentStats _playerStats;
 
         private LevelManager _levelManager;
 
         private void Start()
         {
-            _gameOverPanel.SetActive(false);
-            _playerStats.Health.OnAmountEqualsZero += DisplayGameOver;
-            _continue.onClick.AddListener(OnContinueClicked);
-            _quit.onClick.AddListener(OnQuitClicked);
-            _levelManager = FindObjectOfType<LevelManager>();
-        }
-
-        private void DisplayGameOver()
-        {
             _gameOverPanel.SetActive(true);
             Cursor.lockState = CursorLockMode.Confined;
             Cursor.visible = true;
+            _continue.onClick.AddListener(OnContinueClicked);
+            _quit.onClick.AddListener(OnQuitClicked);
+            _levelManager = FindObjectOfType<LevelManager>();
         }
 
         private void OnContinueClicked()

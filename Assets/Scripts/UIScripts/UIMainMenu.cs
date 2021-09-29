@@ -9,13 +9,13 @@ namespace AD.UI
         [SerializeField] private Button _playBtn;
         [SerializeField] private Button _optionsBtn;
         [SerializeField] private GameObject _optionsPanel;
-        private LevelManager _levelManager;
+        private UINextSceneFade _nextSceneFade;
 
         private void Start()
         {
             _playBtn.onClick.AddListener(OnPlayClicked);
             _optionsBtn.onClick.AddListener(OnOptionsClicked);
-            _levelManager = FindObjectOfType<LevelManager>();
+            _nextSceneFade = FindObjectOfType<UINextSceneFade>();
         }
 
         private void OnOptionsClicked()
@@ -25,7 +25,7 @@ namespace AD.UI
 
         private void OnPlayClicked()
         {
-            _levelManager.LoadNextLevel();
+            _nextSceneFade.FadeBackGround.enabled = true;
         }
     }
 }
