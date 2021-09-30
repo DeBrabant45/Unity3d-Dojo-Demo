@@ -16,3 +16,4 @@ MonoBehaviour:
   _sightRange: 5
   _searchingTurnSpeed: 20
   _searchDuration: 5
+  _randomRangeValue: 120

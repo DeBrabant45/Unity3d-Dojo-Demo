@@ -12,7 +12,7 @@ namespace AD.StateMachine.AI
         {
             controller.Combat.AttackWaitRate += Time.deltaTime;
             if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting")
-                && !controller.BaseStats.Stamina.IsRegenerating && controller.Combat.AttackWaitRate > 1f)
+                && IsAbleToAttack(controller))
             {
                 Attack(controller);
             }
@@ -39,6 +39,13 @@ namespace AD.StateMachine.AI
         private bool IsTargetInAttackRange(AIStateController controller)
         {
             return Physics.CheckSphere(controller.transform.position, controller.Combat.Weapon.Range, controller.Combat.TargetLayer);
+        }
+
+        private bool IsAbleToAttack(AIStateController controller)
+        {
+            return (!controller.BaseStats.Stamina.IsRegenerating 
+                && controller.Combat.AttackWaitRate > 1f 
+                && controller.RandomRange() == controller.Combat.AttackNumber) ? true : false;
         }
     }
 }

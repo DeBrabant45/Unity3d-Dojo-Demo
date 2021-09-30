@@ -12,6 +12,7 @@ namespace AD.StateMachine.AI
         [SerializeField] private AIState _currentState;
         [SerializeField] private AIState _remainState;
         [SerializeField] private AIStats _aIStats;
+        [SerializeField] private int _randomRangeValue;
         private float _stateTimeElapsed;
 
         public AIStats AIStats { get => _aIStats; }
@@ -53,7 +54,7 @@ namespace AD.StateMachine.AI
 
         public int RandomRange()
         {
-            return UnityEngine.Random.Range(0, 10);
+            return UnityEngine.Random.Range(0, _randomRangeValue);
         }
 
         private void OnExitState()

@@ -9,6 +9,7 @@ namespace AD.AI
     {
         [SerializeField] private LayerMask _targetLayer;
         [SerializeField] private WeaponSO _weapon;
+        [SerializeField] private int _attackNumber;
 
         public Transform ChaseTarget;
         public bool IsWeaponEquipped { get; set; }
@@ -18,6 +19,7 @@ namespace AD.AI
         public LayerMask TargetLayer { get => _targetLayer; }
         public BlockAttack BlockAttack { get; private set; }
         public ItemSlot ItemSlot { get; private set; }
+        public int AttackNumber { get => _attackNumber; }
 
         void Start()
         {
