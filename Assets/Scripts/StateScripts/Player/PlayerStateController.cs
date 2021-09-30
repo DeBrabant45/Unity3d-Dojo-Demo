@@ -43,6 +43,7 @@ namespace AD.StateMachine.Player
             {
                 _currentState.UpdateState(this);
             }
+            Debug.Log(_currentState);
         }
 
         public void Constructor(PlayerState currentState, PlayerState remainState, PlayerInput input)
