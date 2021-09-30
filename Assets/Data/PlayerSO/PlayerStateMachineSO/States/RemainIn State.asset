@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 2b9cffd0d2b00aa4d8ec1a797908bf53, type: 3}
-  m_Name: RemainInState
+  m_Name: RemainIn State
   m_EditorClassIdentifier: 
   _actions: []
   sceneGizmoColor: {r: 0.5, g: 0.5, b: 0.5, a: 1}
