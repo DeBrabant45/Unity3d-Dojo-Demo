@@ -10,11 +10,13 @@ namespace AD.AI
     {
         private NavMeshAgent _navMeshAgent;
         private HumanoidAnimations _animation;
+        private Rigidbody _rigidbody;
 
         public NavMeshAgent NavMeshAgent { get => _navMeshAgent; }
 
         void Start()
         {
+            _rigidbody = GetComponent<Rigidbody>();
             _navMeshAgent = GetComponent<NavMeshAgent>();
             _animation = GetComponent<HumanoidAnimations>();
         }
@@ -30,6 +32,7 @@ namespace AD.AI
         {
             if (_animation.AnimatorService.GetAnimationBool("IsUsingRootMotion"))
             {
+                _rigidbody.isKinematic = false;
                 _navMeshAgent.updatePosition = false;
                 Vector3 animationDelta = _animation.AnimatorService.GetAnimationDeltaPosition();
                 transform.position = this.transform.position + animationDelta * 5 * Time.deltaTime * 15;
@@ -42,6 +45,7 @@ namespace AD.AI
             if (!_animation.AnimatorService.GetAnimationBool("IsUsingRootMotion")
                 && !_navMeshAgent.updatePosition)
             {
+                _rigidbody.isKinematic = true;
                 _navMeshAgent.updatePosition = true;
             }
         }
