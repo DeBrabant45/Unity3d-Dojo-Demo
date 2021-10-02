@@ -16,7 +16,7 @@ namespace AD.StateMachine.Player
 
         private void Unstunned(PlayerStateController controller)
         {
-            controller.Animations.AnimatorService.SetBoolForAnimation("IsStunned", false);
+            controller.Animations.SetBoolForAnimation("IsStunned", false);
         }
     }
 }

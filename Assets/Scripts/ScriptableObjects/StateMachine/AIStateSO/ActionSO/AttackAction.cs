@@ -11,11 +11,18 @@ namespace AD.StateMachine.AI
         public override void Act(AIStateController controller)
         {
             controller.Combat.AttackWaitRate += Time.deltaTime;
-            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting")
+            if (!controller.Animations.IsAnimatorBusy()
                 && IsAbleToAttack(controller))
             {
                 Attack(controller);
             }
+        }
+
+        private bool IsAbleToAttack(AIStateController controller)
+        {
+            return (!controller.BaseStats.Stamina.IsRegenerating
+                && controller.Combat.AttackWaitRate > 1f
+                && controller.RandomRange() == controller.Combat.AttackNumber) ? true : false;
         }
 
         private void Attack(AIStateController controller)
@@ -23,10 +30,9 @@ namespace AD.StateMachine.AI
             if (IsTargetInSightRange(controller) && IsTargetInAttackRange(controller))
             {
                 controller.Combat.AttackWaitRate = 0;
-                controller.Combat.ItemSlot.DamageCollider.SetDamage(controller.Combat.Weapon);
-                controller.Combat.ItemSlot.DamageCollider.SetTagToNotHit(controller);
+                SetItemSlotDamage(controller);
                 controller.transform.LookAt(controller.Combat.ChaseTarget);
-                controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Combat.Weapon.AttackTriggerAnimation);
+                controller.Animations.SetTriggerForAnimation(controller.Combat.Weapon.AttackTriggerAnimation);
                 controller.BaseStats.Stamina.ReduceStamina(controller.Combat.Weapon.StaminaCost);
             }
         }
@@ -41,11 +47,10 @@ namespace AD.StateMachine.AI
             return Physics.CheckSphere(controller.transform.position, controller.Combat.Weapon.Range, controller.Combat.TargetLayer);
         }
 
-        private bool IsAbleToAttack(AIStateController controller)
+        private void SetItemSlotDamage(AIStateController controller)
         {
-            return (!controller.BaseStats.Stamina.IsRegenerating 
-                && controller.Combat.AttackWaitRate > 1f 
-                && controller.RandomRange() == controller.Combat.AttackNumber) ? true : false;
+            controller.Combat.ItemSlot.DamageCollider.SetDamage(controller.Combat.Weapon);
+            controller.Combat.ItemSlot.DamageCollider.SetTagToNotHit(controller);
         }
     }
 }

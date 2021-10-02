@@ -15,9 +15,9 @@ namespace AD.StateMachine.Player
 
         private void BackStep(PlayerStateController controller)
         {
-            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
+            if (!controller.Animations.IsAnimatorBusy())
             {
-                controller.Animations.AnimatorService.SetTriggerForAnimation("BackStep");
+                controller.Animations.SetTriggerForAnimation("BackStep");
             }
         }
     }

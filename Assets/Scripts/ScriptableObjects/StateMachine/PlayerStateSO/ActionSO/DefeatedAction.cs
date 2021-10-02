@@ -15,7 +15,7 @@ namespace AD.StateMachine.Player
 
         private void Defeated(PlayerStateController controller)
         {
-            controller.Animations.AnimatorService.SetBoolForAnimation("IsDefeated", true);
+            controller.Animations.SetBoolForAnimation("IsDefeated", true);
             controller.AgentAimController.enabled = false;
             controller.enabled = false;
         }

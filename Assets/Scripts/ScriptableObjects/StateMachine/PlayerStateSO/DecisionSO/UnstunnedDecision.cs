@@ -9,7 +9,7 @@ namespace AD.StateMachine.Player
         public override bool Decide(PlayerStateController controller)
         {
             return controller.BaseStats.Posture.IsBroken == false
-                && controller.Animations.AnimatorService.GetAnimationBool("IsStunned") == false;
+                && controller.Animations.GetAnimationBool("IsStunned") == false;
         }
     }
 }

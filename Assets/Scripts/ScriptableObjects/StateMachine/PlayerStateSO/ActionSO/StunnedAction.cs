@@ -16,9 +16,9 @@ namespace AD.StateMachine.Player
 
         private void Stunned(PlayerStateController controller)
         {
-            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
+            if (!controller.Animations.IsAnimatorBusy())
             {
-                controller.Animations.AnimatorService.SetBoolForAnimation("IsStunned", true);
+                controller.Animations.SetBoolForAnimation("IsStunned", true);
             }
             controller.BaseStats.Posture.ReduceDamage();
         }

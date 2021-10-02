@@ -3,8 +3,6 @@ using AD.Animation;
 using AD.Interfaces;
 using AD.Player;
 using AD.Weapons;
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace AD.StateMachine.Player
@@ -15,16 +13,16 @@ namespace AD.StateMachine.Player
         [SerializeField] private PlayerState _remainState;
         [SerializeField] private WeaponSO _weapon;
 
+        public IBaseStats BaseStats { get; private set; }
+        public IAnimation Animations { get; private set; }
         public string TagName { get => this.tag; }
         public PlayerInput InputFromPlayer { get; private set; }
         public PlayerMovement Movement { get; private set; }
-        public HumanoidAnimations Animations { get; private set; }
         public PlayerAimController AgentAimController { get; private set; }
         public ItemSlot ItemSlot { get; private set; }
         public WeaponSO Weapon { get => _weapon; }
-        public PlayerState CurrentState { get => _currentState; }
         public BlockAttack BlockAttack { get; private set; }
-        public IBaseStats BaseStats { get; private set; }
+        public PlayerState CurrentState { get => _currentState; }
 
         private void Awake()
         {
@@ -43,7 +41,6 @@ namespace AD.StateMachine.Player
             {
                 _currentState.UpdateState(this);
             }
-            Debug.Log(_currentState);
         }
 
         public void Constructor(PlayerState currentState, PlayerState remainState, PlayerInput input)

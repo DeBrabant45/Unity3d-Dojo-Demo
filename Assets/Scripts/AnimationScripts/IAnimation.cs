@@ -1,9 +1,8 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AD.Animation
 {
-    public interface IAnimatorService
+    public interface IAnimation
     {
         public void SetTriggerForAnimation(string name);
         public void ResetTriggerForAnimation(string name);
@@ -14,5 +13,6 @@ namespace AD.Animation
         public float SetAnimationFloatInput(float inputDirection, float animationDirection);
         public float LowerAnimationFloatInputToZero(float animationDirection);
         public Vector3 GetAnimationDeltaPosition();
+        public bool IsAnimatorBusy();
     }
 }

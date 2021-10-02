@@ -7,16 +7,16 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            Unguard(controller);
+            if (controller.InputFromPlayer.IsSecondaryActionPressed() == false & controller.BlockAttack.IsBlocking)
+            {
+                Unguard(controller);
+            }
         }
 
         private void Unguard(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsSecondaryActionPressed() == false & controller.BlockAttack.IsBlocking)
-            {
-                controller.BlockAttack.IsBlocking = false;
-                controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, false);
-            }
+            controller.BlockAttack.IsBlocking = false;
+            controller.Animations.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, false);
         }
     }
 }

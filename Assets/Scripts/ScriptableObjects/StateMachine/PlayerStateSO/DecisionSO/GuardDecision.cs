@@ -9,7 +9,7 @@ namespace AD.StateMachine.Player
         public override bool Decide(PlayerStateController controller)
         {
             return controller.InputFromPlayer.IsSecondaryActionPressed() != false
-                & !controller.Animations.AnimatorService.GetAnimationBool("IsInteracting");
+                & !controller.Animations.IsAnimatorBusy();
         }
     }
 }

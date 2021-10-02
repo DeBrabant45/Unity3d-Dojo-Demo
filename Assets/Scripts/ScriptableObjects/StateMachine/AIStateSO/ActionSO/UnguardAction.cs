@@ -7,7 +7,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (controller.Animations.AnimatorService.GetAnimationBool(controller.Combat.Weapon.BlockStanceAnimation)
+            if (controller.Animations.GetAnimationBool(controller.Combat.Weapon.BlockStanceAnimation)
                 && !controller.BaseStats.Stamina.IsRegenerating
                 && controller.Combat.BlockAttack != false)
             {
@@ -18,7 +18,7 @@ namespace AD.StateMachine.AI
         private void Unguard(AIStateController controller)
         {
             controller.Combat.BlockAttack.IsBlocking = false;
-            controller.Animations.AnimatorService.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, false);
+            controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, false);
         }
     }
 }

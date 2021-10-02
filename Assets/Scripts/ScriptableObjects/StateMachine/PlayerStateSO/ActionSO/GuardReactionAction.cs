@@ -17,7 +17,7 @@ namespace AD.StateMachine.Player
         private void GuardReaction(PlayerStateController controller)
         {
             controller.BlockAttack.AttackerTag = null;
-            controller.Animations.AnimatorService.SetTriggerForAnimation("GuardReaction");
+            controller.Animations.SetTriggerForAnimation("GuardReaction");
             controller.BaseStats.Posture.IncreaseDamage(10f);
         }
     }

@@ -9,7 +9,7 @@ namespace AD.AI
     public class AIMovement : MonoBehaviour
     {
         private NavMeshAgent _navMeshAgent;
-        private HumanoidAnimations _animation;
+        private IAnimation _animation;
         private Rigidbody _rigidbody;
 
         public NavMeshAgent NavMeshAgent { get => _navMeshAgent; }
@@ -25,16 +25,16 @@ namespace AD.AI
         {
             SetRootMotionPosition();
             EnableNavMeshUpdatePosition();
-            _animation.AnimatorService.SetAnimationFloat("Move", _navMeshAgent.velocity.magnitude);
+            _animation.SetAnimationFloat("Move", _navMeshAgent.velocity.magnitude);
         }
 
         private void SetRootMotionPosition()
         {
-            if (_animation.AnimatorService.GetAnimationBool("IsUsingRootMotion"))
+            if (_animation.GetAnimationBool("IsUsingRootMotion"))
             {
                 _rigidbody.isKinematic = false;
                 _navMeshAgent.updatePosition = false;
-                Vector3 animationDelta = _animation.AnimatorService.GetAnimationDeltaPosition();
+                Vector3 animationDelta = _animation.GetAnimationDeltaPosition();
                 transform.position = this.transform.position + animationDelta * 5 * Time.deltaTime * 15;
                 _navMeshAgent.nextPosition = transform.position;
             }
@@ -42,7 +42,7 @@ namespace AD.AI
 
         private void EnableNavMeshUpdatePosition()
         {
-            if (!_animation.AnimatorService.GetAnimationBool("IsUsingRootMotion")
+            if (!_animation.GetAnimationBool("IsUsingRootMotion")
                 && !_navMeshAgent.updatePosition)
             {
                 _rigidbody.isKinematic = true;

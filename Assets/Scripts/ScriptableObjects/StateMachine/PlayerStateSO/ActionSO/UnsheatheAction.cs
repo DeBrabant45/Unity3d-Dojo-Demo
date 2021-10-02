@@ -8,7 +8,7 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsRKeyPressed() && !controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
+            if (controller.InputFromPlayer.IsRKeyPressed() && !controller.Animations.IsAnimatorBusy())
             {
                 Unsheathe(controller);
             }
@@ -16,8 +16,8 @@ namespace AD.StateMachine.Player
 
         private void Unsheathe(PlayerStateController controller)
         {
-            controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Weapon.UnsheatheAnimation);
-            controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
+            controller.Animations.SetTriggerForAnimation(controller.Weapon.UnsheatheAnimation);
+            controller.Animations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
         }
     }
 }

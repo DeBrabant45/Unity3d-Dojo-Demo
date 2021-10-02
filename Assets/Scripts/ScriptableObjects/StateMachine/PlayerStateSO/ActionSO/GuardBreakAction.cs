@@ -17,8 +17,8 @@ namespace AD.StateMachine.Player
         private void GuardBreak(PlayerStateController controller)
         {
             controller.BlockAttack.IsBlocking = false;
-            controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, false);
-            controller.Animations.AnimatorService.SetTriggerForAnimation("GuardBreak");
+            controller.Animations.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, false);
+            controller.Animations.SetTriggerForAnimation("GuardBreak");
         }
     }
 }

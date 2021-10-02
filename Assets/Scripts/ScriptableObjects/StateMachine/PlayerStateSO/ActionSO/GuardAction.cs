@@ -8,7 +8,7 @@ namespace AD.StateMachine.Player
         public override void Act(PlayerStateController controller)
         {
             if (controller.InputFromPlayer.IsSecondaryActionPressed() != false 
-                & !controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
+                & !controller.Animations.IsAnimatorBusy())
             {
                 Guard(controller);
             }
@@ -19,7 +19,7 @@ namespace AD.StateMachine.Player
             if(!controller.BlockAttack.IsBlocking)
             {
                 controller.BlockAttack.IsBlocking = true;
-                controller.Animations.AnimatorService.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, true);
+                controller.Animations.SetBoolForAnimation(controller.Weapon.BlockStanceAnimation, true);
             }
         }
     }

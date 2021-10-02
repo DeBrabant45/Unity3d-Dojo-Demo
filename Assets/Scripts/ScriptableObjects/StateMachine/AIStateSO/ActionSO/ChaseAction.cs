@@ -8,7 +8,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
+            if (!controller.Animations.IsAnimatorBusy())
             {
                 Chase(controller);
             }

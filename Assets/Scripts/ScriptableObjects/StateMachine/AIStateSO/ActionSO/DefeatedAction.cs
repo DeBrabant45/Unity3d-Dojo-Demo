@@ -16,7 +16,7 @@ namespace AD.StateMachine.AI
 
         private void Defeated(AIStateController controller)
         {
-            controller.Animations.AnimatorService.SetBoolForAnimation("IsDefeated", true);
+            controller.Animations.SetBoolForAnimation("IsDefeated", true);
             controller.GetComponent<CapsuleCollider>().enabled = false;
             controller.enabled = false;
         }

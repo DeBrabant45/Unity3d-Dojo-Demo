@@ -9,7 +9,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (!controller.Animations.AnimatorService.GetAnimationBool("IsInteracting"))
+            if (!controller.Animations.IsAnimatorBusy())
             {
                 UnequipWeapon(controller);
             }
@@ -22,8 +22,8 @@ namespace AD.StateMachine.AI
                 bool isTargetInSightRange = Physics.CheckSphere(controller.transform.position, 20, controller.Combat.TargetLayer);
                 if (!isTargetInSightRange)
                 {
-                    controller.Animations.AnimatorService.SetTriggerForAnimation(controller.Combat.Weapon.SheatheAnimation);
-                    controller.Animations.AnimatorService.SetBoolForAnimation(controller.Combat.Weapon.AttackStanceAnimation, false);
+                    controller.Animations.SetTriggerForAnimation(controller.Combat.Weapon.SheatheAnimation);
+                    controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.AttackStanceAnimation, false);
                     controller.Combat.IsWeaponEquipped = false;
                 }
             }

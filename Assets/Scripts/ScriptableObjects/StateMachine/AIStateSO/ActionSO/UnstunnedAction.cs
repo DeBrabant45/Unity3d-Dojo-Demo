@@ -16,7 +16,7 @@ namespace AD.StateMachine.AI
 
         private void Unstunned(AIStateController controller)
         {
-            controller.Animations.AnimatorService.SetBoolForAnimation("IsStunned", false);
+            controller.Animations.SetBoolForAnimation("IsStunned", false);
         }
     }
 }

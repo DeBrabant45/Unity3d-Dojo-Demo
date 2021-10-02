@@ -16,8 +16,8 @@ namespace AD.StateMachine.AI
         private void GuardBreak(AIStateController controller)
         {
             controller.Combat.BlockAttack.IsBlocking = false;
-            controller.Animations.AnimatorService.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, false);
-            controller.Animations.AnimatorService.SetTriggerForAnimation("GuardBreak");
+            controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, false);
+            controller.Animations.SetTriggerForAnimation("GuardBreak");
         }
     }
 }

@@ -20,7 +20,7 @@ namespace AD.StateMachine.AI
         public AIWayPoint WayPoint { get; private set; }
         public AICombat Combat { get; private set; }
         public IBaseStats BaseStats { get; set; }
-        public HumanoidAnimations Animations { get; private set; }
+        public IAnimation Animations { get; private set; }
         public string TagName { get => this.tag; }
 
         private void Awake()
