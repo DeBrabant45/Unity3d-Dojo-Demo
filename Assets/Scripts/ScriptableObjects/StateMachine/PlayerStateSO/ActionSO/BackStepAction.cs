@@ -7,7 +7,7 @@ namespace AD.StateMachine.Player
     {
         public override void Act(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsSpacebarPressed())
+            if (controller.InputFromPlayer.IsSpacebarPressed() && !controller.Animations.IsAnimatorBusy())
             {
                 BackStep(controller);
             }
@@ -15,7 +15,8 @@ namespace AD.StateMachine.Player
 
         private void BackStep(PlayerStateController controller)
         {
-            if (!controller.Animations.IsAnimatorBusy())
+            Vector2 notMoving = new Vector2(0.0f, 0.0f);
+            if (controller.InputFromPlayer.MovementInputVector == notMoving)
             {
                 controller.Animations.SetTriggerForAnimation("BackStep");
             }
