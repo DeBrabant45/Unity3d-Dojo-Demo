@@ -7,9 +7,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (!controller.Animations.IsAnimatorBusy()
-                && controller.BaseStats.Stamina.IsRegenerating
-                && !controller.BaseStats.Posture.IsBroken)
+            if (!controller.Animations.IsAnimatorBusy() && !controller.BaseStats.Posture.IsBroken)
             {
                 Guard(controller);
             }
@@ -17,8 +15,11 @@ namespace AD.StateMachine.AI
 
         private void Guard(AIStateController controller)
         {
-            controller.Combat.BlockAttack.IsBlocking = true;
-            controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, true);
+            if (controller.RandomRange() == 5)
+            {
+                controller.Combat.BlockAttack.IsBlocking = true;
+                controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, true);
+            }
         }
     }
 }
