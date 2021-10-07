@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AD.General;
+using System;
 using UnityEngine;
 
 namespace AD.StateMachine.AI
@@ -19,6 +20,7 @@ namespace AD.StateMachine.AI
             controller.Animations.SetBoolForAnimation("IsDefeated", true);
             controller.GetComponent<CapsuleCollider>().enabled = false;
             controller.enabled = false;
+            ObjectiveEvent.Instance.DefeatedEnemy();
         }
     }
 }
