@@ -1689,7 +1689,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Sheathe
     m_StateMachine: {fileID: 751917020422430569}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: b95d7cd9ac808b84b89c3bb603f43524, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -1701,7 +1701,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Usheathe
     m_StateMachine: {fileID: 872035925596202265}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: b95d7cd9ac808b84b89c3bb603f43524, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
