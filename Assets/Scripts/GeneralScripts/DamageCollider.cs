@@ -49,8 +49,8 @@ public class DamageCollider : MonoBehaviour, IDamageable
             {
                 blockable.AttackerTag = _tag;
             }
-            //var spawnHitEffect = Instantiate(_damage.ParticalEffect, transform.position, Quaternion.identity);
-            //Destroy(spawnHitEffect, 2f);
+            var spawnHitEffect = Instantiate(_damage.ParticalEffect, transform.position, Quaternion.identity);
+            Destroy(spawnHitEffect, 2f);
             hittable.GetHit(_damage);
         }
     }
