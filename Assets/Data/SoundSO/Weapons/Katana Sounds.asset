@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 378e99982d564d14b889779dd3b16c4d, type: 3}
+  m_Name: Katana Sounds
+  m_EditorClassIdentifier: 
+  _swingSounds:
+  - {fileID: 8300000, guid: 961d0a1b70c9a8c44b0353d00c19f88b, type: 3}
+  - {fileID: 8300000, guid: 9c4950efa78da414285e24c2957cc0a4, type: 3}
+  - {fileID: 8300000, guid: aea73ef550b493046a9f3560b4e9e3b8, type: 3}
+  - {fileID: 8300000, guid: e7d491758892c9d4f9afc5c07fa7d7bf, type: 3}
+  _blockSounds:
+  - {fileID: 8300000, guid: 982d931741978174a8abc75a75697cb8, type: 3}
+  - {fileID: 8300000, guid: bbd430b10f8b665489fb762faf5d6ef5, type: 3}
+  - {fileID: 8300000, guid: 68810933564f8cd4c8de1ed3be7ceff5, type: 3}
+  - {fileID: 8300000, guid: 6ee6137252a6b3f499e4c99074730a00, type: 3}
+  _hitSounds:
+  - {fileID: 8300000, guid: c7d7be59717094e419824cddbd06c6a8, type: 3}
+  - {fileID: 8300000, guid: f691449adb8f861479475d4d8e16d29e, type: 3}
+  _sheathSounds:
+  - {fileID: 8300000, guid: 4ef5a763fb3edbf4480f9cdc8681234c, type: 3}
+  - {fileID: 8300000, guid: 6c4812c46a452a941a75f1906354bdc3, type: 3}
+  - {fileID: 8300000, guid: 33e86bf2ad40edd41b0e5b2d2500862f, type: 3}
+  - {fileID: 8300000, guid: 267b6dc3fc3244a4b9cea8026bb4ec5f, type: 3}
+  _unsheathSounds:
+  - {fileID: 8300000, guid: 0963755a2b2472140ae2ddfefe58bf62, type: 3}
+  - {fileID: 8300000, guid: 9c0a4aa4566c1114c90be8533837ea3f, type: 3}
+  - {fileID: 8300000, guid: 491584f00c77a9a4ab9209600a6f3c50, type: 3}
+  - {fileID: 8300000, guid: 6fbe55e2857afbe4cadcbfa2c598d38d, type: 3}

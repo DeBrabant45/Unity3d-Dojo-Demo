@@ -31,6 +31,7 @@ namespace AD.StateMachine.AI
             {
                 controller.Combat.AttackWaitRate = 0;
                 SetItemSlotDamage(controller);
+                SetAttackSounds(controller);
                 controller.transform.LookAt(controller.Combat.ChaseTarget);
                 controller.Animations.SetTriggerForAnimation(controller.Combat.Weapon.AttackTriggerAnimation);
                 controller.BaseStats.Stamina.ReduceStamina(controller.Combat.Weapon.StaminaCost);
@@ -45,6 +46,12 @@ namespace AD.StateMachine.AI
         private bool IsTargetInAttackRange(AIStateController controller)
         {
             return Physics.CheckSphere(controller.transform.position, controller.Combat.Weapon.Range, controller.Combat.TargetLayer);
+        }
+
+        private void SetAttackSounds(AIStateController controller)
+        {
+            controller.AudioFX.PlayOneShotAtRandomIndex(controller.CharacterVoice.AttackVoices);
+            controller.AudioFX.PlayOneShotAtRandomIndex(controller.Combat.Weapon.WeaponSounds.SwingSounds);
         }
 
         private void SetItemSlotDamage(AIStateController controller)

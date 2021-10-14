@@ -17,6 +17,7 @@ namespace AD.StateMachine.Player
         private void Unsheathe(PlayerStateController controller)
         {
             controller.Animations.SetTriggerForAnimation(controller.Weapon.UnsheatheAnimation);
+            controller.AudioFX.PlayOneShotAtRandomIndex(controller.Weapon.WeaponSounds.UnsheathSounds);
             controller.Animations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
         }
     }

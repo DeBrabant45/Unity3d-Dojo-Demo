@@ -16,6 +16,7 @@ namespace AD.StateMachine.Player
         private void Defeated(PlayerStateController controller)
         {
             controller.Animations.SetBoolForAnimation("IsDefeated", true);
+            controller.AudioFX.PlayOneShotAtRandomIndex(controller.CharacterVoice.DefeatedVoices);
             controller.AgentAimController.enabled = false;
             controller.enabled = false;
         }

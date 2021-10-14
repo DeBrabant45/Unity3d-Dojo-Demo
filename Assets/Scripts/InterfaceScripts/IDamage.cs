@@ -9,5 +9,6 @@ namespace AD.Interfaces
     {
         public int Amount { get; }
         public GameObject ParticalEffect { get; }
+        public AudioClip[] ContactSounds { get; }
     }
 }

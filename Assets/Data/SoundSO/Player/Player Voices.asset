@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4470c6b27dc72f44a9055d167f24a48, type: 3}
+  m_Name: Player Voices
+  m_EditorClassIdentifier: 
+  _hurtVoices:
+  - {fileID: 8300000, guid: ab58188c58c8dce4ea9ef37435907dae, type: 3}
+  - {fileID: 8300000, guid: c8254fc692fb58e449bd0ce7f538fdcd, type: 3}
+  - {fileID: 8300000, guid: 83591cb3e6dbbd84099c4df35a3a83fe, type: 3}
+  - {fileID: 8300000, guid: f111dbb52fc8da049bb8a12d7e79c31a, type: 3}
+  - {fileID: 8300000, guid: 536bbc3217732ac4bbec3ff0371fa808, type: 3}
+  - {fileID: 8300000, guid: dd5f7ea8a29976849b58a3926fc459d0, type: 3}
+  _attackVoices:
+  - {fileID: 8300000, guid: fbeb600dc2bd5ec46bbdf8586aeed45c, type: 3}
+  - {fileID: 8300000, guid: 067b8b5ba1584364fa06130b41f2011c, type: 3}
+  - {fileID: 8300000, guid: a68c02acc04839a4fbafda6c58346cd7, type: 3}
+  - {fileID: 8300000, guid: 07615326cc679c44eb27e2bbef48faab, type: 3}
+  - {fileID: 8300000, guid: fdfa361aa560e654e980de9e65c68ef6, type: 3}
+  - {fileID: 8300000, guid: 2652924a7f938094083d1da6b394f055, type: 3}
+  _defeatedVoices:
+  - {fileID: 8300000, guid: 8a684dd1ef802bf499e6991898205ca1, type: 3}
+  - {fileID: 8300000, guid: 92ce5323fc9f8ad46b9b1ad4e55fdd7a, type: 3}
+  - {fileID: 8300000, guid: c29c2baf515d2f9478e3eee2e22078ad, type: 3}
+  - {fileID: 8300000, guid: e8b1e980dd1768f4cb317227fc4cea62, type: 3}
+  - {fileID: 8300000, guid: 2e7adcd342dceae4e9f031e2933ee897, type: 3}
+  - {fileID: 8300000, guid: 2e7adcd342dceae4e9f031e2933ee897, type: 3}

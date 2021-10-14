@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4470c6b27dc72f44a9055d167f24a48, type: 3}
+  m_Name: Heavy Ninja Voice
+  m_EditorClassIdentifier: 
+  _hurtVoices:
+  - {fileID: 8300000, guid: 3a4b5590f26d453429be528c288281b2, type: 3}
+  - {fileID: 8300000, guid: 7217006f7304b9a4a95451635705c8f1, type: 3}
+  - {fileID: 8300000, guid: a7bc3aa9085793f42896db6e8bb9f9aa, type: 3}
+  - {fileID: 8300000, guid: 73377317c402e6b4187e5eb6c20b6eee, type: 3}
+  - {fileID: 8300000, guid: 406797d45883ee645b63de28159d0b22, type: 3}
+  - {fileID: 8300000, guid: 9921c793060a01043a86f789d731ad1a, type: 3}
+  _attackVoices:
+  - {fileID: 8300000, guid: 5eb4e2ccf109cff4898dd4021380aadb, type: 3}
+  - {fileID: 8300000, guid: 65dcb2bcb79e3a245931707b533d3d41, type: 3}
+  - {fileID: 8300000, guid: eb6730e24ecedc6478da678a9cce2a98, type: 3}
+  - {fileID: 8300000, guid: 3977a632e0f4db046a0801840a4e0ce5, type: 3}
+  - {fileID: 8300000, guid: d4f5eb10d952d184b9c4d15d43fc5f1a, type: 3}
+  - {fileID: 8300000, guid: 203cf9848883ebc4b91be1121d7d3b0a, type: 3}
+  _defeatedVoices:
+  - {fileID: 8300000, guid: 89bca09b8dd3e59498a03a2d6dc2c683, type: 3}
+  - {fileID: 8300000, guid: 2e437ed0f52f025449249e5609175d10, type: 3}
+  - {fileID: 8300000, guid: 362da09637aabd647950eef4adc06a0e, type: 3}
+  - {fileID: 8300000, guid: 5319bcd49abc73e45a5c92e978e3b77b, type: 3}

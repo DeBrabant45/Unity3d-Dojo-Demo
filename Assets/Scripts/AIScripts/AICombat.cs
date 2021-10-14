@@ -14,7 +14,6 @@ namespace AD.AI
         public Transform ChaseTarget;
         public bool IsWeaponEquipped { get; set; }
         public float AttackWaitRate { get; set; }
-        public float TickWaitRate { get; set; }
         public WeaponSO Weapon { get => _weapon; }
         public LayerMask TargetLayer { get => _targetLayer; }
         public BlockAttack BlockAttack { get; private set; }

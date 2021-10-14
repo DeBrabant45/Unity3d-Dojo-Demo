@@ -18,10 +18,17 @@ namespace AD.StateMachine.Player
             if (!controller.Animations.IsAnimatorBusy() && controller.BaseStats.Stamina.Amount > 0)
             {
                 SetItemDamage(controller);
+                SetAttackSounds(controller);
                 controller.Animations.SetTriggerForAnimation(controller.Weapon.UnsheatheAttackAnimation);
                 controller.BaseStats.Stamina.ReduceStamina(controller.Weapon.StaminaCost);
                 controller.Animations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
             }
+        }
+
+        private void SetAttackSounds(PlayerStateController controller)
+        {
+            controller.AudioFX.PlayOneShotAtRandomIndex(controller.CharacterVoice.AttackVoices);
+            controller.AudioFX.PlayOneShotAtRandomIndex(controller.Weapon.WeaponSounds.SwingSounds);
         }
 
         private void SetItemDamage(PlayerStateController controller)

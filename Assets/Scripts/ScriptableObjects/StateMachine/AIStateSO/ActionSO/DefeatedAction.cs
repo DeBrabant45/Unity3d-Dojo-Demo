@@ -18,6 +18,7 @@ namespace AD.StateMachine.AI
         private void Defeated(AIStateController controller)
         {
             controller.Animations.SetBoolForAnimation("IsDefeated", true);
+            controller.AudioFX.PlayOneShotAtRandomIndex(controller.CharacterVoice.DefeatedVoices);
             controller.GetComponent<CapsuleCollider>().enabled = false;
             controller.enabled = false;
             ObjectiveEvent.Instance.DefeatedEnemy();

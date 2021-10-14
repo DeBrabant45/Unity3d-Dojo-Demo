@@ -2,6 +2,7 @@
 using AD.Animation;
 using AD.Interfaces;
 using AD.Player;
+using AD.Sound;
 using AD.Weapons;
 using UnityEngine;
 
@@ -12,6 +13,7 @@ namespace AD.StateMachine.Player
         [SerializeField] private PlayerState _currentState;
         [SerializeField] private PlayerState _remainState;
         [SerializeField] private WeaponSO _weapon;
+        [SerializeField] private CharacterVoice _characterVoice;
 
         public IBaseStats BaseStats { get; private set; }
         public IAnimation Animations { get; private set; }
@@ -23,6 +25,8 @@ namespace AD.StateMachine.Player
         public WeaponSO Weapon { get => _weapon; }
         public BlockAttack BlockAttack { get; private set; }
         public PlayerState CurrentState { get => _currentState; }
+        public AudioFX AudioFX { get; private set; }
+        public CharacterVoice CharacterVoice { get => _characterVoice; set => _characterVoice = value; }
 
         private void Awake()
         {
@@ -33,6 +37,7 @@ namespace AD.StateMachine.Player
             AgentAimController = GetComponent<PlayerAimController>();
             BlockAttack = GetComponent<BlockAttack>();
             BaseStats = GetComponent<AgentStats>();
+            AudioFX = GetComponent<AudioFX>();
         }
 
         private void Update()

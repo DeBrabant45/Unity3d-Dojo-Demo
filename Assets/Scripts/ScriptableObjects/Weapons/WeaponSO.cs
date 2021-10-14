@@ -1,9 +1,5 @@
 ﻿using AD.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using AD.Sound;
 using UnityEngine;
 
 namespace AD.Weapons
@@ -41,8 +37,7 @@ namespace AD.Weapons
         [SerializeField] Vector3 _unequippedRotation;
 
         [Header("Weapon Sounds")]
-        [SerializeField] private AudioClip[] _soundClips;
-        [SerializeField] private bool _isSoundRandom;
+        [SerializeField] WeaponSound _weaponSounds;
 
         [Header("Weapon particle effects")]
         [SerializeField] private GameObject _attackHitEffect;
@@ -57,11 +52,11 @@ namespace AD.Weapons
         public string BlockReactionAnimation { get => _blockReactionAnimation; }
         public int Amount { get => GetDamageValue(); }
         public float StaminaCost { get => _staminaCost; }
-        public AudioClip[] SoundClips { get => _soundClips; }
-        public GameObject Model { get => _model; }
         public GameObject ParticalEffect { get => _attackHitEffect; }
         public GameObject AttackBlockedEffect { get => _attackBlockedEffect; }
         public float Range { get => _range; }
+        public WeaponSound WeaponSounds { get => _weaponSounds; set => _weaponSounds = value; }
+        public AudioClip[] ContactSounds { get => _weaponSounds.HitSounds; }
 
         public int GetDamageValue()
         {

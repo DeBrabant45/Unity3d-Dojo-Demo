@@ -23,6 +23,7 @@ namespace AD.StateMachine.AI
                 if (!isTargetInSightRange)
                 {
                     controller.Animations.SetTriggerForAnimation(controller.Combat.Weapon.SheatheAnimation);
+                    controller.AudioFX.PlayOneShotAtRandomIndex(controller.Combat.Weapon.WeaponSounds.SheathSounds);
                     controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.AttackStanceAnimation, false);
                     controller.Combat.IsWeaponEquipped = false;
                 }
