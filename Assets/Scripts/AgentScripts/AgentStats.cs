@@ -25,6 +25,7 @@ namespace AD.Agent
         {
             Stamina.SetTimePassed(Time.deltaTime);
             Stamina.StaminaRegeneration();
+            Posture.ReduceDamageOverTime();
         }
     }
 }

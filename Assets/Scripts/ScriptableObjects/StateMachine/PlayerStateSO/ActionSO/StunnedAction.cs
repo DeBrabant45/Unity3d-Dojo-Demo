@@ -20,7 +20,6 @@ namespace AD.StateMachine.Player
             {
                 controller.Animations.SetBoolForAnimation("IsStunned", true);
             }
-            controller.BaseStats.Posture.ReduceDamage();
         }
     }
 }

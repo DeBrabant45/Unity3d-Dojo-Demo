@@ -52,8 +52,11 @@ namespace AD.AI
 
         public void SetDestination(Vector3 vector)
         {
-            _navMeshAgent.destination = vector;
-            _navMeshAgent.isStopped = false;
+            if (_navMeshAgent.updatePosition != false)
+            {
+                _navMeshAgent.destination = vector;
+                _navMeshAgent.isStopped = false;
+            }
         }
 
         public void StopMovement()

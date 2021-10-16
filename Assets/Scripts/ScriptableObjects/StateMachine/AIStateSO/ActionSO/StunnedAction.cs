@@ -19,7 +19,6 @@ namespace AD.StateMachine.AI
             {
                 controller.Animations.SetBoolForAnimation("IsStunned", true);
             }
-            controller.BaseStats.Posture.ReduceDamage();
         }
     }
 }

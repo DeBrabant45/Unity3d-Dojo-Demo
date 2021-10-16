@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Player Posture
   m_EditorClassIdentifier: 
   _maxAmount: 50
-  _regenAmount: 20
+  _regenAmount: 4

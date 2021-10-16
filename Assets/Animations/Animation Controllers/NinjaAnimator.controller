@@ -60,7 +60,6 @@ AnimatorState:
   - {fileID: 1922514464463361193}
   m_StateMachineBehaviours:
   - {fileID: -2574394814124331624}
-  - {fileID: 6643046314841796991}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1374,7 +1373,6 @@ AnimatorState:
   - {fileID: -5737069667972153974}
   m_StateMachineBehaviours:
   - {fileID: 8059535297420059399}
-  - {fileID: 2928393406931607928}
   m_Position: {x: 50, y: 50, z: 0}
   m_IKOnFeet: 0
   m_WriteDefaultValues: 1
@@ -1785,7 +1783,7 @@ AnimatorController:
   - serializedVersion: 5
     m_Name: Stunned
     m_StateMachine: {fileID: -8419856428777102302}
-    m_Mask: {fileID: 0}
+    m_Mask: {fileID: 31900000, guid: d8926aca657c29a4d88d3888308c22de, type: 2}
     m_Motions: []
     m_Behaviours: []
     m_BlendingMode: 0
@@ -2326,18 +2324,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &2894797781978834773
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ba7453ef25cab045a9aeed642e8a7b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &2928393406931607928
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2974,18 +2960,6 @@ AnimatorStateTransition:
   m_InterruptionSource: 0
   m_OrderedInterruption: 1
   m_CanTransitionToSelf: 1
---- !u!114 &6643046314841796991
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ba7453ef25cab045a9aeed642e8a7b6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &6730648878800027475
 MonoBehaviour:
   m_ObjectHideFlags: 1

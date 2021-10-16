@@ -19,7 +19,7 @@ namespace AD.Agent
             private set
             {
                 _currentDamage = Mathf.Clamp(value, 0, _maxDamage);
-                OnAmountChange?.Invoke(_currentDamage);
+                OnAmountChange?.Invoke(_currentDamage / _maxDamage);
             }
         }
 
@@ -38,9 +38,26 @@ namespace AD.Agent
             }
         }
 
-        public void ReduceDamage()
+        public void ReduceDamageOverTime()
         {
-            Damage -= _regenAmount * Time.deltaTime;
+            if (_isBroken)
+            {
+                QuicklyReduceDamage();
+            }
+            else 
+            {
+                SlowlyReduceDamage();
+            }
+        }
+
+        private void SlowlyReduceDamage()
+        {
+            Damage -= _regenAmount * Time.deltaTime / 2;
+        }
+
+        private void QuicklyReduceDamage()
+        {
+            Damage -= (_regenAmount * _regenAmount) * Time.deltaTime;
             if (Damage <= 0)
             {
                 _isBroken = false;
