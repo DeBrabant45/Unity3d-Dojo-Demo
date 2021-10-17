@@ -7,26 +7,30 @@ namespace AD.StateMachine.Player
     [CreateAssetMenu(menuName = "StateMachine/Player/Actions/Attack")]
     public class AttackAction : PlayerAction
     {
-        private float attackRateBuffer;
+        private float _attackRateBuffer;
 
         public override void Act(PlayerStateController controller)
         {
-            attackRateBuffer += Time.deltaTime;
-            if(controller.InputFromPlayer.IsPrimaryActionPressed() && attackRateBuffer > .5f)
+            _attackRateBuffer += Time.deltaTime;
+            if(controller.InputFromPlayer.IsPrimaryActionPressed() && !controller.Animations.IsAnimatorBusy())
             {
-                Attack(controller);
+                if (_attackRateBuffer > .5f)
+                {
+                    Attack(controller);
+                }
+
             }
         }
 
         private void Attack(PlayerStateController controller)
         {
-            if (!controller.Animations.IsAnimatorBusy() && controller.BaseStats.Stamina.Amount > 0)
+            if (controller.BaseStats.Stamina.Amount >= controller.Weapon.AttackStaminaCost)
             {
                 SetItemDamage(controller);
                 SetAttackSounds(controller);
-                attackRateBuffer = 0;
+                _attackRateBuffer = 0;
                 controller.Animations.SetTriggerForAnimation(controller.Weapon.AttackTriggerAnimation);
-                controller.BaseStats.Stamina.ReduceStamina(controller.Weapon.StaminaCost);
+                controller.BaseStats.Stamina.ReduceStamina(controller.Weapon.AttackStaminaCost);
             }
         }
 

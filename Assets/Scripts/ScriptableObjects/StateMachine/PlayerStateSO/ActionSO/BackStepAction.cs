@@ -3,23 +3,22 @@
 namespace AD.StateMachine.Player
 {
     [CreateAssetMenu(menuName = "StateMachine/Player/Actions/Back Step")]
-    public class BackStepAction : PlayerAction
+    public class BackStepAction : Dodge
     {
-        public override void Act(PlayerStateController controller)
+        private Vector2 _notMoving = new Vector2(0.0f, 0.0f);
+
+        public override void Direction(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsSpacebarPressed() && !controller.Animations.IsAnimatorBusy())
+            if (controller.InputFromPlayer.MovementInputVector == _notMoving)
             {
+                base.ReduceStamina(controller);
                 BackStep(controller);
             }
         }
 
         private void BackStep(PlayerStateController controller)
         {
-            Vector2 notMoving = new Vector2(0.0f, 0.0f);
-            if (controller.InputFromPlayer.MovementInputVector == notMoving)
-            {
-                controller.Animations.SetTriggerForAnimation("BackStep");
-            }
+            controller.Animations.SetTriggerForAnimation("BackStep");
         }
     }
 }

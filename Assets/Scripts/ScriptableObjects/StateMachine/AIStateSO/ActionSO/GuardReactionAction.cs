@@ -19,7 +19,7 @@ namespace AD.StateMachine.AI
             controller.Combat.BlockAttack.AttackerTag = null;
             controller.Animations.SetTriggerForAnimation("GuardReaction");
             controller.AudioFX.PlayOneShotAtRandomIndex(controller.Combat.Weapon.WeaponSounds.BlockSounds);
-            controller.BaseStats.Posture.IncreaseDamage(10f);
+            controller.BaseStats.Posture.IncreaseDamage(controller.Combat.Weapon.BlockPostureCost);
         }
     }
 }

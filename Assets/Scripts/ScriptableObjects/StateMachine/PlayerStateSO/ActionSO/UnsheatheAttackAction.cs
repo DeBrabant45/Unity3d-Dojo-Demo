@@ -20,7 +20,7 @@ namespace AD.StateMachine.Player
                 SetItemDamage(controller);
                 SetAttackSounds(controller);
                 controller.Animations.SetTriggerForAnimation(controller.Weapon.UnsheatheAttackAnimation);
-                controller.BaseStats.Stamina.ReduceStamina(controller.Weapon.StaminaCost);
+                controller.BaseStats.Stamina.ReduceStamina(controller.Weapon.AttackStaminaCost);
                 controller.Animations.SetBoolForAnimation(controller.Weapon.AttackStanceAnimation, true);
             }
         }

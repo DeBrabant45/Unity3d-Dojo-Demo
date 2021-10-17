@@ -4,23 +4,22 @@ using UnityEngine;
 namespace AD.StateMachine.Player
 {
     [CreateAssetMenu(menuName = "StateMachine/Player/Actions/Roll Forward")]
-    public class RollForwardAction : PlayerAction
+    public class RollForwardAction : Dodge
     {
-        public override void Act(PlayerStateController controller)
+        private Vector2 _movingForward = new Vector2(0.0f, 1.0f);
+
+        public override void Direction(PlayerStateController controller)
         {
-            if (controller.InputFromPlayer.IsSpacebarPressed() && !controller.Animations.IsAnimatorBusy())
+            if (controller.InputFromPlayer.MovementInputVector == _movingForward)
             {
+                base.ReduceStamina(controller);
                 RollForward(controller);
             }
         }
 
         private void RollForward(PlayerStateController controller)
         {
-            Vector2 movingForward = new Vector2(0.0f, 1.0f);
-            if (controller.InputFromPlayer.MovementInputVector == movingForward)
-            {
-                controller.Animations.SetTriggerForAnimation("RollForward");
-            }
+            controller.Animations.SetTriggerForAnimation("RollForward");
         }
     }
 }

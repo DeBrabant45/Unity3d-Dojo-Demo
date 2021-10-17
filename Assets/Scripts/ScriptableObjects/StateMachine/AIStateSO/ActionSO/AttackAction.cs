@@ -11,17 +11,18 @@ namespace AD.StateMachine.AI
         public override void Act(AIStateController controller)
         {
             controller.Combat.AttackWaitRate += Time.deltaTime;
-            if (!controller.Animations.IsAnimatorBusy()
-                && IsAbleToAttack(controller))
+            if (!controller.Animations.IsAnimatorBusy() && IsAbleToAttack(controller))
             {
-                Attack(controller);
+                if (controller.Combat.AttackWaitRate > 1f)
+                {
+                    Attack(controller);
+                }
             }
         }
 
         private bool IsAbleToAttack(AIStateController controller)
         {
             return (!controller.BaseStats.Stamina.IsRegenerating
-                && controller.Combat.AttackWaitRate > 1f
                 && controller.RandomRange() == controller.Combat.AttackNumber) ? true : false;
         }
 
@@ -34,7 +35,7 @@ namespace AD.StateMachine.AI
                 SetAttackSounds(controller);
                 controller.transform.LookAt(controller.Combat.ChaseTarget);
                 controller.Animations.SetTriggerForAnimation(controller.Combat.Weapon.AttackTriggerAnimation);
-                controller.BaseStats.Stamina.ReduceStamina(controller.Combat.Weapon.StaminaCost);
+                controller.BaseStats.Stamina.ReduceStamina(controller.Combat.Weapon.AttackStaminaCost);
             }
         }
 
