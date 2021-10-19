@@ -11,12 +11,13 @@ namespace AD.UI
         [SerializeField] private List<Image> _healthObjectContainer;
         [SerializeField] private Sprite _emptyHeart;
         [SerializeField] private Sprite _fullHeart;
-        [SerializeField] private AgentStats _agentStats;
+        private AgentStats _playerStats;
 
         private void Start()
         {
-            SetHealthInitialValue((int)_agentStats.Health.Amount);
-            _agentStats.Health.OnAmountChange += SetCurrentHealth;
+            _playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentStats>();
+            SetHealthInitialValue((int)_playerStats.Health.Amount);
+            _playerStats.Health.OnAmountChange += SetCurrentHealth;
         }
 
         public void SetCurrentHealth(int amount)

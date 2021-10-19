@@ -7,10 +7,11 @@ namespace AD.UI
     public class UIPlayerStamina : MonoBehaviour
     {
         [SerializeField] private Image _staminaBar;
-        [SerializeField] private AgentStats _agentStats;
+        private AgentStats _agentStats;
 
         private void Start()
         {
+            _agentStats = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentStats>();
             _agentStats.Stamina.OnAmountChange += SetCurrentStamina;
         }
 

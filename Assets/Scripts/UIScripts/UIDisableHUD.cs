@@ -5,11 +5,12 @@ namespace AD.UI
 {
     public class UIDisableHUD : MonoBehaviour
     {
-        [SerializeField] AgentStats _playerStats;
+        private AgentStats _playerStats;
         
         void Start()
         {
             this.gameObject.SetActive(true);
+            _playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentStats>();
             _playerStats.Health.OnAmountEqualsZero += Disable;
         }
 

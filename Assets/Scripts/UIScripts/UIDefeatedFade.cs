@@ -5,11 +5,12 @@ namespace AD.UI
 {
     public class UIDefeatedFade : MonoBehaviour
     {
-        [SerializeField] private AgentStats _playerStats;
+        private AgentStats _playerStats;
         private UINextSceneFade _nextSceneFade;
 
         private void Start()
         {
+            _playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentStats>();
             _nextSceneFade = GetComponentInChildren<UINextSceneFade>();
             _playerStats.Health.OnAmountEqualsZero += EnableFadeEffect;
         }

@@ -5,11 +5,12 @@ namespace AD.UI
 {
     public class UIWinFade : MonoBehaviour
     {
-        [SerializeField] private DefeatObjective _defeatObjective;
+        private DefeatObjective _defeatObjective;
         private UINextSceneFade _nextSceneFade;
 
         private void Start()
         {
+            _defeatObjective = FindObjectOfType<DefeatObjective>();
             _nextSceneFade = GetComponentInChildren<UINextSceneFade>();
             _defeatObjective.OnComplete += EnableFadeEffect;
         }
