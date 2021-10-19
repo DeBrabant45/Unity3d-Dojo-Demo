@@ -1,4 +1,5 @@
-﻿using AD.Scene;
+﻿using AD.General;
+using AD.Scene;
 using System;
 using UnityEngine;
 using UnityEngine.UI;
@@ -28,7 +29,7 @@ namespace AD.UI
 
         private void OnYesClicked()
         {
-            Time.timeScale = 1;
+            PauseGame.Instance.Unpause();
             _levelManager.LoadLevel(0);
         }
     }

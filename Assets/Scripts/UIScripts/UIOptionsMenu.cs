@@ -9,6 +9,7 @@ namespace AD.UI
         [SerializeField] Button _combatBtn;
         [SerializeField] Button _backBtn;
 
+        [SerializeField] GameObject _optionsPanel;
         [SerializeField] GameObject _movementPanel;
         [SerializeField] GameObject _combatPanel;
         [SerializeField] GameObject _previousPanel;
@@ -25,7 +26,7 @@ namespace AD.UI
         private void OnBackToPreviousPanel()
         {
             _previousPanel.SetActive(true);
-            this.gameObject.SetActive(false);
+            _optionsPanel.SetActive(false);
         }
 
         private void OnCombatPanel()

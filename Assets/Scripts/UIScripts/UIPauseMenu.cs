@@ -1,6 +1,7 @@
 ﻿using UnityEngine.UI;
 using UnityEngine;
 using AD.Player;
+using AD.General;
 
 namespace AD.UI
 {
@@ -26,17 +27,13 @@ namespace AD.UI
         public void SetMenuPanelActive()
         {
             _menuPanel.SetActive(true);
-            Cursor.lockState = CursorLockMode.Confined;
-            Cursor.visible = true;
-            Time.timeScale = 0;
+            PauseGame.Instance.Pause();
         }
 
         private void OnContinueClicked()
         {
             _menuPanel.SetActive(false);
-            Cursor.lockState = CursorLockMode.Locked;
-            Cursor.visible = false;
-            Time.timeScale = 1;
+            PauseGame.Instance.Unpause();
         }
 
         private void OnOptionsClicked()

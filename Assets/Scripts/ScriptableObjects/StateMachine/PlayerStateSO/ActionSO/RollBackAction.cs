@@ -10,7 +10,6 @@ namespace AD.StateMachine.Player
 
         public override void Direction(PlayerStateController controller)
         {
-
             if (controller.InputFromPlayer.MovementInputVector == _movingBackwards)
             {
                 base.ReduceStamina(controller);
