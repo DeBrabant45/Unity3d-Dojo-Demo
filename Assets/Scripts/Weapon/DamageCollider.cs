@@ -1,7 +1,4 @@
 using AD.Interfaces;
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class DamageCollider : MonoBehaviour, IDamageable
