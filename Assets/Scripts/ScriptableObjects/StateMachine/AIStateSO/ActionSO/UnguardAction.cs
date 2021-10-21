@@ -7,7 +7,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (!controller.BaseStats.Stamina.IsRegenerating && controller.Combat.BlockAttack.IsBlocking)
+            if (!controller.BaseStats.Stamina.IsRegenerating && controller.BlockAttack.IsBlocking)
             {
                 Unguard(controller);
             }
@@ -15,10 +15,10 @@ namespace AD.StateMachine.AI
 
         private void Unguard(AIStateController controller)
         {
-            if (controller.Animations.GetAnimationBool(controller.Combat.Weapon.BlockStanceAnimation))
+            if (controller.Animations.GetAnimationBool(controller.CombatData.Weapon.BlockStanceAnimation))
             {
-                controller.Combat.BlockAttack.IsBlocking = false;
-                controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, false);
+                controller.BlockAttack.IsBlocking = false;
+                controller.Animations.SetBoolForAnimation(controller.CombatData.Weapon.BlockStanceAnimation, false);
             }
         }
     }

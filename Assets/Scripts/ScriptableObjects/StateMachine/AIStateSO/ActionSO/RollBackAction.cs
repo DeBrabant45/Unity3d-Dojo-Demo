@@ -7,7 +7,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (!controller.Animations.IsAnimatorBusy() && controller.RandomRange() == 20)
+            if (!controller.Animations.IsAnimatorBusy() && controller.RandomRange() == controller.MovementData.RollNumber)
             {
                 RollBack(controller);
             }

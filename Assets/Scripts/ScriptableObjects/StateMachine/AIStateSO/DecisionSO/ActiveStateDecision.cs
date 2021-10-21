@@ -9,7 +9,7 @@ namespace AD.StateMachine.AI
     {
         public override bool Decide(AIStateController controller)
         {
-            bool isChaseTargetActive = controller.Combat.ChaseTarget.gameObject.activeSelf;
+            bool isChaseTargetActive = controller.ChaseTarget.gameObject.activeSelf;
             return isChaseTargetActive;
         }
     }

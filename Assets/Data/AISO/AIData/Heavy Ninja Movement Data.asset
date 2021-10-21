@@ -9,6 +9,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e802b624a98fe6741afe59d589c38ac5, type: 3}
-  m_Name: Unarmed Stance Decision
+  m_Script: {fileID: 11500000, guid: c998f7dc3479afe44a538b70f6978753, type: 3}
+  m_Name: Heavy Ninja Movement Data
   m_EditorClassIdentifier: 
+  _sightRange: 5
+  _searchingTurnSpeed: 20
+  _searchDuration: 5
+  _rollNumber: 20

@@ -2,7 +2,7 @@
 using AD.AI;
 using AD.Agent;
 using AD.Sound;
-using AD.AI.Stats;
+using AD.AI.Data;
 using AD.Interfaces;
 using AD.Animation;
 
@@ -12,20 +12,27 @@ namespace AD.StateMachine.AI
     {
         [SerializeField] private AIState _currentState;
         [SerializeField] private AIState _remainState;
-        [SerializeField] private AIStats _aIStats;
+        [SerializeField] private AIMovementData _movementData;
+        [SerializeField] private AICombatData _combatData;
         [SerializeField] private CharacterVoice _characterVoices;
+        [SerializeField] private Transform _chaseTarget;
         [SerializeField] private int _randomRangeValue;
         private float _stateTimeElapsed;
 
-        public AIStats AIStats { get => _aIStats; }
+        public AIMovementData MovementData { get => _movementData; }
+        public AICombatData CombatData { get => _combatData; }
+        public CharacterVoice CharacterVoice { get => _characterVoices; }
         public AIMovement Movement { get; private set; }
         public AIWayPoint WayPoint { get; private set; }
-        public AICombat Combat { get; private set; }
         public IBaseStats BaseStats { get; set; }
         public IAnimation Animations { get; private set; }
-        public string TagName { get => this.tag; }
+        public BlockAttack BlockAttack { get; private set; }
+        public ItemSlot ItemSlot { get; private set; }
         public AudioFX AudioFX { get; private set; }
-        public CharacterVoice CharacterVoice { get => _characterVoices; set => _characterVoices = value; }
+        public float TimeBuffer { get; set; }
+        public string TagName { get => this.tag; }
+        public bool IsWeaponEquipped { get; set; }
+        public Transform ChaseTarget { get => _chaseTarget; }
 
         private void Awake()
         {
@@ -33,13 +40,18 @@ namespace AD.StateMachine.AI
             Movement = GetComponent<AIMovement>();
             WayPoint = GetComponent<AIWayPoint>();
             BaseStats = GetComponent<AgentStats>();
-            Combat = GetComponent<AICombat>();
             AudioFX = GetComponent<AudioFX>();
+            BlockAttack = GetComponent<BlockAttack>();
+            ItemSlot = GetComponent<ItemSlot>();
+            IsWeaponEquipped = false;
         }
 
         private void Update()
         {
-            _currentState.UpdateState(this);
+            if (Time.timeScale == 1)
+            {
+                _currentState.UpdateState(this);
+            }
         }
 
         public void TransitionToState(AIState nextState)

@@ -15,8 +15,8 @@ namespace AD.StateMachine.AI
         private bool IsTargetWithinScanSight(AIStateController controller)
         {
             controller.Movement.StopMovement();
-            controller.transform.Rotate(0, controller.AIStats.SearchingTurnSpeed * Time.deltaTime, 0);
-            return controller.CheckIfCountDownElapsed(controller.AIStats.SearchDuration);
+            controller.transform.Rotate(0, controller.MovementData.SearchingTurnSpeed * Time.deltaTime, 0);
+            return controller.CheckIfCountDownElapsed(controller.MovementData.SearchDuration);
         }
     }
 }

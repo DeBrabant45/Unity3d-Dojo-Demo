@@ -8,7 +8,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            if (controller.Combat.BlockAttack.IsBlockHitSuccessful())
+            if (controller.BlockAttack.IsBlockHitSuccessful())
             {
                 GuardReaction(controller);
             }
@@ -16,10 +16,10 @@ namespace AD.StateMachine.AI
 
         private void GuardReaction(AIStateController controller)
         {
-            controller.Combat.BlockAttack.AttackerTag = null;
+            controller.BlockAttack.AttackerTag = null;
             controller.Animations.SetTriggerForAnimation("GuardReaction");
-            controller.AudioFX.PlayOneShotAtRandomIndex(controller.Combat.Weapon.WeaponSounds.BlockSounds);
-            controller.BaseStats.Posture.IncreaseDamage(controller.Combat.Weapon.BlockPostureCost);
+            controller.AudioFX.PlayOneShotAtRandomIndex(controller.CombatData.Weapon.WeaponSounds.BlockSounds);
+            controller.BaseStats.Posture.IncreaseDamage(controller.CombatData.Weapon.BlockPostureCost);
         }
     }
 }

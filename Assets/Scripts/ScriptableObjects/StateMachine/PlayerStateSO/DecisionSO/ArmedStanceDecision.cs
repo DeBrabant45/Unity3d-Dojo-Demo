@@ -9,7 +9,7 @@ namespace AD.StateMachine.Player
     {
         public override bool Decide(PlayerStateController controller)
         {
-            return controller.InputFromPlayer.IsRKeyPressed();
+            return controller.Animations.GetAnimationBool(controller.Weapon.AttackStanceAnimation);
         }
     }
 }

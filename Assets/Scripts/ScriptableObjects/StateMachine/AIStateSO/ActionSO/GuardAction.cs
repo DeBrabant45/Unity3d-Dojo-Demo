@@ -17,8 +17,8 @@ namespace AD.StateMachine.AI
         {
             if (controller.RandomRange() == 5)
             {
-                controller.Combat.BlockAttack.IsBlocking = true;
-                controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.BlockStanceAnimation, true);
+                controller.BlockAttack.IsBlocking = true;
+                controller.Animations.SetBoolForAnimation(controller.CombatData.Weapon.BlockStanceAnimation, true);
             }
         }
     }

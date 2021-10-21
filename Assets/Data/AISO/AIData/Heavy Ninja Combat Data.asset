@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c998f7dc3479afe44a538b70f6978753, type: 3}
-  m_Name: Ninja
+  m_Script: {fileID: 11500000, guid: f7f025229fd187148bacfe9ec2db6c07, type: 3}
+  m_Name: Heavy Ninja Combat Data
   m_EditorClassIdentifier: 
-  _id: 1
-  _sightRange: 5
-  _searchingTurnSpeed: 20
-  _searchDuration: 5
-  _randomRangeValue: 120
+  _targetLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  _weapon: {fileID: 11400000, guid: ca423667128411d4a85dd3ee612c3f32, type: 2}
+  _attackNumber: 10

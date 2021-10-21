@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace AD.StateMachine.AI
 {
@@ -17,15 +15,15 @@ namespace AD.StateMachine.AI
 
         private void UnequipWeapon(AIStateController controller)
         {
-            if (controller.Combat.IsWeaponEquipped != false)
+            if (controller.IsWeaponEquipped != false)
             {
-                bool isTargetInSightRange = Physics.CheckSphere(controller.transform.position, 20, controller.Combat.TargetLayer);
+                bool isTargetInSightRange = Physics.CheckSphere(controller.transform.position, 20, controller.CombatData.TargetLayer);
                 if (!isTargetInSightRange)
                 {
-                    controller.Animations.SetTriggerForAnimation(controller.Combat.Weapon.SheatheAnimation);
-                    controller.AudioFX.PlayOneShotAtRandomIndex(controller.Combat.Weapon.WeaponSounds.SheathSounds);
-                    controller.Animations.SetBoolForAnimation(controller.Combat.Weapon.AttackStanceAnimation, false);
-                    controller.Combat.IsWeaponEquipped = false;
+                    controller.Animations.SetTriggerForAnimation(controller.CombatData.Weapon.SheatheAnimation);
+                    controller.AudioFX.PlayOneShotAtRandomIndex(controller.CombatData.Weapon.WeaponSounds.SheathSounds);
+                    controller.Animations.SetBoolForAnimation(controller.CombatData.Weapon.AttackStanceAnimation, false);
+                    controller.IsWeaponEquipped = false;
                 }
             }
         }

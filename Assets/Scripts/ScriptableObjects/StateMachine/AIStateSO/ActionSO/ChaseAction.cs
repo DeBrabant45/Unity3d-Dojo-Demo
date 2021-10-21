@@ -16,7 +16,7 @@ namespace AD.StateMachine.AI
 
         private void Chase(AIStateController controller)
         {
-            controller.Movement.SetDestination(controller.Combat.ChaseTarget.position);
+            controller.Movement.SetDestination(controller.ChaseTarget.position);
         }
     }
 }

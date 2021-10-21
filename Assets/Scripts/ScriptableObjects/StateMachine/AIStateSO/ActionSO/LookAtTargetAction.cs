@@ -8,7 +8,7 @@ namespace AD.StateMachine.AI
     {
         public override void Act(AIStateController controller)
         {
-            controller.transform.LookAt(controller.Combat.ChaseTarget);
+            controller.transform.LookAt(controller.ChaseTarget);
         }
     }
 }
