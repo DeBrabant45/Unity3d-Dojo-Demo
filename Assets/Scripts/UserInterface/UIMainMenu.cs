@@ -9,6 +9,7 @@ namespace AD.UI
         [SerializeField] private Button _playBtn;
         [SerializeField] private Button _optionsBtn;
         [SerializeField] private GameObject _optionsPanel;
+        [SerializeField] private AudioSource _playButtonClicked;
         private UINextSceneFade _nextSceneFade;
 
         private void Start()
@@ -25,6 +26,7 @@ namespace AD.UI
 
         private void OnPlayClicked()
         {
+            _playButtonClicked.Play();
             _nextSceneFade.FadeBackGround.enabled = true;
         }
     }

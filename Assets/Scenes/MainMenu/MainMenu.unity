@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &16191129 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1155462353645217578, guid: 7d9aa3822729a3a478ab5c1c9b89f951, type: 3}
+  m_PrefabInstance: {fileID: 1155462353635507849}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &131452244 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3008265581552282836, guid: 2dede992ad8363a4da0a3e9c7eaf5f15, type: 3}
@@ -143,6 +148,7 @@ MonoBehaviour:
   _playBtn: {fileID: 916580887}
   _optionsBtn: {fileID: 2032785470}
   _optionsPanel: {fileID: 3008265581316151863}
+  _playButtonClicked: {fileID: 16191129}
 --- !u!114 &131452246
 MonoBehaviour:
   m_ObjectHideFlags: 0
