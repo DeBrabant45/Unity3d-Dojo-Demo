@@ -7,11 +7,10 @@ namespace AD.UI
     public class UIPlayerPosture : MonoBehaviour
     {
         [SerializeField] private Image _postureBar;
-        private AgentStats _agentStats;
+        [SerializeField ]private AgentStats _agentStats;
 
         private void Start()
         {
-            _agentStats = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentStats>();
             _agentStats.Posture.OnAmountChange += SetCurrentPosture;
         }
 

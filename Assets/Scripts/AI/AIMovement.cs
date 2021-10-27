@@ -33,11 +33,18 @@ namespace AD.AI
             if (_animation.GetAnimationBool("IsUsingRootMotion"))
             {
                 _rigidbody.isKinematic = false;
-                _navMeshAgent.updatePosition = false;
+                DisableNavMeshUpdatePosition();
                 Vector3 animationDelta = _animation.GetAnimationDeltaPosition();
                 transform.position = this.transform.position + animationDelta * 5 * Time.deltaTime * 15;
                 _navMeshAgent.nextPosition = transform.position;
             }
+        }
+
+        private void DisableNavMeshUpdatePosition()
+        {
+            _navMeshAgent.updatePosition = false;
+            StopMovement();
+            _navMeshAgent.ResetPath();
         }
 
         private void EnableNavMeshUpdatePosition()

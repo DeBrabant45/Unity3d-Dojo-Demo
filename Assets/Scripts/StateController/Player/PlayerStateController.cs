@@ -14,6 +14,7 @@ namespace AD.StateMachine.Player
         [SerializeField] private PlayerState _remainState;
         [SerializeField] private WeaponSO _weapon;
         [SerializeField] private CharacterVoice _characterVoice;
+        [SerializeField] private GameObject _bodyCollider;
 
         public IBaseStats BaseStats { get; private set; }
         public IAnimation Animations { get; private set; }
@@ -27,6 +28,7 @@ namespace AD.StateMachine.Player
         public PlayerState CurrentState { get => _currentState; }
         public AudioFX AudioFX { get; private set; }
         public CharacterVoice CharacterVoice { get => _characterVoice; set => _characterVoice = value; }
+        public GameObject BodyCollider { get => _bodyCollider; }
 
         private void Awake()
         {

@@ -17,8 +17,8 @@ namespace AD.StateMachine.AI
         {
             if (controller.Animations.GetAnimationBool(controller.CombatData.Weapon.BlockStanceAnimation))
             {
-                controller.BlockAttack.IsBlocking = false;
                 controller.Animations.SetBoolForAnimation(controller.CombatData.Weapon.BlockStanceAnimation, false);
+                controller.BlockAttack.IsBlocking = false;
             }
         }
     }

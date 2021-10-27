@@ -6,12 +6,11 @@ namespace AD.Sound
 {
     public class LoseSound : MonoBehaviour
     {
-        private AgentStats _playerStats;
+        [SerializeField] private AgentStats _playerStats;
         private AudioSource _audioSource;
 
         private void Start()
         {
-            _playerStats = GameObject.FindGameObjectWithTag("Player").GetComponent<AgentStats>();
             _audioSource = GetComponent<AudioSource>();
             _playerStats.Health.OnAmountEqualsZero += Play;
         }
