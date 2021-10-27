@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4470c6b27dc72f44a9055d167f24a48, type: 3}
+  m_Name: Light Ninja Voice
+  m_EditorClassIdentifier: 
+  _hurtVoices:
+  - {fileID: 8300000, guid: 693cdc54eabee66498181559dbcead03, type: 3}
+  - {fileID: 8300000, guid: 675870333775fcd47b3a0c5f0e516fdf, type: 3}
+  - {fileID: 8300000, guid: 25040c555140f324792106ccbf901879, type: 3}
+  - {fileID: 8300000, guid: 73f1fe2b45f0e6a4a91298a3e2ed581c, type: 3}
+  - {fileID: 8300000, guid: f63827eaa1b36c549a6aa5bb981ce066, type: 3}
+  - {fileID: 8300000, guid: 231a421ed3503dc44a639ca4f9220d48, type: 3}
+  _attackVoices:
+  - {fileID: 8300000, guid: 41fadfea6aec7c247962b8067bc32c36, type: 3}
+  - {fileID: 8300000, guid: f00487b1df675e245922ee62bdcce830, type: 3}
+  - {fileID: 8300000, guid: 38478b00a07e9504293d53428b1d5dd8, type: 3}
+  - {fileID: 8300000, guid: b70492d3672370a48b11419eb139b9a2, type: 3}
+  - {fileID: 8300000, guid: 0acff42d5819b9a4a998a80097e3f029, type: 3}
+  - {fileID: 8300000, guid: 556709a7f296d7c4184e44fb71af7744, type: 3}
+  _defeatedVoices:
+  - {fileID: 8300000, guid: 625dbc72cb482f847b241335d65a38bf, type: 3}
+  - {fileID: 8300000, guid: 9385192bb24bef048920eadad9072c74, type: 3}
+  - {fileID: 8300000, guid: 129583002e057954e8589368b76ebb16, type: 3}
+  - {fileID: 8300000, guid: 8be8615e51e4e9548bba17554f533fcb, type: 3}

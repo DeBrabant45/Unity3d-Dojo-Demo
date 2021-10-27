@@ -5,21 +5,21 @@ using UnityEngine.UI;
 
 namespace AD.UI
 {
-    public class UIPlayerStamina : MonoBehaviour
+    public class PlayerHealth : MonoBehaviour
     {
-        [SerializeField] private Image _staminaBar;
+        [SerializeField] private Image _healthBar;
         [SerializeField] private Text _percent;
         [SerializeField] private AgentStats _agentStats;
 
         private void Start()
         {
-            _agentStats.Stamina.OnAmountChange += SetCurrentStamina;
+            _agentStats.Health.OnAmountChange += SetCurrentHealth;
         }
 
-        public void SetCurrentStamina(float amount)
+        public void SetCurrentHealth(float amount)
         {
             var amountPercent = Convert.ToInt32(amount * 100f);
-            _staminaBar.transform.localScale = new Vector3(Mathf.Clamp01(amount), 1, 1);
+            _healthBar.transform.localScale = new Vector3(Mathf.Clamp01(amount), 1, 1);
             _percent.text = amountPercent.ToString() + " %";
         }
     }
