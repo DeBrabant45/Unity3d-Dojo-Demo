@@ -41,12 +41,12 @@ namespace AD.Player
 
         public bool IsSecondaryActionPressed()
         {
-            return _unityInputService.GetAxisRawPressedDown("Fire2"); 
+            return _unityInputService.GetMouseButton(1);
         }
 
         public bool IsPrimaryActionPressed()
         {
-            return _unityInputService.GetAxisRawPressedDown("Fire1");
+            return _unityInputService.GetKeyButtonPressedDown(KeyCode.Mouse0);
         }
 
         public bool IsShiftKeyPressed()
