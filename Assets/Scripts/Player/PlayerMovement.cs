@@ -145,7 +145,7 @@ namespace AD.Player
             }
         }
 
-        private void StopMovement()
+        public void StopMovement()
         {
             _isMoving = false;
             _moveDirection = Vector3.zero;
