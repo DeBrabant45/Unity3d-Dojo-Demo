@@ -1,4 +1,5 @@
 ﻿using AD.Scene;
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,7 @@ namespace AD.UI
     {
         [SerializeField] private Button _playBtn;
         [SerializeField] private Button _optionsBtn;
+        [SerializeField] private Button _quitBtn;
         [SerializeField] private GameObject _optionsPanel;
         [SerializeField] private AudioSource _playButtonSound;
         private UINextSceneFade _nextSceneFade;
@@ -16,7 +18,13 @@ namespace AD.UI
         {
             _playBtn.onClick.AddListener(OnPlayClicked);
             _optionsBtn.onClick.AddListener(OnOptionsClicked);
+            _quitBtn.onClick.AddListener(OnQuitClicked);
             _nextSceneFade = FindObjectOfType<UINextSceneFade>();
+        }
+
+        private void OnQuitClicked()
+        {
+            Application.Quit();
         }
 
         private void OnOptionsClicked()
